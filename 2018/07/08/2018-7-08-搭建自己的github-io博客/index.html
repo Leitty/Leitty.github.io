@@ -20,7 +20,8 @@
 <meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/theme.PNG">
 <meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/jekyll.PNG">
 <meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/post_asset_folder.JPG">
-<meta property="og:updated_time" content="2018-07-09T04:12:00.603Z">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/last.jpg">
+<meta property="og:updated_time" content="2018-07-09T04:17:54.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建自己的github.io博客">
 <meta name="twitter:description" content="初衷作为一名程序员，一直都有搭建自己博客的想法，一方面作为自己学习的积累，将所看所学用博客的方式记录下来，便于自己以后回顾，另一方面可以作为自己学习的一个动力。这几年思想上一直在CSDN、博客园和自己搭建之间徘徊犹豫，行动上一直用着印象笔记、OneNote、有道将就，直到有天查资料时误入某人的github.io博客，确认眼神的那一刻，我知道这就是我想要的。而作为github出品，其品质绝对是有保证">
@@ -114,7 +115,7 @@
 <p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/theme.PNG" alt=""></p>
 <p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/jekyll.PNG" alt=""></p>
 <h2 id="选择一款合适的主题"><a href="#选择一款合适的主题" class="headerlink" title="选择一款合适的主题"></a>选择一款合适的主题</h2><p>当前流行的，适合github.io的博客框架有很多<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">Jekyll</a>、<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>、<a href="http://octopress.org/" target="_blank" rel="noopener">Octopress</a>等等。</p>
-<p>短暂的折腾了下Jekyll和Hexo后，本人果断放弃了Jekyll，投向了Hexo的怀抱。Jekyll基于ruby,python，需要下载安装ruby,python，使用gem启动，官方文档有很详细的使用文档，但是做出来的页面不太符合个人的需求，选择了几个theme，仍不太满意后，自己折腾bootstrap样式进行设计又太耗时间，于是转向了Hexo。Hexo基于nodejs，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方网站</a>，有nodejs和git就能下载安装，而且nodejs和git更符合本人的知识储备。</p>
+<p>短暂的折腾了下Jekyll和Hexo后，本人果断放弃了Jekyll，投向了Hexo的怀抱。Jekyll基于ruby,python，需要下载安装ruby,python，使用gem启动，官方文档有很详细的使用文档，但是做出来的页面不太符合个人的需求，选择了几个theme实验后，对页面仍不太满意，想折腾又没时间，于是转向了Hexo。Hexo基于nodejs，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方网站</a>，有nodejs和git就能下载安装，而且nodejs和git更符合本人的知识储备。</p>
 <p>按照Hexo的官方文档进行操作：<br>1、 安装Hexo脚手架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
 <p>2、 创建网站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
 <p>其中folder是本地创建的文件夹名</p>
@@ -137,12 +138,21 @@
 <p>例如过<code>hexo new first</code>即新建了一篇first.md的文章，同时在<code>_post</code>文件夹下就出现一个first.md的文件</p>
 <h2 id="编写发布博客"><a href="#编写发布博客" class="headerlink" title="编写发布博客"></a>编写发布博客</h2><p>1、 修改hexo站点的配置文件<code>_config.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Leitty/Leitty.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
 <p>2、 进行部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装hexo-deployer-git</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">进行部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p>3、再次访问自己的网站</p>
+<p>3、再次访问你的网站</p>
+<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/last.jpg" alt="image"></p>
+<p>4、再次发布文章</p>
+<p>根目录下输入 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;2018-07-09&quot;</span><br></pre></td></tr></table></figure></p>
+<p>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g //生成静态页面</span><br><span class="line">hexo d //发布</span><br></pre></td></tr></table></figure>
+<p>注意<code>hexo g</code>必须执行，将markdown文件转成<code>public</code>文件夹下的html才能进行发布。</p>
+<p>参考：</p>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+<p><a href="https://blog.csdn.net/Hoshea_chx/article/details/78826689" target="_blank" rel="noopener">https://blog.csdn.net/Hoshea_chx/article/details/78826689</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/" data-id="cjjdqzlml000098vluf7piq6u" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/" data-id="cjjh6466s0001wcvlud6iyyss" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-io/">github.io</a></li></ul>
@@ -151,6 +161,20 @@
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2018-07-11-kubernetes v1.10安装
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -162,7 +186,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li></ul>
     </div>
   </div>
 
@@ -172,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-io/">github.io</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-io/">github.io</a></li></ul>
     </div>
   </div>
 
@@ -182,7 +206,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/github-io/" style="font-size: 10px;">github.io</a>
+      <a href="/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/github-io/" style="font-size: 10px;">github.io</a>
     </div>
   </div>
 
@@ -202,6 +226,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
+          </li>
         
           <li>
             <a href="/2018/07/08/2018-7-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
