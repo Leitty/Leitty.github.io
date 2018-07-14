@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>搭建自己的github.io博客 | Leitty Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="初衷作为一名程序员，一直都有搭建自己博客的想法，一方面作为自己学习的积累，将所看所学用博客的方式记录下来，便于自己以后回顾，另一方面可以作为自己学习的一个动力。这几年思想上一直在CSDN、博客园和自己搭建之间徘徊犹豫，行动上一直用着印象笔记、OneNote、有道将就，直到有天查资料时误入某人的github.io博客，确认眼神的那一刻，我知道这就是我想要的。而作为github出品，其品质绝对是有保证">
+<meta name="keywords" content="Github.io,Blog,Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建自己的github.io博客">
+<meta property="og:url" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/index.html">
+<meta property="og:site_name" content="Leitty Blog">
+<meta property="og:description" content="初衷作为一名程序员，一直都有搭建自己博客的想法，一方面作为自己学习的积累，将所看所学用博客的方式记录下来，便于自己以后回顾，另一方面可以作为自己学习的一个动力。这几年思想上一直在CSDN、博客园和自己搭建之间徘徊犹豫，行动上一直用着印象笔记、OneNote、有道将就，直到有天查资料时误入某人的github.io博客，确认眼神的那一刻，我知道这就是我想要的。而作为github出品，其品质绝对是有保证">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/newRepo.PNG">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/create.PNG">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/theme.PNG">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/jekyll.PNG">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/post_asset_folder.JPG">
+<meta property="og:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/last.jpg">
+<meta property="og:updated_time" content="2018-07-12T14:50:57.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建自己的github.io博客">
+<meta name="twitter:description" content="初衷作为一名程序员，一直都有搭建自己博客的想法，一方面作为自己学习的积累，将所看所学用博客的方式记录下来，便于自己以后回顾，另一方面可以作为自己学习的一个动力。这几年思想上一直在CSDN、博客园和自己搭建之间徘徊犹豫，行动上一直用着印象笔记、OneNote、有道将就，直到有天查资料时误入某人的github.io博客，确认眼神的那一刻，我知道这就是我想要的。而作为github出品，其品质绝对是有保证">
+<meta name="twitter:image" content="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/newRepo.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="Leitty Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Leitty Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leitty.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-07-08-搭建自己的github-io博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/08/2018-07-08-搭建自己的github-io博客/" class="article-date">
+  <time datetime="2018-07-08T15:00:00.000Z" itemprop="datePublished">2018-07-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      搭建自己的github.io博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>作为一名程序员，一直都有搭建自己博客的想法，一方面作为自己学习的积累，将所看所学用博客的方式记录下来，便于自己以后回顾，另一方面可以作为自己学习的一个动力。这几年思想上一直在CSDN、博客园和自己搭建之间徘徊犹豫，行动上一直用着印象笔记、OneNote、有道将就，直到有天查资料时误入某人的github.io博客，确认眼神的那一刻，我知道这就是我想要的。而作为github出品，其品质绝对是有保证的，最重要的一点是基于github的repo管理，这意味着咱们对其是有绝对的控制，和放在第三方的平台比，可控性要好太多。</p>
+<p>关于搭建github.io博客，网上的教程很多，下面总结下我的Github.io的搭建过程。</p>
+<p>搭建Github.io博客主要分为三步：</p>
+<ol>
+<li>开通自己的github.io repo</li>
+<li>选择一款合适的主题</li>
+<li>编写发布博客</li>
+</ol>
+<h2 id="开通自己的github-io-repo"><a href="#开通自己的github-io-repo" class="headerlink" title="开通自己的github.io repo"></a>开通自己的github.io repo</h2><p>1、 创建一个项目</p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/newRepo.PNG" alt=""></p>
+<p>2、 按格式输入项目名称</p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/create.PNG" alt=""></p>
+<p>以上，就创建了属于自己的github.io，可以直接访问<a href="https://leitty.github.io/看看效果，只有readme.md的文件内容">https://leitty.github.io/看看效果，只有readme.md的文件内容</a></p>
+<p>可以在setting中选择一个jekyll的主题</p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/theme.PNG" alt=""></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/jekyll.PNG" alt=""></p>
+<h2 id="选择一款合适的主题"><a href="#选择一款合适的主题" class="headerlink" title="选择一款合适的主题"></a>选择一款合适的主题</h2><p>当前流行的，适合github.io的博客框架有很多<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">Jekyll</a>、<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>、<a href="http://octopress.org/" target="_blank" rel="noopener">Octopress</a>等等。</p>
+<p>短暂的折腾了下Jekyll和Hexo后，本人果断放弃了Jekyll，投向了Hexo的怀抱。Jekyll基于ruby,python，需要下载安装ruby,python，使用gem启动，官方文档有很详细的使用文档，但是做出来的页面不太符合个人的需求，选择了几个theme实验后，对页面仍不太满意，想折腾又没时间，于是转向了Hexo。Hexo基于nodejs，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方网站</a>，有nodejs和git就能下载安装，而且nodejs和git更符合本人的知识储备。</p>
+<p>按照Hexo的官方文档进行操作：<br>1、 安装Hexo脚手架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>2、 创建网站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
+<p>其中folder是本地创建的文件夹名</p>
+<p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></p>
+<p>package.json中<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;3.7.1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.2.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.4&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.3&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-migrator-rss&quot;: &quot;^0.1.4&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.3.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.3.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.3.1&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.2.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>各文件夹的作用和配置文件的作用，可以查看官方文档，我们需要知道的有两个</p>
+<p><code>_config.yml</code>文件</p>
+<p>网站的 配置 信息，您可以在此配置大部分的参数。</p>
+<p><code>source</code>文件夹</p>
+<p>资源文件夹是存放用户资源的地方，我们创建的内容md文件就在<code>source/_post</code>文件夹下</p>
+<p>针对有图片的文章，可以通过将<code>config.yml</code> 文件中的<code>post_asset_folder</code>选项设为<code>true</code> 来打开,Hexo将会在你每一次通过<code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹，如图：</p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/post_asset_folder.JPG" alt=""></p>
+<p>在文章中通过<code>![](/example.jpg)</code>语法来进行引用。</p>
+<p>3、 本地运行Hexo网站</p>
+<p>安装hexo-server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
+<p>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
+<p>即可在<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 看到网站的效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<p>例如过<code>hexo new first</code>即新建了一篇first.md的文章，同时在<code>_post</code>文件夹下就出现一个first.md的文件</p>
+<h2 id="编写发布博客"><a href="#编写发布博客" class="headerlink" title="编写发布博客"></a>编写发布博客</h2><p>1、 修改hexo站点的配置文件<code>_config.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Leitty/Leitty.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>2、 进行部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装hexo-deployer-git</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">进行部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>3、再次访问你的网站</p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/last.jpg" alt="image"></p>
+<p>4、再次发布文章</p>
+<p>根目录下输入 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;2018-07-09&quot;</span><br></pre></td></tr></table></figure></p>
+<p>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g //生成静态页面</span><br><span class="line">hexo d //发布</span><br></pre></td></tr></table></figure>
+<p>注意<code>hexo g</code>必须执行，将markdown文件转成<code>public</code>文件夹下的html才能进行发布。</p>
+<p>参考：</p>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+<p><a href="https://blog.csdn.net/Hoshea_chx/article/details/78826689" target="_blank" rel="noopener">https://blog.csdn.net/Hoshea_chx/article/details/78826689</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjjlc5vlx0000s4vl0jkphc8d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2018-07-11-kubernetes v1.10安装
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/08/2018-07-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Leitty<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

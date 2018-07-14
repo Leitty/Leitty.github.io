@@ -62,6 +62,135 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2018-07-12-jenkins简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/12/2018-07-12-jenkins简介/" class="article-date">
+  <time datetime="2018-07-12T13:46:59.000Z" itemprop="datePublished">2018-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jenkins简介"><a href="#jenkins简介" class="headerlink" title="jenkins简介"></a>jenkins简介</h1><h2 id="Jenkins是什么"><a href="#Jenkins是什么" class="headerlink" title="Jenkins是什么"></a>Jenkins是什么</h2><p>Jenkins 是一个可扩展的持续集成引擎。</p>
+<p>主要用于：</p>
+<ol>
+<li><p>持续、自动地构建/测试软件项目。</p>
+</li>
+<li><p>监控一些定时执行的任务。</p>
+</li>
+</ol>
+<p>下图概括了CI系统的基本结构：</p>
+<p><img src="/2018/07/12/2018-07-12-jenkins简介/jenkins_ci.jpg" alt=""></p>
+<p>从图中我们可以看出该系统的各个组成部分是按如下顺序来发挥作用的：</p>
+<ol>
+<li>开发者检入代码到源代码仓库。</li>
+</ol>
+<p>2.CI系统会为每一个项目创建了一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</p>
+<ol start="3">
+<li>CI系统会在对应的工作区内执行构建过程。</li>
+</ol>
+<p>4.（配置如果存在）构建完成后，CI系统会在一个新的构件中执行定义的一套测试。完成后触发通知(Email,RSS等等)给相关的当事人。</p>
+<p>5.（配置如果存在）如果构建成功，这个构件会被打包并转移到一个部署目标(如应用服务器)或存储为软件仓库中的一个新版本。软件仓库可以是CI系统的一部分，也可以是一个外部的仓库，诸如一个文件服务器或者像Java.net、 SourceForge之类的网站。</p>
+<ol start="6">
+<li>CI系统通常会根据请求发起相应的操作，诸如即时构建、生成报告，或者检索一些构建好的构件。</li>
+</ol>
+<p>Jenkins就是这么一个CI系统。之前叫做Hudson。</p>
+<p>以下是使用Jenkins的一些理由：</p>
+<ul>
+<li><p>是所有CI产品中在安装和配置上最简单的，只要把jenkins.war部署到servlet容器，不需要数据库支持。</p>
+</li>
+<li><p>基于Web访问，用户界面非常友好、直观和灵活，在许多情况下，还提供了AJAX的即时反馈，集成RSS/E-mail通过RSS发布构建结果或当构建完成时通过e-mail通知，生成JUnit/TestNG测试报告等等。</p>
+</li>
+<li><p>Jenkins是基于Java开发的(如果你是一个Java开发人员，这是非常有用的)，但它不仅限于构建基于Java的软件。</p>
+</li>
+<li><p>Jenkins拥有大量的插件。这些插件极大的扩展了Jenkins的功能；它们都是开源的，而且它们可以直接通过web界面来进行安装与管理，你可以开发适合自己团队使用的工具。</p>
+</li>
+<li><p>分布式构建支持Jenkins能够让多台计算机一起构建/测试。</p>
+</li>
+</ul>
+<h2 id="CI到CD的转变"><a href="#CI到CD的转变" class="headerlink" title="CI到CD的转变"></a>CI到CD的转变</h2><p>2017年4，Jenkins退出2.0版本，实现CI(Continuous Integration)到CD(Continuous Delivery)。所谓Pipeline，简单来说，就是一套运行于Jenkins上的工作流框架，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂发布流程。</p>
+<p>Pipeline脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Jenkinsfile (Declarative Pipeline)</span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&apos;Build&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &apos;Building..&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&apos;Test&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &apos;Testing..&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&apos;Deploy&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &apos;Deploying....&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="项目构建设置"><a href="#项目构建设置" class="headerlink" title="项目构建设置"></a>项目构建设置</h1><h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><h3 id="构建任务"><a href="#构建任务" class="headerlink" title="构建任务"></a>构建任务</h3><p>（1） 新建任务</p>
+<p>（2）进行配置（可以选择构建/发布包最大的保存个数/保存时间）<br><img src="/2018/07/12/2018-07-12-jenkins简介/general.png" alt=""><br>源码管理配置（有Git/SVN等多种选择）：<br><img src="/2018/07/12/2018-07-12-jenkins简介/source_code_management.png" alt=""></p>
+<p>构建触发器：</p>
+<p>常用的包括Build periodically和Poll SCM</p>
+<p>Poll SCM ：当选择此选项，可以指定一个定时作业表达式来定义Jenkins每隔多久检查一下您源代码仓库的变化。如果发现变化，就执行一次构建。例如，表达式中填写0,15,30,45 <em> </em> <em> </em>将使Jenkins每隔15分钟就检查一次您源码仓库的变化。</p>
+<p>Build periodically ：此选项仅仅通知Jenkins按指定的频率对项目进行构建，而不管SCM是否有变化。如果想在这个Job中运行一些测试用例的话，它就很有帮助。<br><img src="/2018/07/12/2018-07-12-jenkins简介/build_trigger.png" alt=""></p>
+<p>构建：</p>
+<p>我们构建的是JAVA maven项目，选择Invoke top-level Maven targets:<br><img src="/2018/07/12/2018-07-12-jenkins简介/add_build.png" alt=""></p>
+<p>构建命令直接使用：<code>mvn clean install</code>就可以了，加入Junit需要跳过测试命令为：<code>clean install -Dmaven.test.skip=true</code>；当我们需要执行测试类的时候，我们需要配置单元测试命令(mvn test) 或者 单元测试&amp;集成测试命令（mvn verify）。如下图所示：<br><img src="/2018/07/12/2018-07-12-jenkins简介/build.png" alt=""></p>
+<p>其中，POM是写项目中pom.xml的路径，比如我项目中的pom.xml路径如下就可以直接pom.xml，若pom.xml文件在src文件夹下，需要写为src/pom.xml，默认的根路径是源码管理配置中的路径<br><img src="/2018/07/12/2018-07-12-jenkins简介/rep_url.png" alt=""></p>
+<p>构建后操作：</p>
+<p>设置构建后操作有很多选项，如下图所示，生产Junit报告，进行邮件通知，设置GitHub提交状态等等，还可以进行发布部署，需要安装插件Deploy Plugin插件<br><img src="/2018/07/12/2018-07-12-jenkins简介/add_post_build.png" alt=""></p>
+<p>前面我们进行了Junit测试，现在可以在构建结束后生成Junit报告<br><img src="/2018/07/12/2018-07-12-jenkins简介/junit.png" alt=""></p>
+<h3 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h3><p><img src="/2018/07/12/2018-07-12-jenkins简介/Homepage.png" alt=""><br>jenkins的主页面提供了任务的监控</p>
+<p>当任务一旦运行，您将会看到这个任务正在队列中的仪表板和当前工作主页上运行。这两种显示如下。<br><img src="/2018/07/12/2018-07-12-jenkins简介/status.png" alt=""></p>
+<p>你可以在Jenkins的控制面板上看到它，如下图。<br><img src="/2018/07/12/2018-07-12-jenkins简介/dashboard.png" alt=""></p>
+<p>S栏目代表着“最新构建状态”，W栏目代表着“构建稳定性”。Jenkins使用这两个概念来介绍一个作业的总体状况：</p>
+<p>构建状态:下图中分级符号概述了一个Job新近一次构建会产生的四种可能的状态： </p>
+<p>Successful:完成构建，且被认为是稳定的。</p>
+<p>Unstable:完成构建，但被认为不稳定。</p>
+<p>Failed:构建失败。</p>
+<p>Disabled:构建已禁用。<br><img src="/2018/07/12/2018-07-12-jenkins简介/job_status.jpeg" alt=""></p>
+<p>构建稳定性: </p>
+<p>当一个Job中构建已完成并生成了一个未发布的目标构件，如果您准备评估此次构建的稳定性，Jenkins会基于一些后处理器任务为构建发布一个稳健指数 (从0-100 )，这些任务一般以插件的方式实现。它们可能包括单元测试(JUnit)、覆盖率(Cobertura )和静态代码分析(FindBugs)。分数越高，表明构建越稳定。下图中分级符号概述了稳定性的评分范围。任何构建作业的状态(总分100)低于80分就是不稳定的。<br><img src="/2018/07/12/2018-07-12-jenkins简介/weather.jpeg" alt=""></p>
+<p>将鼠标放在W列上能看到具体稳健指数的组成<br><img src="/2018/07/12/2018-07-12-jenkins简介/weather1.png" alt=""></p>
+<p>点击Name列进入对应的任务<br><img src="/2018/07/12/2018-07-12-jenkins简介/job.png" alt=""></p>
+<p>我们可以看到具体的构建情况</p>
+<p>选择一个构建版本，可以看到整个构建的日志：<br><img src="/2018/07/12/2018-07-12-jenkins简介/console_output.png" alt=""></p>
+<p>单元测试情况：<br><img src="/2018/07/12/2018-07-12-jenkins简介/test_result.png" alt=""></p>
+<h3 id="集成sonarqube"><a href="#集成sonarqube" class="headerlink" title="集成sonarqube"></a>集成sonarqube</h3><p>在build中添加Execute SonarQube Scanner<br><img src="/2018/07/12/2018-07-12-jenkins简介/jenkins_sonarqube.png" alt=""></p>
+<h3 id="邮件"><a href="#邮件" class="headerlink" title="邮件"></a>邮件</h3><p>插件email-ext<br><img src="/2018/07/12/2018-07-12-jenkins简介/email-ext.png" alt=""></p>
+<p>释放个我的配置：</p>
+<p>Default Subject：构建通知:$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!</p>
+<p>Default Content：&lt;hr/&gt;(本邮件是程序自动下发的，请勿回复！)&lt;br/&gt;&lt;hr/&gt;</p>
+<p>项目名称：$PROJECT_NAME&lt;br/&gt;&lt;hr/&gt;</p>
+<p>构建编号：$BUILD_NUMBER&lt;br/&gt;&lt;hr/&gt;</p>
+<p>svn版本号：${SVN_REVISION}&lt;br/&gt;&lt;hr/&gt;</p>
+<p>构建状态：$BUILD_STATUS&lt;br/&gt;&lt;hr/&gt;</p>
+<p>触发原因：${CAUSE}&lt;br/&gt;&lt;hr/&gt;</p>
+<p>构建日志地址：&lt;a href=”${BUILD_URL}console”&gt;${BUILD_URL}console&lt;/a&gt;&lt;br/&gt;&lt;hr/&gt;</p>
+<p>构建地址：&lt;a href=”$BUILD_URL”&gt;$BUILD_URL&lt;/a&gt;&lt;br/&gt;&lt;hr/&gt;</p>
+<p>变更集：${JELLY_SCRIPT,template=”html”}&lt;br/&gt;&lt;hr/&gt;</p>
+<h2 id="下节待续"><a href="#下节待续" class="headerlink" title="下节待续"></a>下节待续</h2><p>Docker部署jenkins、kubernetes部署jenkins</p>
+<p>参考：</p>
+<p><a href="http://www.360doc.com/content/17/0213/17/7811581_628728532.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/0213/17/7811581_628728532.shtml</a></p>
+<p><a href="https://blog.csdn.net/enweitech/article/details/51879864" target="_blank" rel="noopener">https://blog.csdn.net/enweitech/article/details/51879864</a></p>
+<p><a href="http://www.showerlee.com/archives/1972" target="_blank" rel="noopener">http://www.showerlee.com/archives/1972</a></p>
+<p><a href="http://www.cnblogs.com/zz0412" target="_blank" rel="noopener">http://www.cnblogs.com/zz0412</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2018/07/12/2018-07-12-jenkins简介/" data-id="cjjlc5vm40001s4vlsu3albqs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2018-07-11-kubernetes-v1-10安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/" class="article-date">
@@ -181,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjjh6466l0000wcvll8wzla56" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjjlc5vml0004s4vl5kdp6ky4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -193,14 +322,14 @@
 
 
   
-    <article id="post-2018-7-08-搭建自己的github-io博客" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2018-07-08-搭建自己的github-io博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/08/2018-7-08-搭建自己的github-io博客/" class="article-date">
+    <a href="/2018/07/08/2018-07-08-搭建自己的github-io博客/" class="article-date">
   <time datetime="2018-07-08T15:00:00.000Z" itemprop="datePublished">2018-07-08</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/blog/">blog</a>
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
   </div>
 
   </div>
@@ -211,7 +340,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/2018-7-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
+      <a class="article-title" href="/2018/07/08/2018-07-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
     </h1>
   
 
@@ -228,13 +357,13 @@
 <li>编写发布博客</li>
 </ol>
 <h2 id="开通自己的github-io-repo"><a href="#开通自己的github-io-repo" class="headerlink" title="开通自己的github.io repo"></a>开通自己的github.io repo</h2><p>1、 创建一个项目</p>
-<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/newRepo.PNG" alt=""></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/newRepo.PNG" alt=""></p>
 <p>2、 按格式输入项目名称</p>
-<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/create.PNG" alt=""></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/create.PNG" alt=""></p>
 <p>以上，就创建了属于自己的github.io，可以直接访问<a href="https://leitty.github.io/看看效果，只有readme.md的文件内容">https://leitty.github.io/看看效果，只有readme.md的文件内容</a></p>
 <p>可以在setting中选择一个jekyll的主题</p>
-<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/theme.PNG" alt=""></p>
-<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/jekyll.PNG" alt=""></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/theme.PNG" alt=""></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/jekyll.PNG" alt=""></p>
 <h2 id="选择一款合适的主题"><a href="#选择一款合适的主题" class="headerlink" title="选择一款合适的主题"></a>选择一款合适的主题</h2><p>当前流行的，适合github.io的博客框架有很多<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">Jekyll</a>、<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>、<a href="http://octopress.org/" target="_blank" rel="noopener">Octopress</a>等等。</p>
 <p>短暂的折腾了下Jekyll和Hexo后，本人果断放弃了Jekyll，投向了Hexo的怀抱。Jekyll基于ruby,python，需要下载安装ruby,python，使用gem启动，官方文档有很详细的使用文档，但是做出来的页面不太符合个人的需求，选择了几个theme实验后，对页面仍不太满意，想折腾又没时间，于是转向了Hexo。Hexo基于nodejs，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方网站</a>，有nodejs和git就能下载安装，而且nodejs和git更符合本人的知识储备。</p>
 <p>按照Hexo的官方文档进行操作：<br>1、 安装Hexo脚手架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
@@ -248,7 +377,7 @@
 <p><code>source</code>文件夹</p>
 <p>资源文件夹是存放用户资源的地方，我们创建的内容md文件就在<code>source/_post</code>文件夹下</p>
 <p>针对有图片的文章，可以通过将<code>config.yml</code> 文件中的<code>post_asset_folder</code>选项设为<code>true</code> 来打开,Hexo将会在你每一次通过<code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹，如图：</p>
-<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/post_asset_folder.JPG" alt=""></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/post_asset_folder.JPG" alt=""></p>
 <p>在文章中通过<code>![](/example.jpg)</code>语法来进行引用。</p>
 <p>3、 本地运行Hexo网站</p>
 <p>安装hexo-server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
@@ -260,7 +389,7 @@
 <h2 id="编写发布博客"><a href="#编写发布博客" class="headerlink" title="编写发布博客"></a>编写发布博客</h2><p>1、 修改hexo站点的配置文件<code>_config.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Leitty/Leitty.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
 <p>2、 进行部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装hexo-deployer-git</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">进行部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
 <p>3、再次访问你的网站</p>
-<p><img src="/2018/07/08/2018-7-08-搭建自己的github-io博客/last.jpg" alt="image"></p>
+<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/last.jpg" alt="image"></p>
 <p>4、再次发布文章</p>
 <p>根目录下输入 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;2018-07-09&quot;</span><br></pre></td></tr></table></figure></p>
 <p>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
@@ -273,10 +402,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/08/2018-7-08-搭建自己的github-io博客/" data-id="cjjh6466s0001wcvlud6iyyss" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjjlc5vlx0000s4vl0jkphc8d" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-io/">github.io</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
     </footer>
   </div>
@@ -295,7 +424,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li></ul>
     </div>
   </div>
 
@@ -305,7 +434,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-io/">github.io</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
     </div>
   </div>
 
@@ -315,7 +444,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/github-io/" style="font-size: 10px;">github.io</a>
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a>
     </div>
   </div>
 
@@ -337,11 +466,15 @@
       <ul>
         
           <li>
+            <a href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
           </li>
         
           <li>
-            <a href="/2018/07/08/2018-7-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
+            <a href="/2018/07/08/2018-07-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
           </li>
         
       </ul>
