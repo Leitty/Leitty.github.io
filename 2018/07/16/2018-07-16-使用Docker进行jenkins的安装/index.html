@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>2018-07-16-使用Docker进行jenkins的安装 | Leitty Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Master节点的安装拉取镜像最新的jenkins镜像：1docker pull jenkins/jenkins 使用docker运行jenkins：1docker run -idt -v /home/ap/ci/jenkins:/home/jenkins -v /home/ap/ci/jenkins_home:/home/data -p 8002:8080 -p 50000:50000 jenk">
+<meta name="keywords" content="DevOps,Jenkins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-07-16-使用Docker进行jenkins的安装">
+<meta property="og:url" content="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/index.html">
+<meta property="og:site_name" content="Leitty Blog">
+<meta property="og:description" content="Master节点的安装拉取镜像最新的jenkins镜像：1docker pull jenkins/jenkins 使用docker运行jenkins：1docker run -idt -v /home/ap/ci/jenkins:/home/jenkins -v /home/ap/ci/jenkins_home:/home/data -p 8002:8080 -p 50000:50000 jenk">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-16T13:39:53.281Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-07-16-使用Docker进行jenkins的安装">
+<meta name="twitter:description" content="Master节点的安装拉取镜像最新的jenkins镜像：1docker pull jenkins/jenkins 使用docker运行jenkins：1docker run -idt -v /home/ap/ci/jenkins:/home/jenkins -v /home/ap/ci/jenkins_home:/home/data -p 8002:8080 -p 50000:50000 jenk">
+  
+    <link rel="alternate" href="/atom.xml" title="Leitty Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Leitty Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leitty.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-07-16-使用Docker进行jenkins的安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" class="article-date">
+  <time datetime="2018-07-16T13:38:42.000Z" itemprop="datePublished">2018-07-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2018-07-16-使用Docker进行jenkins的安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Master节点的安装"><a href="#Master节点的安装" class="headerlink" title="Master节点的安装"></a>Master节点的安装</h2><p>拉取镜像最新的jenkins镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkins/jenkins</span><br></pre></td></tr></table></figure></p>
+<p>使用docker运行jenkins：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -idt -v /home/ap/ci/jenkins:/home/jenkins -v /home/ap/ci/jenkins_home:/home/data -p 8002:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure></p>
+<p>其中将8080端口映射到主机的8002端口，50000端口为jnlp端口，slave连接master时使用，不建议映射其它端口</p>
+<p>修改文件的用户和组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">chown [-R] 账号名称 文件或目录</span><br><span class="line">chown [-R] 账号名称:用户组名称 文件或目录</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">-R : 进行递归( recursive )的持续更改，即连同子目录下的所有文件、目录</span><br><span class="line">都更新成为这个用户组。常常用在更改某一目录的情况。</span><br><span class="line">chgrp [-R] 用户组名称 dirname/filename ...</span><br><span class="line"></span><br><span class="line">例:</span><br><span class="line">chown -R ci:ci testfile</span><br><span class="line">chgrp ci testfile</span><br></pre></td></tr></table></figure></p>
+<p>docker运行jenkins的命令改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -idt --privileged=true -v /home/ap/ci/jenkins/jenkins:/home/jenkins:rw -v /home/ap/ci/jenkins/data:/home/data:rw -v /home/ap/ci/jenkins/var/jenkins_home:/var/jenkins_home:rw -p 8002:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure></p>
+<p>加入邮箱参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -idt --privileged=true -v /home/ap/ci/jenkins/jenkins:/home/jenkins:rw -v /home/ap/ci/jenkins/data:/home/data:rw -v /home/ap/ci/jenkins/var/jenkins_home:/var/jenkins_home:rw -p 8002:8080 -p 50000:50000 --env JAVA_OPTS=-Dmail.smtp.starttls.enable=true  jenkins</span><br></pre></td></tr></table></figure></p>
+<h2 id="Slave节点的安装"><a href="#Slave节点的安装" class="headerlink" title="Slave节点的安装"></a>Slave节点的安装</h2><p>在jenkins的控制页面上新建节点slave1，记下secret<br>使用docker运行jenkins：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run jenkins/jnlp-slave -url http://10.128.13.24:8002 -workDir=/home/jenkins/agent 0970d2705317754f3a5ba366a67a891733668e1503c0a9c043a6883bad349d8c slave1</span><br></pre></td></tr></table></figure></p>
+<p>其中-url后为jenkins的地址</p>
+<h2 id="安装过程中出现的问题"><a href="#安装过程中出现的问题" class="headerlink" title="安装过程中出现的问题"></a>安装过程中出现的问题</h2><p>网上教程中slave连接master用的是jnlp端口，即slave启动命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run jenkins/jnlp-slave -url http://10.128.13.24:50000 -workDir=/home/jenkins/agent 0970d2705317754f3a5ba366a67a891733668e1503c0a9c043a6883bad349d8c slave1</span><br></pre></td></tr></table></figure></p>
+<p>程序报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# docker run jenkinsci/jnlp-slave -url http://10.128.13.24:8004 -workDir=/home/jenkins/agent 461db46f90597e560da388d270847d1a53abc4e27998c0ddcd314eee50a60084 slave1</span><br><span class="line">Warning: JnlpProtocol3 is disabled by default, use JNLP_PROTOCOL_OPTS to alter the behavior</span><br><span class="line">Apr 24, 2018 12:54:51 AM hudson.remoting.jnlp.Main createEngine</span><br><span class="line">INFO: Setting up agent: slave1</span><br><span class="line">Apr 24, 2018 12:54:51 AM hudson.remoting.jnlp.Main$CuiListener &lt;init&gt;</span><br><span class="line">INFO: Jenkins agent is running in headless mode.</span><br><span class="line">Apr 24, 2018 12:54:51 AM hudson.remoting.Engine startEngine</span><br><span class="line">INFO: Using Remoting version: 3.19</span><br><span class="line">Apr 24, 2018 12:54:51 AM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir</span><br><span class="line">INFO: Using /home/jenkins/agent/remoting as a remoting work directory</span><br><span class="line">Both error and output logs will be printed to /home/jenkins/agent/remoting</span><br><span class="line">Apr 24, 2018 12:54:52 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Locating server among [http://10.128.13.24:8004]</span><br><span class="line">Apr 24, 2018 12:54:52 AM hudson.remoting.jnlp.Main$CuiListener error</span><br><span class="line">SEVERE: http://10.128.13.24:8004/tcpSlaveAgentListener/ is invalid: 404 Not Found</span><br><span class="line">java.io.IOException: http://10.128.13.24:8004/tcpSlaveAgentListener/ is invalid: 404 Not Found</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver.resolve(JnlpAgentEndpointResolver.java:197)</span><br><span class="line">at hudson.remoting.Engine.innerRun(Engine.java:518)</span><br><span class="line">at hudson.remoting.Engine.run(Engine.java:469)</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>curl http://10.128.13.24:8004/tcpSlaveAgentListener/</code>报404的错，使用<code>curl http://10.128.13.24:8002/tcpSlaveAgentListener/</code>发现连接可以，改为<code>docker run jenkins/jnlp-slave -url http://10.128.13.24:8002 -workDir=/home/jenkins/agent 0970d2705317754f3a5ba366a67a891733668e1503c0a9c043a6883bad349d8c slave1</code>报错如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# docker run jenkins/jnlp-slave -url http://10.128.13.24:8002 -workDir=/home/jenkins/agent db7a3b79158e04cc22344f954b20e7605c518f078d011599daf96cfaf0244000 slave1</span><br><span class="line">Warning: JnlpProtocol3 is disabled by default, use JNLP_PROTOCOL_OPTS to alter the behavior</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main createEngine</span><br><span class="line">INFO: Setting up agent: slave1</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener &lt;init&gt;</span><br><span class="line">INFO: Jenkins agent is running in headless mode.</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.Engine startEngine</span><br><span class="line">INFO: Using Remoting version: 3.19</span><br><span class="line">Apr 24, 2018 1:47:46 AM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir</span><br><span class="line">INFO: Using /home/jenkins/agent/remoting as a remoting work directory</span><br><span class="line">Both error and output logs will be printed to /home/jenkins/agent/remoting</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Locating server among [http://10.128.13.24:8002]</span><br><span class="line">Apr 24, 2018 1:47:46 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve</span><br><span class="line">INFO: Remoting server accepts the following protocols: [JNLP4-connect, JNLP-connect, Ping, JNLP2-connect]</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Agent discovery successful</span><br><span class="line">Agent address: 10.128.13.24</span><br><span class="line">Agent port: 50000</span><br><span class="line">Identity: ff:93:c5:75:64:ca:d8:47:14:6a:49:57:ec:40:ab:c0</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Handshaking</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000</span><br><span class="line">Apr 24, 2018 1:47:56 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000 (retrying:2)</span><br><span class="line">java.io.IOException: Failed to connect to 10.128.13.24:50000</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:242)</span><br><span class="line">at hudson.remoting.Engine.connect(Engine.java:686)</span><br><span class="line">at hudson.remoting.Engine.innerRun(Engine.java:547)</span><br><span class="line">at hudson.remoting.Engine.run(Engine.java:469)</span><br><span class="line">Caused by: java.net.ConnectException: Connection refused</span><br><span class="line">at sun.nio.ch.Net.connect0(Native Method)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:454)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:446)</span><br><span class="line">at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:648)</span><br><span class="line">at java.nio.channels.SocketChannel.open(SocketChannel.java:189)</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:203)</span><br><span class="line">... 3 more</span><br><span class="line"></span><br><span class="line">Apr 24, 2018 1:48:06 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000 (retrying:3)</span><br><span class="line">java.io.IOException: Failed to connect to 10.128.13.24:50000</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:242)</span><br><span class="line">at hudson.remoting.Engine.connect(Engine.java:686)</span><br><span class="line">at hudson.remoting.Engine.innerRun(Engine.java:547)</span><br><span class="line">at hudson.remoting.Engine.run(Engine.java:469)</span><br><span class="line">Caused by: java.net.ConnectException: Connection refused</span><br><span class="line">at sun.nio.ch.Net.connect0(Native Method)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:454)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:446)</span><br><span class="line">at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:648)</span><br><span class="line">at java.nio.channels.SocketChannel.open(SocketChannel.java:189)</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:203)</span><br><span class="line">... 3 more</span><br></pre></td></tr></table></figure>
+<p>jnlp-slave中默认连接maste节点的50000端口，将master节点启动的jnlp端口设为50000，程序正常</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" data-id="cjjobhp3z0001bcvloi2ed86n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/12/2018-07-12-jenkins简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2018-07-12-jenkins简介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 15px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/">2018-07-16-使用Docker进行jenkins的安装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/08/2018-07-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Leitty<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
