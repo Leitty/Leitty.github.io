@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>2018-07-23-Nginx + Gunicorn + Django 部署 | Leitty Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Nginx 安装配置Nginx安装1yum -y install nginx 设置nginx开机启动：1chkconfig nginx on 启动nginx:1service nginx start Nginx配置在/etc/nginx/conf.d下新建配置文件nginx.conf1234567891011121314server &amp;#123;        listen   80;">
+<meta name="keywords" content="Django,Web,Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-07-23-Nginx + Gunicorn + Django 部署">
+<meta property="og:url" content="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/index.html">
+<meta property="og:site_name" content="Leitty Blog">
+<meta property="og:description" content="Nginx 安装配置Nginx安装1yum -y install nginx 设置nginx开机启动：1chkconfig nginx on 启动nginx:1service nginx start Nginx配置在/etc/nginx/conf.d下新建配置文件nginx.conf1234567891011121314server &amp;#123;        listen   80;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-23T14:54:47.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-07-23-Nginx + Gunicorn + Django 部署">
+<meta name="twitter:description" content="Nginx 安装配置Nginx安装1yum -y install nginx 设置nginx开机启动：1chkconfig nginx on 启动nginx:1service nginx start Nginx配置在/etc/nginx/conf.d下新建配置文件nginx.conf1234567891011121314server &amp;#123;        listen   80;">
+  
+    <link rel="alternate" href="/atom.xml" title="Leitty Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Leitty Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leitty.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-07-23-Nginx-Gunicorn-Django-部署" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" class="article-date">
+  <time datetime="2018-07-23T14:53:10.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Django/">Django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2018-07-23-Nginx + Gunicorn + Django 部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Nginx-安装配置"><a href="#Nginx-安装配置" class="headerlink" title="Nginx 安装配置"></a>Nginx 安装配置</h2><h3 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install nginx</span><br></pre></td></tr></table></figure>
+<p>设置nginx开机启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig nginx on</span><br></pre></td></tr></table></figure></p>
+<p>启动nginx:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure></p>
+<h3 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h3><p>在/etc/nginx/conf.d下新建配置文件nginx.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen   80;</span><br><span class="line"></span><br><span class="line">        server_name _;</span><br><span class="line">        access_log  /var/log/nginx/access.log;</span><br><span class="line">        error_log   /var/log/nginx/error.log;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                proxy_set_header Host $host;</span><br><span class="line">                proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Gunicorn安装配置"><a href="#Gunicorn安装配置" class="headerlink" title="Gunicorn安装配置"></a>Gunicorn安装配置</h2><h3 id="Gunicorn安装"><a href="#Gunicorn安装" class="headerlink" title="Gunicorn安装"></a>Gunicorn安装</h3><p>使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure></p>
+<h3 id="Gunicorn配置"><a href="#Gunicorn配置" class="headerlink" title="Gunicorn配置"></a>Gunicorn配置</h3><p>在Django的项目文件下启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup gunicorn -w 3 -b 127.0.0.1:8080 mysite.wsgi:application &amp;</span><br></pre></td></tr></table></figure></p>
+<p>其中mysite为project名，关于project.wsgi:application的解释，前半截很容易理解，就是调用了project下的wsgi.py，而后面的application，我一开始以为这个application是要改成自己app的名字，后来才发现，这个实际上是wsgi.py中的变量，所以是固定的，不用改。</p>
+<p>试着运行没问题之后，可以直接在根目录下创建gunicorn.conf.py</p>
+<p>来配置位置，以后运行就用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunicorn -c gunicorn.conf.py project.wsgi:appliction</span><br></pre></td></tr></table></figure></p>
+<p>也可以</p>
+<ol>
+<li><p>在project下新建gunicorn的配置文件gunicorn.conf.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing</span><br><span class="line"></span><br><span class="line">bind = &quot;127.0.0.1:8080&quot;</span><br><span class="line">workers = 2</span><br><span class="line">errorlog = &apos;/home/brad/xxx_project/gunicorn.error.log&apos;</span><br><span class="line">#accesslog = &apos;./gunicorn.access.log&apos;</span><br><span class="line">#loglevel = &apos;debug&apos;</span><br><span class="line">proc_name = &apos;gunicorn_blog_project&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用配置启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nohup gunicorn xz1024_project.wsgi:application -c /home/brad/xz1024_project/gunicorn.conf.py&amp;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Django安装"><a href="#Django安装" class="headerlink" title="Django安装"></a>Django安装</h2><h2 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h2><ol>
+<li>nginx启动的用户</li>
+<li>selinux置为disabled<br>查看当前selinux的状态。</li>
+</ol>
+<p>/usr/sbin/sestatus</p>
+<p>将SELINUX=enforcing 修改为 SELINUX=disabled 状态。</p>
+<p>vi /etc/selinux/config</p>
+<p>#SELINUX=enforcing</p>
+<p>SELINUX=disabled</p>
+<p>重启生效。reboot。</p>
+<p>reboot</p>
+<p><a href="https://www.cnblogs.com/xz1024/p/6134359.html" target="_blank" rel="noopener">参考1</a><br><a href="，http://www.isaced.com/post-248.html">参考2</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" data-id="cjjye7hqg0009s0vlougomi3m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2018-07-18-使用kubernetes部署jenkins</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 16.67px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 13.33px;">Kubernetes</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/">2018-07-23-Nginx + Gunicorn + Django 部署</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/">2018-07-18-使用kubernetes部署jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/">2018-07-16-使用Docker进行jenkins的安装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Leitty<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
