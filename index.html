@@ -62,6 +62,75 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2018-07-27-墙内获取Kubernetes镜像" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" class="article-date">
+  <time datetime="2018-07-27T14:37:23.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/">2018-07-27-墙内获取Kubernetes镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>最近在搭建kubernetes的EFK，在创建fluentd-es-ds的时候遇到了迈不过去的坎，墙内找不到靠谱的fluentd-elasticsearch镜像，到DockerHub捡垃圾的方式也不适合生产环境，想起了群里有大佬说过hub找版本github构建，在网上搜索了下gitHub获取镜像，果然看到很多利用github获取k8s的文章。下面简单记录下过程。</p>
+<h1 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h1><h2 id="Github操作"><a href="#Github操作" class="headerlink" title="Github操作"></a>Github操作</h2><p>1、登陆github，创建代码仓库，比如我的<a href="https://github.com/Leitty/kubeimage" target="_blank" rel="noopener">kubeimage</a></p>
+<p>2、编写Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM gcr.io/google_containers/kube-apiserver-amd64:v1.11.1</span><br><span class="line">MAINTAINER leitty</span><br></pre></td></tr></table></figure>
+<p>3、提交Dockerfile</p>
+<p>由于本人打算在一个项目里面拉取多个镜像，所以新建了一层文件夹。具体路径是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeimage/kube-apiserver-amd64/v1.11.1/Dockerfile</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/git_repo.JPG" alt="image"></p>
+<h2 id="DockerHub-操作"><a href="#DockerHub-操作" class="headerlink" title="DockerHub 操作"></a>DockerHub 操作</h2><p>登陆DockerHub，创建Automated Build项目</p>
+<p>没有DockerHub账号的需要注册一个，未关联github账号的，创建Automated Build项目时会要求绑定 github账号，按提示操作即可。</p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/automated_build.JPG" alt="image"></p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/automated_build2.JPG" alt="image"></p>
+<p>选择仓库：</p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/choose_repo.JPG" alt="image"></p>
+<p>选择仓库创建</p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/created.JPG" alt="image"></p>
+<p>默认是在仓库的根目录检查Dockerfile文件，但是我们这里是要用一个仓库构建多个镜像，所有创建了子目录，把Dockerfile放在子目录里面，指定Dockerfile位置。点击保存，再点击触发：</p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/build_settings.JPG" alt="image"></p>
+<p>触发后可以去构建详细那里查看构建结果，如果失败了点击错误可以看到日志。</p>
+<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/build_detail.JPG" alt="image"></p>
+<p>把镜像拉取到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull leitty/kubeimage/apiserver</span><br></pre></td></tr></table></figure></p>
+<p>修改一下tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag leitty/kubeimage/apiserver gcr.io/google_containers/kube-apiserver-amd64:v1.11.1</span><br></pre></td></tr></table></figure></p>
+<p>gcr.io/google_containers/kube-apiserver-amd64:v1.11.1镜像就出炉了，可以愉快的部署了</p>
+<p>附一个墙外查询镜像的地址：</p>
+<p><a href="https://console.cloud.google.com/gcr/images/google-containers/GLOBAL" target="_blank" rel="noopener">https://console.cloud.google.com/gcr/images/google-containers/GLOBAL</a></p>
+<p>参考：</p>
+<p><a href="https://www.jianshu.com/p/e2de1629980d" target="_blank" rel="noopener">https://www.jianshu.com/p/e2de1629980d</a></p>
+<p><a href="https://ieevee.com/tech/2017/04/07/k8s-mirror.html" target="_blank" rel="noopener">https://ieevee.com/tech/2017/04/07/k8s-mirror.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" data-id="cjkaqd2ia000aq8vlhd28ifxh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2018-07-23-Nginx-Gunicorn-Django-部署" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" class="article-date">
@@ -122,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" data-id="cjjye7hqg0009s0vlougomi3m" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" data-id="cjkaqd2ia0009q8vlqnxifo1z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
@@ -197,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" data-id="cjjye7hqc0006s0vltppn6f9p" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" data-id="cjkaqd2i80006q8vl3f2ptlpq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -252,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" data-id="cjjye7hqa0005s0vlnf4ze6w0" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" data-id="cjkaqd2hk0004q8vlt924jxu1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
@@ -381,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/12/2018-07-12-jenkins简介/" data-id="cjjye7hpf0001s0vlfc7cj32g" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/12/2018-07-12-jenkins简介/" data-id="cjkaqd2i40005q8vlipe1p66p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
@@ -512,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjjye7hpu0004s0vlqxuehetx" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjkaqd2h70000q8vl00zbiki5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -604,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjjye7hp70000s0vlabqqmc6h" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjkaqd2h70001q8vlb41u9v2h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -646,7 +715,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 16.67px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 13.33px;">Kubernetes</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 15px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 15px;">Kubernetes</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -668,6 +737,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/">2018-07-27-墙内获取Kubernetes镜像</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/">2018-07-23-Nginx + Gunicorn + Django 部署</a>
           </li>
         
@@ -681,10 +754,6 @@
         
           <li>
             <a href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
           </li>
         
       </ul>
