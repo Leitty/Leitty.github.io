@@ -62,6 +62,191 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019-02-24-Cobra" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/24/2019-02-24-Cobra/" class="article-date">
+  <time datetime="2019-02-24T13:39:23.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Golang/">Golang</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/24/2019-02-24-Cobra/">2019-02-24-viper</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Cobra是一个go语言库，用来提供创建类似git或者go工具那样现代化的客户端。</p>
+<p>它能提供以下功能：</p>
+<ul>
+<li>简易的子命令行模式，如 app server， app fetch等等</li>
+<li>完全兼容posix命令行模式</li>
+<li>嵌套子命令subcommand</li>
+<li>支持全局，局部，串联flags</li>
+<li>使用Cobra很容易的生成应用程序和命令，使用cobra create appname和cobra add cmdname</li>
+<li>如果命令输入错误，将提供智能建议，如 app srver，将提示srver没有，是否是app server</li>
+<li>自动生成commands和flags的帮助信息</li>
+<li>自动生成详细的help信息，如app help</li>
+<li>自动识别-h，–help帮助flag</li>
+<li>自动生成应用程序在bash下命令自动完成功能</li>
+<li>自动生成应用程序的man手册</li>
+<li>命令行别名</li>
+<li>自定义help和usage信息</li>
+<li>可选的紧密集成的viper apps</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用go get下载cobra：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/spf13/cobra/cobra</span><br></pre></td></tr></table></figure></p>
+<p>使用时在程序中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;github.com/spf13/cobra&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用Cobra"><a href="#使用Cobra" class="headerlink" title="使用Cobra"></a>使用Cobra</h3><p>一般的go语言程序组织是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">▾ appName/</span><br><span class="line">  ▾ cmd/</span><br><span class="line">      add.go</span><br><span class="line">      your.go</span><br><span class="line">      commands.go</span><br><span class="line">      here.go</span><br><span class="line">    main.go</span><br></pre></td></tr></table></figure></p>
+<p>在Cobra应用中，main.go的内容非常少，它只有一个目的，初始化Cobra：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">  &quot;&#123;pathToYourApp&#125;/cmd&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">  cmd.Execute()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Cobra项目生成"><a href="#Cobra项目生成" class="headerlink" title="Cobra项目生成"></a>Cobra项目生成</h3><p>我们可以使用init来初始化一个demo项目：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra init leitty/demo</span><br></pre></td></tr></table></figure></p>
+<p>会以$GOPATH为初始路径</p>
+<p>生成以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@root:~/go/src/leitty# tree demo/</span><br><span class="line">demo/</span><br><span class="line">├── cmd</span><br><span class="line">│   └── root.go</span><br><span class="line">├── LICENSE</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure></p>
+<p>如果你的demo程序没有subcommands，那么cobra生成应用程序的操作就结束了。如果有类似demo serve、demo config的命令可以继续执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra add serve</span><br></pre></td></tr></table></figure></p>
+<p>执行后目录结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@root:~/go/src/leitty# tree demo/</span><br><span class="line">demo/</span><br><span class="line">├── cmd</span><br><span class="line">│   ├── serve.go</span><br><span class="line">│   └── root.go</span><br><span class="line">├── LICENSE</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure></p>
+<p>我们给demo加上一个-a命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">cmd/root.go</span><br><span class="line"></span><br><span class="line">// Copyright © 2019 NAME HERE &lt;EMAIL ADDRESS&gt;</span><br><span class="line">//</span><br><span class="line">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">// you may not use this file except in compliance with the License.</span><br><span class="line">// You may obtain a copy of the License at</span><br><span class="line">//</span><br><span class="line">//     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">//</span><br><span class="line">// Unless required by applicable law or agreed to in writing, software</span><br><span class="line">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">// See the License for the specific language governing permissions and</span><br><span class="line">// limitations under the License.</span><br><span class="line"></span><br><span class="line">package cmd</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">        &quot;fmt&quot;</span><br><span class="line">        &quot;os&quot;</span><br><span class="line"></span><br><span class="line">        homedir &quot;github.com/mitchellh/go-homedir&quot;</span><br><span class="line">        &quot;github.com/spf13/cobra&quot;</span><br><span class="line">        &quot;github.com/spf13/viper&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">var cfgFile string</span><br><span class="line">var author string</span><br><span class="line"></span><br><span class="line">// rootCmd represents the base command when called without any subcommands</span><br><span class="line">var rootCmd = &amp;cobra.Command&#123;</span><br><span class="line">        Use:   &quot;demo&quot;,</span><br><span class="line">        Short: &quot;A brief description of your application&quot;,</span><br><span class="line">        Long: `A longer description that spans multiple lines and likely contains</span><br><span class="line">examples and usage of using your application. For example:</span><br><span class="line"></span><br><span class="line">Cobra is a CLI library for Go that empowers applications.</span><br><span class="line">This application is a tool to generate the needed files</span><br><span class="line">to quickly create a Cobra application.`,</span><br><span class="line">        // Uncomment the following line if your bare application</span><br><span class="line">        // has an action associated with it:</span><br><span class="line">        Run: func(cmd *cobra.Command, args []string) &#123; </span><br><span class="line">                fmt.Printf(&quot;Hello demo user, %s\n&quot;, author)</span><br><span class="line">        &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Execute adds all child commands to the root command and sets flags appropriately.</span><br><span class="line">// This is called by main.main(). It only needs to happen once to the rootCmd.</span><br><span class="line">func Execute() &#123;</span><br><span class="line">        if err := rootCmd.Execute(); err != nil &#123;</span><br><span class="line">                fmt.Println(err)</span><br><span class="line">                os.Exit(1)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func init() &#123;</span><br><span class="line">        cobra.OnInitialize(initConfig)</span><br><span class="line"></span><br><span class="line">        // Here you will define your flags and configuration settings.</span><br><span class="line">        // Cobra supports persistent flags, which, if defined here,</span><br><span class="line">        // will be global for your application.</span><br><span class="line">        rootCmd.PersistentFlags().StringVar(&amp;cfgFile, &quot;config&quot;, &quot;&quot;, &quot;config file (default is $HOME/.demo.yaml)&quot;)</span><br><span class="line">        rootCmd.PersistentFlags().StringVarP(&amp;author, &quot;author&quot;, &quot;a&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br><span class="line">        // Cobra also supports local flags, which will only run</span><br><span class="line">        // when this action is called directly.</span><br><span class="line">        rootCmd.Flags().BoolP(&quot;toggle&quot;, &quot;t&quot;, false, &quot;Help message for toggle&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// initConfig reads in config file and ENV variables if set.</span><br><span class="line">func initConfig() &#123;</span><br><span class="line">        if cfgFile != &quot;&quot; &#123;</span><br><span class="line">                // Use config file from the flag.</span><br><span class="line">                viper.SetConfigFile(cfgFile)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">                // Find home directory.</span><br><span class="line">                home, err := homedir.Dir()</span><br><span class="line">                if err != nil &#123;</span><br><span class="line">                        fmt.Println(err)</span><br><span class="line">                        os.Exit(1)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // Search config in home directory with name &quot;.demo&quot; (without extension).</span><br><span class="line">                viper.AddConfigPath(home)</span><br><span class="line">                viper.SetConfigName(&quot;.demo&quot;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        viper.AutomaticEnv() // read in environment variables that match</span><br><span class="line"></span><br><span class="line">        // If a config file is found, read it in.</span><br><span class="line">        if err := viper.ReadInConfig(); err == nil &#123;</span><br><span class="line">                fmt.Println(&quot;Using config file:&quot;, viper.ConfigFileUsed())</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在root.go中我们首先增加了一个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var author string</span><br></pre></td></tr></table></figure></p>
+<p>增加了rootCmd的行为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Run: func(cmd *cobra.Command, args []string) &#123; </span><br><span class="line">        fmt.Printf(&quot;Hello demo user, %s\n&quot;, author)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>增加了-a命令行的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.PersistentFlags().StringVarP(&amp;author, &quot;author&quot;, &quot;a&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>通过go install .之后我们就可以使用demo -a lei命令了</p>
+<h3 id="子命令"><a href="#子命令" class="headerlink" title="子命令"></a>子命令</h3><p>刚才执行<code>cobra add serve</code>后会在cmd下生成serve.go文件，serve.go文件的内容和root.go的内容相似，通过编辑Run完成想要的逻辑：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">        fmt.Println(&quot;serve called&quot;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="Flags"><a href="#Flags" class="headerlink" title="Flags"></a>Flags</h3><p>Flags用来调节命令操作。</p>
+<h4 id="持久化Flags"><a href="#持久化Flags" class="headerlink" title="持久化Flags"></a>持久化Flags</h4><p>在上面的demo例子中，我们定义了string类型的变量author<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var author string</span><br></pre></td></tr></table></figure></p>
+<p>并将其绑定到持久化Flags：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.PersistentFlags().StringVarP(&amp;author, &quot;author&quot;, &quot;a&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>对于bool类型的变量，有不同的方式分配flag：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var Verbose bool</span><br><span class="line">rootCmd.PersistentFlags().BoolVarP(&amp;Verbose, &quot;verbose&quot;, &quot;v&quot;, false, &quot;verbose output&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>一个持久化的flag的含义是这个flag可以在它被分配的命令下使用，那个命令下的每个命令都是如此，比如在上面的例子中，author被分配到rootCmd下，还可以与其他持久化flags一起使用。分配一个持久flag到root下，就是全局flags。</p>
+<h4 id="本地Flags"><a href="#本地Flags" class="headerlink" title="本地Flags"></a>本地Flags</h4><p>一个本地的Flag只能单独使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.Flags().StringVarP(&amp;Source, &quot;source&quot;, &quot;s&quot;, &quot;&quot;, &quot;Source directory to read from&quot;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="父命令下的本地Flag"><a href="#父命令下的本地Flag" class="headerlink" title="父命令下的本地Flag"></a>父命令下的本地Flag</h4><p>默认情况下Cobra只解析目标命令下的本地flags，父命令下的本地命令都将忽略。通过设置<code>Command.TraverseChildren</code>，Cobra将在执行目标命令前解析本地命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">command := cobra.Command&#123;</span><br><span class="line">  Use: &quot;print [OPTIONS] [COMMANDS]&quot;,</span><br><span class="line">  TraverseChildren: true,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="将Flags和配置绑定"><a href="#将Flags和配置绑定" class="headerlink" title="将Flags和配置绑定"></a>将Flags和配置绑定</h4><p>可以通过viper绑定flags<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var author string</span><br><span class="line"></span><br><span class="line">func init() &#123;</span><br><span class="line">  rootCmd.PersistentFlags().StringVar(&amp;author, &quot;author&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br><span class="line">  viper.BindPFlag(&quot;author&quot;, rootCmd.PersistentFlags().Lookup(&quot;author&quot;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，持久flag author被绑定到viper。注意，当<code>--author</code>没被使用者提供时，<code>author</code>将不被设置。</p>
+<p>更多内容，请查看viper文档</p>
+<h4 id="必输flags"><a href="#必输flags" class="headerlink" title="必输flags"></a>必输flags</h4><p>flags一般是可选的。但是也可以设置为必输：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.Flags().StringVarP(&amp;Region, &quot;region&quot;, &quot;r&quot;, &quot;&quot;, &quot;AWS region (required)&quot;)</span><br><span class="line">rootCmd.MarkFlagRequired(&quot;region&quot;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><p>以下的校验是内建的：</p>
+<ul>
+<li><code>NoArgs</code> </li>
+<li><code>ArbitraryArgs</code></li>
+<li><code>OnlyValidArgs</code></li>
+<li><code>MinimumNArgs(int)</code></li>
+<li><code>MaximumNArgs(int)</code></li>
+<li><code>ExactArgs(int)</code></li>
+<li><code>ExactValidArgs(int)</code></li>
+<li><code>RangeArgs(min, max)</code></li>
+</ul>
+<p>设置常用的校验器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var cmd = &amp;cobra.Command&#123;</span><br><span class="line">  Short: &quot;hello&quot;,</span><br><span class="line">  Args: func(cmd *cobra.Command, args []string) error &#123;</span><br><span class="line">    if len(args) &lt; 1 &#123;</span><br><span class="line">      return errors.New(&quot;requires at least one arg&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    if myapp.IsValidColor(args[0]) &#123;</span><br><span class="line">      return nil</span><br><span class="line">    &#125;</span><br><span class="line">    return fmt.Errorf(&quot;invalid color specified: %s&quot;, args[0])</span><br><span class="line">  &#125;,</span><br><span class="line">  Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">    fmt.Println(&quot;Hello, World!&quot;)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var cmdPrint = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;print [string to print]&quot;,</span><br><span class="line">    Short: &quot;Print anything to the screen&quot;,</span><br><span class="line">    Long: `print is for printing anything back to the screen.</span><br><span class="line">For many years people have printed back to the screen.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      fmt.Println(&quot;Print: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>在上面的例子中，我们使用cobra生成的模板，当然也可以直接编写cobra命令，可以将命令置于main.go文件中，我们定义三条命令，其中cmdPrint, cmdEcho是顶级命令，cmdTimes是cmdEcho的子命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">  &quot;fmt&quot;</span><br><span class="line">  &quot;strings&quot;</span><br><span class="line"></span><br><span class="line">  &quot;github.com/spf13/cobra&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">  var echoTimes int</span><br><span class="line"></span><br><span class="line">  var cmdPrint = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;print [string to print]&quot;,</span><br><span class="line">    Short: &quot;Print anything to the screen&quot;,</span><br><span class="line">    Long: `print is for printing anything back to the screen.</span><br><span class="line">For many years people have printed back to the screen.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      fmt.Println(&quot;Print: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var cmdEcho = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;echo [string to echo]&quot;,</span><br><span class="line">    Short: &quot;Echo anything to the screen&quot;,</span><br><span class="line">    Long: `echo is for echoing anything back.</span><br><span class="line">Echo works a lot like print, except it has a child command.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      fmt.Println(&quot;Print: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var cmdTimes = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;times [# times] [string to echo]&quot;,</span><br><span class="line">    Short: &quot;Echo anything to the screen more times&quot;,</span><br><span class="line">    Long: `echo things multiple times back to the user by providing</span><br><span class="line">a count and a string.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      for i := 0; i &lt; echoTimes; i++ &#123;</span><br><span class="line">        fmt.Println(&quot;Echo: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cmdTimes.Flags().IntVarP(&amp;echoTimes, &quot;times&quot;, &quot;t&quot;, 1, &quot;times to echo the input&quot;)</span><br><span class="line"></span><br><span class="line">  //注册命令</span><br><span class="line">  var rootCmd = &amp;cobra.Command&#123;Use: &quot;app&quot;&#125;</span><br><span class="line">  rootCmd.AddCommand(cmdPrint, cmdEcho)</span><br><span class="line">  cmdEcho.AddCommand(cmdTimes)</span><br><span class="line">  rootCmd.Execute()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Help命令"><a href="#Help命令" class="headerlink" title="Help命令"></a>Help命令</h3><p>Cobra 自动增加help命令，当然也可以自定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmd.SetHelpCommand(cmd *Command)</span><br><span class="line">cmd.SetHelpFunc(f func(*Command, []string))</span><br><span class="line">cmd.SetHelpTemplate(s string)</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/spf13/cobra" target="_blank" rel="noopener">https://github.com/spf13/cobra</a></p>
+<p><a href="https://www.cnblogs.com/borey/p/5715641.html" target="_blank" rel="noopener">https://www.cnblogs.com/borey/p/5715641.html</a></p>
+<p><a href="https://godoc.org/github.com/spf13/cobra#Command" target="_blank" rel="noopener">https://godoc.org/github.com/spf13/cobra#Command</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2019/02/24/2019-02-24-Cobra/" data-id="cjsiynku9000evwvlqhd6jij8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-02-24-viper" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/24/2019-02-24-viper/" class="article-date">
+  <time datetime="2019-02-24T13:37:23.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Golang/">Golang</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/24/2019-02-24-viper/">2019-02-24-viper</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="viper是什么"><a href="#viper是什么" class="headerlink" title="viper是什么"></a>viper是什么</h2><p>viper是Go应用、12-Factor应用的配置解决方案。它被用在应用之中，可以处理几乎所有的配置需求和格式，支持：</p>
+<ul>
+<li>默认配置</li>
+<li>从JSON、TOML、YAML、HCL和Java配置中读取</li>
+<li>监听重载配置文件(可选功能)</li>
+<li>读取环境变量</li>
+<li>读取远程配置吸引，如etcd或者Consul，监听这些的变化</li>
+<li>从命令行的flag读取</li>
+<li>从缓存读取</li>
+<li>设置明确值</li>
+</ul>
+<p>当我们在创建现代化的应用时，我们不需要担心配置文件格式的问题，viper都能解决：</p>
+<ul>
+<li>从JSON、TOML、YAML、HCL和Java配置中查找，加载和序列化</li>
+<li>可以为不同的配置文件设置不同的默认值</li>
+<li>可以通过命令行的flags方式设置覆盖值</li>
+<li>可以在不修改代码的情况下，设置相等值来把参数重命名</li>
+<li>能分辨命令行提供的参数和配置文件默认参数的不同</li>
+</ul>
+<p>以下从这个几个方面来详细了解viper:</p>
+<ul>
+<li>set</li>
+<li>flag</li>
+<li>env</li>
+<li>config</li>
+<li>key/value store</li>
+<li>default</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="设置默认值"><a href="#设置默认值" class="headerlink" title="设置默认值"></a>设置默认值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">viper.SetDefault(&quot;ContentDir&quot;, &quot;content&quot;)</span><br><span class="line">viper.SetDefault(&quot;LayoutDir&quot;, &quot;layouts&quot;)</span><br><span class="line">viper.SetDefault(&quot;Taxonomies&quot;, map[string]string&#123;&quot;tag&quot;: &quot;tags&quot;, &quot;category&quot;: &quot;categories&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="从配置文件读取"><a href="#从配置文件读取" class="headerlink" title="从配置文件读取"></a>从配置文件读取</h3><p>使用viper来读取文件，需要提供文件的路径(可以设置多个路径)，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">viper.SetConfigName(&quot;config&quot;) // name of config file (without extension)</span><br><span class="line">viper.AddConfigPath(&quot;/etc/appname/&quot;)   // path to look for the config file in</span><br><span class="line">viper.AddConfigPath(&quot;$HOME/.appname&quot;)  // call multiple times to add many search paths</span><br><span class="line">viper.AddConfigPath(&quot;.&quot;)               // optionally look for config in the working directory</span><br><span class="line">err := viper.ReadInConfig() // Find and read the config file</span><br><span class="line">if err != nil &#123; // Handle errors reading the config file</span><br><span class="line">	panic(fmt.Errorf(&quot;Fatal error config file: %s \n&quot;, err))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="监听重新读取配置文件"><a href="#监听重新读取配置文件" class="headerlink" title="监听重新读取配置文件"></a>监听重新读取配置文件</h3><p>应用不需要重启，当配置文件出现改动时，就会自动去重新读取文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">viper.WatchConfig()</span><br><span class="line">viper.OnConfigChange(func(e fsnotify.Event) &#123;</span><br><span class="line">	fmt.Println(&quot;Config file changed:&quot;, e.Name)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://www.cnblogs.com/cnblogs-wangzhipeng/p/9484460.html" target="_blank" rel="noopener">https://www.cnblogs.com/cnblogs-wangzhipeng/p/9484460.html</a></p>
+<p><a href="https://github.com/spf13/viper#working-with-flags" target="_blank" rel="noopener">https://github.com/spf13/viper#working-with-flags</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leitty.github.io/2019/02/24/2019-02-24-viper/" data-id="cjsiynkue000hvwvlsej2g2vx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2018-07-27-墙内获取Kubernetes镜像" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" class="article-date">
@@ -119,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" data-id="cjkaqd2ia000aq8vlhd28ifxh" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" data-id="cjsiynku3000avwvlr0orhqir" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -191,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" data-id="cjkaqd2ia0009q8vlqnxifo1z" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" data-id="cjsiynku10009vwvlxohgj9qk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
@@ -266,7 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" data-id="cjkaqd2i80006q8vl3f2ptlpq" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" data-id="cjsiynktz0006vwvldisjs4x3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -321,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" data-id="cjkaqd2hk0004q8vlt924jxu1" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" data-id="cjsiynktx0005vwvlmmxksdcv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
@@ -450,7 +635,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/12/2018-07-12-jenkins简介/" data-id="cjkaqd2i40005q8vlipe1p66p" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/12/2018-07-12-jenkins简介/" data-id="cjsiynktm0004vwvlrdve3u4i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
@@ -581,7 +766,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjkaqd2h70000q8vl00zbiki5" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjsiynksw0000vwvls2kyhquw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -673,7 +858,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjkaqd2h70001q8vlb41u9v2h" class="article-share-link">Share</a>
+      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjsiynkt50001vwvl8g2g1lq8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -695,7 +880,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a></li></ul>
     </div>
   </div>
 
@@ -705,7 +890,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li></ul>
     </div>
   </div>
 
@@ -715,7 +900,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 15px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 15px;">Kubernetes</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a>
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Golang/" style="font-size: 13.33px;">Golang</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 16.67px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 20px;">Kubernetes</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a>
     </div>
   </div>
 
@@ -724,7 +909,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
     </div>
   </div>
 
@@ -737,6 +922,14 @@
       <ul>
         
           <li>
+            <a href="/2019/02/24/2019-02-24-Cobra/">2019-02-24-viper</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/24/2019-02-24-viper/">2019-02-24-viper</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/">2018-07-27-墙内获取Kubernetes镜像</a>
           </li>
         
@@ -746,14 +939,6 @@
         
           <li>
             <a href="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/">2018-07-18-使用kubernetes部署jenkins</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/">2018-07-16-使用Docker进行jenkins的安装</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
           </li>
         
       </ul>
@@ -768,7 +953,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Leitty<br>
+      &copy; 2019 Leitty<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
