@@ -1,984 +1,405 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>Leitty Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Leitty Blog">
-<meta property="og:url" content="https://leitty.github.io/index.html">
-<meta property="og:site_name" content="Leitty Blog">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leitty Blog">
-  
-    <link rel="alternate" href="/atom.xml" title="Leitty Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Leitty Blog"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Leitty Blog</a>
-      </h1>
-      
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://leitty.github.io/">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leitty.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-2019-02-24-Cobra" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/24/2019-02-24-Cobra/" class="article-date">
-  <time datetime="2019-02-24T13:39:23.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Golang/">Golang</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/2019-02-24-Cobra/">2019-02-24-viper</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Cobra是一个go语言库，用来提供创建类似git或者go工具那样现代化的客户端。</p>
-<p>它能提供以下功能：</p>
-<ul>
-<li>简易的子命令行模式，如 app server， app fetch等等</li>
-<li>完全兼容posix命令行模式</li>
-<li>嵌套子命令subcommand</li>
-<li>支持全局，局部，串联flags</li>
-<li>使用Cobra很容易的生成应用程序和命令，使用cobra create appname和cobra add cmdname</li>
-<li>如果命令输入错误，将提供智能建议，如 app srver，将提示srver没有，是否是app server</li>
-<li>自动生成commands和flags的帮助信息</li>
-<li>自动生成详细的help信息，如app help</li>
-<li>自动识别-h，–help帮助flag</li>
-<li>自动生成应用程序在bash下命令自动完成功能</li>
-<li>自动生成应用程序的man手册</li>
-<li>命令行别名</li>
-<li>自定义help和usage信息</li>
-<li>可选的紧密集成的viper apps</li>
-</ul>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用go get下载cobra：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/spf13/cobra/cobra</span><br></pre></td></tr></table></figure></p>
-<p>使用时在程序中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;github.com/spf13/cobra&quot;</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用Cobra"><a href="#使用Cobra" class="headerlink" title="使用Cobra"></a>使用Cobra</h3><p>一般的go语言程序组织是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">▾ appName/</span><br><span class="line">  ▾ cmd/</span><br><span class="line">      add.go</span><br><span class="line">      your.go</span><br><span class="line">      commands.go</span><br><span class="line">      here.go</span><br><span class="line">    main.go</span><br></pre></td></tr></table></figure></p>
-<p>在Cobra应用中，main.go的内容非常少，它只有一个目的，初始化Cobra：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">  &quot;&#123;pathToYourApp&#125;/cmd&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">  cmd.Execute()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Cobra项目生成"><a href="#Cobra项目生成" class="headerlink" title="Cobra项目生成"></a>Cobra项目生成</h3><p>我们可以使用init来初始化一个demo项目：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra init leitty/demo</span><br></pre></td></tr></table></figure></p>
-<p>会以$GOPATH为初始路径</p>
-<p>生成以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@root:~/go/src/leitty# tree demo/</span><br><span class="line">demo/</span><br><span class="line">├── cmd</span><br><span class="line">│   └── root.go</span><br><span class="line">├── LICENSE</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure></p>
-<p>如果你的demo程序没有subcommands，那么cobra生成应用程序的操作就结束了。如果有类似demo serve、demo config的命令可以继续执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cobra add serve</span><br></pre></td></tr></table></figure></p>
-<p>执行后目录结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@root:~/go/src/leitty# tree demo/</span><br><span class="line">demo/</span><br><span class="line">├── cmd</span><br><span class="line">│   ├── serve.go</span><br><span class="line">│   └── root.go</span><br><span class="line">├── LICENSE</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure></p>
-<p>我们给demo加上一个-a命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">cmd/root.go</span><br><span class="line"></span><br><span class="line">// Copyright © 2019 NAME HERE &lt;EMAIL ADDRESS&gt;</span><br><span class="line">//</span><br><span class="line">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">// you may not use this file except in compliance with the License.</span><br><span class="line">// You may obtain a copy of the License at</span><br><span class="line">//</span><br><span class="line">//     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">//</span><br><span class="line">// Unless required by applicable law or agreed to in writing, software</span><br><span class="line">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">// See the License for the specific language governing permissions and</span><br><span class="line">// limitations under the License.</span><br><span class="line"></span><br><span class="line">package cmd</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">        &quot;fmt&quot;</span><br><span class="line">        &quot;os&quot;</span><br><span class="line"></span><br><span class="line">        homedir &quot;github.com/mitchellh/go-homedir&quot;</span><br><span class="line">        &quot;github.com/spf13/cobra&quot;</span><br><span class="line">        &quot;github.com/spf13/viper&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">var cfgFile string</span><br><span class="line">var author string</span><br><span class="line"></span><br><span class="line">// rootCmd represents the base command when called without any subcommands</span><br><span class="line">var rootCmd = &amp;cobra.Command&#123;</span><br><span class="line">        Use:   &quot;demo&quot;,</span><br><span class="line">        Short: &quot;A brief description of your application&quot;,</span><br><span class="line">        Long: `A longer description that spans multiple lines and likely contains</span><br><span class="line">examples and usage of using your application. For example:</span><br><span class="line"></span><br><span class="line">Cobra is a CLI library for Go that empowers applications.</span><br><span class="line">This application is a tool to generate the needed files</span><br><span class="line">to quickly create a Cobra application.`,</span><br><span class="line">        // Uncomment the following line if your bare application</span><br><span class="line">        // has an action associated with it:</span><br><span class="line">        Run: func(cmd *cobra.Command, args []string) &#123; </span><br><span class="line">                fmt.Printf(&quot;Hello demo user, %s\n&quot;, author)</span><br><span class="line">        &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Execute adds all child commands to the root command and sets flags appropriately.</span><br><span class="line">// This is called by main.main(). It only needs to happen once to the rootCmd.</span><br><span class="line">func Execute() &#123;</span><br><span class="line">        if err := rootCmd.Execute(); err != nil &#123;</span><br><span class="line">                fmt.Println(err)</span><br><span class="line">                os.Exit(1)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func init() &#123;</span><br><span class="line">        cobra.OnInitialize(initConfig)</span><br><span class="line"></span><br><span class="line">        // Here you will define your flags and configuration settings.</span><br><span class="line">        // Cobra supports persistent flags, which, if defined here,</span><br><span class="line">        // will be global for your application.</span><br><span class="line">        rootCmd.PersistentFlags().StringVar(&amp;cfgFile, &quot;config&quot;, &quot;&quot;, &quot;config file (default is $HOME/.demo.yaml)&quot;)</span><br><span class="line">        rootCmd.PersistentFlags().StringVarP(&amp;author, &quot;author&quot;, &quot;a&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br><span class="line">        // Cobra also supports local flags, which will only run</span><br><span class="line">        // when this action is called directly.</span><br><span class="line">        rootCmd.Flags().BoolP(&quot;toggle&quot;, &quot;t&quot;, false, &quot;Help message for toggle&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// initConfig reads in config file and ENV variables if set.</span><br><span class="line">func initConfig() &#123;</span><br><span class="line">        if cfgFile != &quot;&quot; &#123;</span><br><span class="line">                // Use config file from the flag.</span><br><span class="line">                viper.SetConfigFile(cfgFile)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">                // Find home directory.</span><br><span class="line">                home, err := homedir.Dir()</span><br><span class="line">                if err != nil &#123;</span><br><span class="line">                        fmt.Println(err)</span><br><span class="line">                        os.Exit(1)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // Search config in home directory with name &quot;.demo&quot; (without extension).</span><br><span class="line">                viper.AddConfigPath(home)</span><br><span class="line">                viper.SetConfigName(&quot;.demo&quot;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        viper.AutomaticEnv() // read in environment variables that match</span><br><span class="line"></span><br><span class="line">        // If a config file is found, read it in.</span><br><span class="line">        if err := viper.ReadInConfig(); err == nil &#123;</span><br><span class="line">                fmt.Println(&quot;Using config file:&quot;, viper.ConfigFileUsed())</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在root.go中我们首先增加了一个参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var author string</span><br></pre></td></tr></table></figure></p>
-<p>增加了rootCmd的行为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Run: func(cmd *cobra.Command, args []string) &#123; </span><br><span class="line">        fmt.Printf(&quot;Hello demo user, %s\n&quot;, author)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>增加了-a命令行的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.PersistentFlags().StringVarP(&amp;author, &quot;author&quot;, &quot;a&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br></pre></td></tr></table></figure></p>
-<p>通过go install .之后我们就可以使用demo -a lei命令了</p>
-<h3 id="子命令"><a href="#子命令" class="headerlink" title="子命令"></a>子命令</h3><p>刚才执行<code>cobra add serve</code>后会在cmd下生成serve.go文件，serve.go文件的内容和root.go的内容相似，通过编辑Run完成想要的逻辑：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">        fmt.Println(&quot;serve called&quot;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<h3 id="Flags"><a href="#Flags" class="headerlink" title="Flags"></a>Flags</h3><p>Flags用来调节命令操作。</p>
-<h4 id="持久化Flags"><a href="#持久化Flags" class="headerlink" title="持久化Flags"></a>持久化Flags</h4><p>在上面的demo例子中，我们定义了string类型的变量author<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var author string</span><br></pre></td></tr></table></figure></p>
-<p>并将其绑定到持久化Flags：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.PersistentFlags().StringVarP(&amp;author, &quot;author&quot;, &quot;a&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br></pre></td></tr></table></figure></p>
-<p>对于bool类型的变量，有不同的方式分配flag：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var Verbose bool</span><br><span class="line">rootCmd.PersistentFlags().BoolVarP(&amp;Verbose, &quot;verbose&quot;, &quot;v&quot;, false, &quot;verbose output&quot;)</span><br></pre></td></tr></table></figure></p>
-<p>一个持久化的flag的含义是这个flag可以在它被分配的命令下使用，那个命令下的每个命令都是如此，比如在上面的例子中，author被分配到rootCmd下，还可以与其他持久化flags一起使用。分配一个持久flag到root下，就是全局flags。</p>
-<h4 id="本地Flags"><a href="#本地Flags" class="headerlink" title="本地Flags"></a>本地Flags</h4><p>一个本地的Flag只能单独使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.Flags().StringVarP(&amp;Source, &quot;source&quot;, &quot;s&quot;, &quot;&quot;, &quot;Source directory to read from&quot;)</span><br></pre></td></tr></table></figure></p>
-<h4 id="父命令下的本地Flag"><a href="#父命令下的本地Flag" class="headerlink" title="父命令下的本地Flag"></a>父命令下的本地Flag</h4><p>默认情况下Cobra只解析目标命令下的本地flags，父命令下的本地命令都将忽略。通过设置<code>Command.TraverseChildren</code>，Cobra将在执行目标命令前解析本地命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">command := cobra.Command&#123;</span><br><span class="line">  Use: &quot;print [OPTIONS] [COMMANDS]&quot;,</span><br><span class="line">  TraverseChildren: true,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="将Flags和配置绑定"><a href="#将Flags和配置绑定" class="headerlink" title="将Flags和配置绑定"></a>将Flags和配置绑定</h4><p>可以通过viper绑定flags<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var author string</span><br><span class="line"></span><br><span class="line">func init() &#123;</span><br><span class="line">  rootCmd.PersistentFlags().StringVar(&amp;author, &quot;author&quot;, &quot;YOUR NAME&quot;, &quot;Author name for copyright attribution&quot;)</span><br><span class="line">  viper.BindPFlag(&quot;author&quot;, rootCmd.PersistentFlags().Lookup(&quot;author&quot;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在这个例子中，持久flag author被绑定到viper。注意，当<code>--author</code>没被使用者提供时，<code>author</code>将不被设置。</p>
-<p>更多内容，请查看viper文档</p>
-<h4 id="必输flags"><a href="#必输flags" class="headerlink" title="必输flags"></a>必输flags</h4><p>flags一般是可选的。但是也可以设置为必输：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rootCmd.Flags().StringVarP(&amp;Region, &quot;region&quot;, &quot;r&quot;, &quot;&quot;, &quot;AWS region (required)&quot;)</span><br><span class="line">rootCmd.MarkFlagRequired(&quot;region&quot;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><p>以下的校验是内建的：</p>
-<ul>
-<li><code>NoArgs</code> </li>
-<li><code>ArbitraryArgs</code></li>
-<li><code>OnlyValidArgs</code></li>
-<li><code>MinimumNArgs(int)</code></li>
-<li><code>MaximumNArgs(int)</code></li>
-<li><code>ExactArgs(int)</code></li>
-<li><code>ExactValidArgs(int)</code></li>
-<li><code>RangeArgs(min, max)</code></li>
-</ul>
-<p>设置常用的校验器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var cmd = &amp;cobra.Command&#123;</span><br><span class="line">  Short: &quot;hello&quot;,</span><br><span class="line">  Args: func(cmd *cobra.Command, args []string) error &#123;</span><br><span class="line">    if len(args) &lt; 1 &#123;</span><br><span class="line">      return errors.New(&quot;requires at least one arg&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    if myapp.IsValidColor(args[0]) &#123;</span><br><span class="line">      return nil</span><br><span class="line">    &#125;</span><br><span class="line">    return fmt.Errorf(&quot;invalid color specified: %s&quot;, args[0])</span><br><span class="line">  &#125;,</span><br><span class="line">  Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">    fmt.Println(&quot;Hello, World!&quot;)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var cmdPrint = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;print [string to print]&quot;,</span><br><span class="line">    Short: &quot;Print anything to the screen&quot;,</span><br><span class="line">    Long: `print is for printing anything back to the screen.</span><br><span class="line">For many years people have printed back to the screen.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      fmt.Println(&quot;Print: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>在上面的例子中，我们使用cobra生成的模板，当然也可以直接编写cobra命令，可以将命令置于main.go文件中，我们定义三条命令，其中cmdPrint, cmdEcho是顶级命令，cmdTimes是cmdEcho的子命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">  &quot;fmt&quot;</span><br><span class="line">  &quot;strings&quot;</span><br><span class="line"></span><br><span class="line">  &quot;github.com/spf13/cobra&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">  var echoTimes int</span><br><span class="line"></span><br><span class="line">  var cmdPrint = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;print [string to print]&quot;,</span><br><span class="line">    Short: &quot;Print anything to the screen&quot;,</span><br><span class="line">    Long: `print is for printing anything back to the screen.</span><br><span class="line">For many years people have printed back to the screen.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      fmt.Println(&quot;Print: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var cmdEcho = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;echo [string to echo]&quot;,</span><br><span class="line">    Short: &quot;Echo anything to the screen&quot;,</span><br><span class="line">    Long: `echo is for echoing anything back.</span><br><span class="line">Echo works a lot like print, except it has a child command.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      fmt.Println(&quot;Print: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var cmdTimes = &amp;cobra.Command&#123;</span><br><span class="line">    Use:   &quot;times [# times] [string to echo]&quot;,</span><br><span class="line">    Short: &quot;Echo anything to the screen more times&quot;,</span><br><span class="line">    Long: `echo things multiple times back to the user by providing</span><br><span class="line">a count and a string.`,</span><br><span class="line">    Args: cobra.MinimumNArgs(1),</span><br><span class="line">    Run: func(cmd *cobra.Command, args []string) &#123;</span><br><span class="line">      for i := 0; i &lt; echoTimes; i++ &#123;</span><br><span class="line">        fmt.Println(&quot;Echo: &quot; + strings.Join(args, &quot; &quot;))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cmdTimes.Flags().IntVarP(&amp;echoTimes, &quot;times&quot;, &quot;t&quot;, 1, &quot;times to echo the input&quot;)</span><br><span class="line"></span><br><span class="line">  //注册命令</span><br><span class="line">  var rootCmd = &amp;cobra.Command&#123;Use: &quot;app&quot;&#125;</span><br><span class="line">  rootCmd.AddCommand(cmdPrint, cmdEcho)</span><br><span class="line">  cmdEcho.AddCommand(cmdTimes)</span><br><span class="line">  rootCmd.Execute()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Help命令"><a href="#Help命令" class="headerlink" title="Help命令"></a>Help命令</h3><p>Cobra 自动增加help命令，当然也可以自定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmd.SetHelpCommand(cmd *Command)</span><br><span class="line">cmd.SetHelpFunc(f func(*Command, []string))</span><br><span class="line">cmd.SetHelpTemplate(s string)</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/spf13/cobra" target="_blank" rel="noopener">https://github.com/spf13/cobra</a></p>
-<p><a href="https://www.cnblogs.com/borey/p/5715641.html" target="_blank" rel="noopener">https://www.cnblogs.com/borey/p/5715641.html</a></p>
-<p><a href="https://godoc.org/github.com/spf13/cobra#Command" target="_blank" rel="noopener">https://godoc.org/github.com/spf13/cobra#Command</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2019/02/24/2019-02-24-Cobra/" data-id="cjsiynku9000evwvlqhd6jij8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2019-02-24-viper" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/24/2019-02-24-viper/" class="article-date">
-  <time datetime="2019-02-24T13:37:23.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Golang/">Golang</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/2019-02-24-viper/">2019-02-24-viper</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="viper是什么"><a href="#viper是什么" class="headerlink" title="viper是什么"></a>viper是什么</h2><p>viper是Go应用、12-Factor应用的配置解决方案。它被用在应用之中，可以处理几乎所有的配置需求和格式，支持：</p>
-<ul>
-<li>默认配置</li>
-<li>从JSON、TOML、YAML、HCL和Java配置中读取</li>
-<li>监听重载配置文件(可选功能)</li>
-<li>读取环境变量</li>
-<li>读取远程配置吸引，如etcd或者Consul，监听这些的变化</li>
-<li>从命令行的flag读取</li>
-<li>从缓存读取</li>
-<li>设置明确值</li>
-</ul>
-<p>当我们在创建现代化的应用时，我们不需要担心配置文件格式的问题，viper都能解决：</p>
-<ul>
-<li>从JSON、TOML、YAML、HCL和Java配置中查找，加载和序列化</li>
-<li>可以为不同的配置文件设置不同的默认值</li>
-<li>可以通过命令行的flags方式设置覆盖值</li>
-<li>可以在不修改代码的情况下，设置相等值来把参数重命名</li>
-<li>能分辨命令行提供的参数和配置文件默认参数的不同</li>
-</ul>
-<p>以下从这个几个方面来详细了解viper:</p>
-<ul>
-<li>set</li>
-<li>flag</li>
-<li>env</li>
-<li>config</li>
-<li>key/value store</li>
-<li>default</li>
-</ul>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="设置默认值"><a href="#设置默认值" class="headerlink" title="设置默认值"></a>设置默认值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">viper.SetDefault(&quot;ContentDir&quot;, &quot;content&quot;)</span><br><span class="line">viper.SetDefault(&quot;LayoutDir&quot;, &quot;layouts&quot;)</span><br><span class="line">viper.SetDefault(&quot;Taxonomies&quot;, map[string]string&#123;&quot;tag&quot;: &quot;tags&quot;, &quot;category&quot;: &quot;categories&quot;&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="从配置文件读取"><a href="#从配置文件读取" class="headerlink" title="从配置文件读取"></a>从配置文件读取</h3><p>使用viper来读取文件，需要提供文件的路径(可以设置多个路径)，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">viper.SetConfigName(&quot;config&quot;) // name of config file (without extension)</span><br><span class="line">viper.AddConfigPath(&quot;/etc/appname/&quot;)   // path to look for the config file in</span><br><span class="line">viper.AddConfigPath(&quot;$HOME/.appname&quot;)  // call multiple times to add many search paths</span><br><span class="line">viper.AddConfigPath(&quot;.&quot;)               // optionally look for config in the working directory</span><br><span class="line">err := viper.ReadInConfig() // Find and read the config file</span><br><span class="line">if err != nil &#123; // Handle errors reading the config file</span><br><span class="line">	panic(fmt.Errorf(&quot;Fatal error config file: %s \n&quot;, err))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="监听重新读取配置文件"><a href="#监听重新读取配置文件" class="headerlink" title="监听重新读取配置文件"></a>监听重新读取配置文件</h3><p>应用不需要重启，当配置文件出现改动时，就会自动去重新读取文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">viper.WatchConfig()</span><br><span class="line">viper.OnConfigChange(func(e fsnotify.Event) &#123;</span><br><span class="line">	fmt.Println(&quot;Config file changed:&quot;, e.Name)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>参考：</p>
-<p><a href="https://www.cnblogs.com/cnblogs-wangzhipeng/p/9484460.html" target="_blank" rel="noopener">https://www.cnblogs.com/cnblogs-wangzhipeng/p/9484460.html</a></p>
-<p><a href="https://github.com/spf13/viper#working-with-flags" target="_blank" rel="noopener">https://github.com/spf13/viper#working-with-flags</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2019/02/24/2019-02-24-viper/" data-id="cjsiynkue000hvwvlsej2g2vx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-27-墙内获取Kubernetes镜像" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" class="article-date">
-  <time datetime="2018-07-27T14:37:23.000Z" itemprop="datePublished">2018-07-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/">2018-07-27-墙内获取Kubernetes镜像</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>最近在搭建kubernetes的EFK，在创建fluentd-es-ds的时候遇到了迈不过去的坎，墙内找不到靠谱的fluentd-elasticsearch镜像，到DockerHub捡垃圾的方式也不适合生产环境，想起了群里有大佬说过hub找版本github构建，在网上搜索了下gitHub获取镜像，果然看到很多利用github获取k8s的文章。下面简单记录下过程。</p>
-<h1 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h1><h2 id="Github操作"><a href="#Github操作" class="headerlink" title="Github操作"></a>Github操作</h2><p>1、登陆github，创建代码仓库，比如我的<a href="https://github.com/Leitty/kubeimage" target="_blank" rel="noopener">kubeimage</a></p>
-<p>2、编写Dockerfile</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM gcr.io/google_containers/kube-apiserver-amd64:v1.11.1</span><br><span class="line">MAINTAINER leitty</span><br></pre></td></tr></table></figure>
-<p>3、提交Dockerfile</p>
-<p>由于本人打算在一个项目里面拉取多个镜像，所以新建了一层文件夹。具体路径是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeimage/kube-apiserver-amd64/v1.11.1/Dockerfile</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/git_repo.JPG" alt="image"></p>
-<h2 id="DockerHub-操作"><a href="#DockerHub-操作" class="headerlink" title="DockerHub 操作"></a>DockerHub 操作</h2><p>登陆DockerHub，创建Automated Build项目</p>
-<p>没有DockerHub账号的需要注册一个，未关联github账号的，创建Automated Build项目时会要求绑定 github账号，按提示操作即可。</p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/automated_build.JPG" alt="image"></p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/automated_build2.JPG" alt="image"></p>
-<p>选择仓库：</p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/choose_repo.JPG" alt="image"></p>
-<p>选择仓库创建</p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/created.JPG" alt="image"></p>
-<p>默认是在仓库的根目录检查Dockerfile文件，但是我们这里是要用一个仓库构建多个镜像，所有创建了子目录，把Dockerfile放在子目录里面，指定Dockerfile位置。点击保存，再点击触发：</p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/build_settings.JPG" alt="image"></p>
-<p>触发后可以去构建详细那里查看构建结果，如果失败了点击错误可以看到日志。</p>
-<p><img src="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/build_detail.JPG" alt="image"></p>
-<p>把镜像拉取到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull leitty/kubeimage/apiserver</span><br></pre></td></tr></table></figure></p>
-<p>修改一下tag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag leitty/kubeimage/apiserver gcr.io/google_containers/kube-apiserver-amd64:v1.11.1</span><br></pre></td></tr></table></figure></p>
-<p>gcr.io/google_containers/kube-apiserver-amd64:v1.11.1镜像就出炉了，可以愉快的部署了</p>
-<p>附一个墙外查询镜像的地址：</p>
-<p><a href="https://console.cloud.google.com/gcr/images/google-containers/GLOBAL" target="_blank" rel="noopener">https://console.cloud.google.com/gcr/images/google-containers/GLOBAL</a></p>
-<p>参考：</p>
-<p><a href="https://www.jianshu.com/p/e2de1629980d" target="_blank" rel="noopener">https://www.jianshu.com/p/e2de1629980d</a></p>
-<p><a href="https://ieevee.com/tech/2017/04/07/k8s-mirror.html" target="_blank" rel="noopener">https://ieevee.com/tech/2017/04/07/k8s-mirror.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/" data-id="cjsiynku3000avwvlr0orhqir" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-23-Nginx-Gunicorn-Django-部署" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" class="article-date">
-  <time datetime="2018-07-23T14:53:10.000Z" itemprop="datePublished">2018-07-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Django/">Django</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/">2018-07-23-Nginx + Gunicorn + Django 部署</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Nginx-安装配置"><a href="#Nginx-安装配置" class="headerlink" title="Nginx 安装配置"></a>Nginx 安装配置</h2><h3 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install nginx</span><br></pre></td></tr></table></figure>
-<p>设置nginx开机启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig nginx on</span><br></pre></td></tr></table></figure></p>
-<p>启动nginx:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure></p>
-<h3 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h3><p>在/etc/nginx/conf.d下新建配置文件nginx.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen   80;</span><br><span class="line"></span><br><span class="line">        server_name _;</span><br><span class="line">        access_log  /var/log/nginx/access.log;</span><br><span class="line">        error_log   /var/log/nginx/error.log;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                proxy_set_header Host $host;</span><br><span class="line">                proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Gunicorn安装配置"><a href="#Gunicorn安装配置" class="headerlink" title="Gunicorn安装配置"></a>Gunicorn安装配置</h2><h3 id="Gunicorn安装"><a href="#Gunicorn安装" class="headerlink" title="Gunicorn安装"></a>Gunicorn安装</h3><p>使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure></p>
-<h3 id="Gunicorn配置"><a href="#Gunicorn配置" class="headerlink" title="Gunicorn配置"></a>Gunicorn配置</h3><p>在Django的项目文件下启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup gunicorn -w 3 -b 127.0.0.1:8080 mysite.wsgi:application &amp;</span><br></pre></td></tr></table></figure></p>
-<p>其中mysite为project名，关于project.wsgi:application的解释，前半截很容易理解，就是调用了project下的wsgi.py，而后面的application，我一开始以为这个application是要改成自己app的名字，后来才发现，这个实际上是wsgi.py中的变量，所以是固定的，不用改。</p>
-<p>试着运行没问题之后，可以直接在根目录下创建gunicorn.conf.py</p>
-<p>来配置位置，以后运行就用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunicorn -c gunicorn.conf.py project.wsgi:appliction</span><br></pre></td></tr></table></figure></p>
-<p>也可以</p>
-<ol>
-<li><p>在project下新建gunicorn的配置文件gunicorn.conf.py</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing</span><br><span class="line"></span><br><span class="line">bind = &quot;127.0.0.1:8080&quot;</span><br><span class="line">workers = 2</span><br><span class="line">errorlog = &apos;/home/brad/xxx_project/gunicorn.error.log&apos;</span><br><span class="line">#accesslog = &apos;./gunicorn.access.log&apos;</span><br><span class="line">#loglevel = &apos;debug&apos;</span><br><span class="line">proc_name = &apos;gunicorn_blog_project&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用配置启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nohup gunicorn xz1024_project.wsgi:application -c /home/brad/xz1024_project/gunicorn.conf.py&amp;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Django安装"><a href="#Django安装" class="headerlink" title="Django安装"></a>Django安装</h2><h2 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h2><ol>
-<li>nginx启动的用户</li>
-<li>selinux置为disabled<br>查看当前selinux的状态。</li>
-</ol>
-<p>/usr/sbin/sestatus</p>
-<p>将SELINUX=enforcing 修改为 SELINUX=disabled 状态。</p>
-<p>vi /etc/selinux/config</p>
-<p>#SELINUX=enforcing</p>
-<p>SELINUX=disabled</p>
-<p>重启生效。reboot。</p>
-<p>reboot</p>
-<p><a href="https://www.cnblogs.com/xz1024/p/6134359.html" target="_blank" rel="noopener">参考1</a><br><a href="，http://www.isaced.com/post-248.html">参考2</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/" data-id="cjsiynku10009vwvlxohgj9qk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-18-使用kubernetes部署jenkins" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" class="article-date">
-  <time datetime="2018-07-18T13:37:31.000Z" itemprop="datePublished">2018-07-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/">2018-07-18-使用kubernetes部署jenkins</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="创建ci空间"><a href="#创建ci空间" class="headerlink" title="创建ci空间"></a>创建ci空间</h2><p>给jenkins建立单独的表空间ci，与其他应用隔离<br><code>ci.yaml</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Namespace</span><br><span class="line">metadata:</span><br><span class="line">   name: ci</span><br><span class="line">   labels:</span><br><span class="line">     name: ci</span><br></pre></td></tr></table></figure>
-<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>创建jenkins-admin的用户，进行角色管理<code>jenkins-rbac.yaml</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: ServiceAccount</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: jenkins</span><br><span class="line">  name: jenkins-admin</span><br><span class="line">  namespace: ci</span><br><span class="line">---</span><br><span class="line">apiVersion: rbac.authorization.k8s.io/v1beta1</span><br><span class="line">kind: ClusterRoleBinding</span><br><span class="line">metadata:</span><br><span class="line">  name: jenkins-admin</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: jenkins</span><br><span class="line">roleRef:</span><br><span class="line">  apiGroup: rbac.authorization.k8s.io</span><br><span class="line">  kind: ClusterRole</span><br><span class="line">  name: cluster-admin</span><br><span class="line">subjects:</span><br><span class="line">- kind: ServiceAccount</span><br><span class="line">  name: jenkins-admin</span><br><span class="line">  namespace: ci</span><br><span class="line">---</span><br><span class="line">kind: ClusterRole</span><br><span class="line">apiVersion: rbac.authorization.k8s.io/v1beta1</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: jenkins</span><br><span class="line">  name: jenkins</span><br><span class="line">rules:</span><br><span class="line">- apiGroups: [&quot;&quot;, &quot;extensions&quot;, &quot;apps&quot;]</span><br><span class="line">  resources:</span><br><span class="line">    - nodes</span><br><span class="line">    - nodes/proxy</span><br><span class="line">    - endpoints</span><br><span class="line">    - secrets</span><br><span class="line">    - pods</span><br><span class="line">    - deployments</span><br><span class="line">    - services</span><br><span class="line">  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建jenkins应用"><a href="#创建jenkins应用" class="headerlink" title="创建jenkins应用"></a>创建jenkins应用</h2><p>jenkins需要挂载三个目录，挂载/var/jenkins_home的目录到/home/ap/ci/jenkins/var/jenkins_home，挂载/home/data的目录到/home/ap/ci/jenkins/data，挂载/home/jenkins到/home/ap/ci/jenkins/jenkins</p>
-<p>同时jenkins需要安装到master服务器上，所以需要给master打上label，指令：</p>
-<p><code>kubectl label nodes master type=k8s-master</code></p>
-<p>同时在配置文件中设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nodeSelector:</span><br><span class="line">     type: k8s-master</span><br></pre></td></tr></table></figure></p>
-<p>具体配置文件如下<br><code>jenkins.yaml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps/v1beta2 # for versions before 1.8.0 use apps/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: jenkins</span><br><span class="line">  namespace: ci</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: jenkins</span><br><span class="line">spec:</span><br><span class="line">  replicas: 1</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s-app: jenkins</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        k8s-app: jenkins</span><br><span class="line">    spec:</span><br><span class="line">	  nodeSelector:</span><br><span class="line">        type: k8s-master</span><br><span class="line">      containers:</span><br><span class="line">      - name: jenkins</span><br><span class="line">        image: jenkins:devops</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: var-jenkins-home</span><br><span class="line">          mountPath: /var/jenkins_home</span><br><span class="line">        - name: jenkins-data</span><br><span class="line">          mountPath: /home/data</span><br><span class="line">        - name: home-jenkins</span><br><span class="line">          mountPath: /home/jenkins	  </span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 8080</span><br><span class="line">        - containerPort: 50000</span><br><span class="line">      volumes:</span><br><span class="line">        - name: var-jenkins-home</span><br><span class="line">          hostPath:</span><br><span class="line">            path: /home/ap/ci/jenkins/var/jenkins_home</span><br><span class="line">        - name: jenkins-data</span><br><span class="line">          hostPath:</span><br><span class="line">            path: /home/ap/ci/jenkins/data</span><br><span class="line">        - name: home-jenkins</span><br><span class="line">          hostPath:</span><br><span class="line">            path: /home/ap/ci/jenkins/jenkins</span><br><span class="line">      serviceAccount: &quot;jenkins-admin&quot;</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建jenkins服务"><a href="#创建jenkins服务" class="headerlink" title="创建jenkins服务"></a>创建jenkins服务</h2><p><code>jenkins-service.yaml</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">kind: Service</span><br><span class="line">apiVersion: v1</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: jenkins</span><br><span class="line">  name: jenkins</span><br><span class="line">  namespace: ci</span><br><span class="line">  annotations:</span><br><span class="line">    prometheus.io/scrape: &apos;true&apos;</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">    - port: 8080</span><br><span class="line">      name: jenkins</span><br><span class="line">      targetPort: 8080</span><br><span class="line">      nodePort: 31888</span><br><span class="line">    - port: 50000</span><br><span class="line">      name: jenkins-agent</span><br><span class="line">      targetPort: 50000</span><br><span class="line">  type: NodePort</span><br><span class="line">  selector:</span><br><span class="line">    k8s-app: jenkins</span><br></pre></td></tr></table></figure></p>
-<p>创建完查看集群信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master jenkins_k8s]# kubectl get service -n ci</span><br><span class="line">NAME      TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                          AGE</span><br><span class="line">jenkins   NodePort   10.102.120.26   &lt;none&gt;        8080:31888/TCP,50000:31461/TCP   34m</span><br></pre></td></tr></table></figure></p>
-<p>现在就可以通过http://{IP}:31888访问jenkins了</p>
-<h2 id="kubernetes插件配置"><a href="#kubernetes插件配置" class="headerlink" title="kubernetes插件配置"></a>kubernetes插件配置</h2><p>下载插件kubernetes，在【系统管理】-【系统设置】-【新增一个云】-【Kubernetes】配置k8s的插件</p>
-<p><img src="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/conf1.PNG" alt="image"></p>
-<p><img src="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/conf2.PNG" alt="image"></p>
-<p><img src="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/conf3.PNG" alt="image"></p>
-<p>参考上图的说明，进行配置。要注意的是，这里的Name字段配的名字，后面在配置pipeline的Jenkins任务时，是需要用到的（假设这里使用的名字叫Kubernetes）。然后点【Test Connection】，如果前面的Service Account配置的没问题的话，就会提示“Connection successful”，否则，会有访问apiserver的403权限报错。 </p>
-<p>用pipeline方式创建一个如下的Jenkins构建任务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// this guarantees the node will use this template</span><br><span class="line">def label = &quot;mypod-$&#123;UUID.randomUUID().toString()&#125;&quot;</span><br><span class="line">podTemplate(label: label) &#123;</span><br><span class="line">    node(label) &#123;</span><br><span class="line">        stage(&apos;Run shell&apos;) &#123;</span><br><span class="line">            sh &apos;echo hello world&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>图2中Jenkins URL请填http://<cluster-ip>:<port>或者<a href="http://jenkins.ci:8080,尽量不要使用服务器的IP" target="_blank" rel="noopener">http://jenkins.ci:8080,尽量不要使用服务器的IP</a>:<nodeport>，使用服务器IP时，slave节点通过<a href="http://IP:50000端口与jenkins通信，但k8s只能暴露30000-32767端口，所以slave会连接失败" target="_blank" rel="noopener">http://IP:50000端口与jenkins通信，但k8s只能暴露30000-32767端口，所以slave会连接失败</a></nodeport></port></cluster-ip></p>
-<h2 id="问题与解决"><a href="#问题与解决" class="headerlink" title="问题与解决"></a>问题与解决</h2><p>1、 jenkins 插件目录和工作目录的挂载：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  volumeMounts:</span><br><span class="line">  - name: jenkins-home</span><br><span class="line">    mountPath: /var/jenkins_home</span><br><span class="line">  ports:</span><br><span class="line">  - containerPort: 8080</span><br><span class="line">  - containerPort: 50000</span><br><span class="line">volumes:</span><br><span class="line">  - name: jenkins-home</span><br><span class="line">    hostPath:</span><br><span class="line">      path: /home/ap/ci/jenkins/test</span><br></pre></td></tr></table></figure></p>
-<p>volumes将容器中的/var/jenkins_home目录挂载到本地的/home/ap/ci/jenkins/test文件夹中</p>
-<p>2、 slave连接jenkins</p>
-<p>slave连接jenkins时，新建出来的容器报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">[root@master jenkins_k8s]# kubectl logs pod/jenkins-slave-vcr29-lg2bz  -n ci</span><br><span class="line">Warning: JnlpProtocol3 is disabled by default, use JNLP_PROTOCOL_OPTS to alter the behavior</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main createEngine</span><br><span class="line">INFO: Setting up agent: jenkins-slave-vcr29-lg2bz</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main$CuiListener &lt;init&gt;</span><br><span class="line">INFO: Jenkins agent is running in headless mode.</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.Engine startEngine</span><br><span class="line">INFO: Using Remoting version: 3.19</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.Engine startEngine</span><br><span class="line">WARNING: No Working Directory. Using the legacy JAR Cache location: /home/jenkins/.jenkins/cache/jars</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Locating server among [http://10.128.13.24:31888/]</span><br><span class="line">Jun 14, 2018 8:08:33 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve</span><br><span class="line">INFO: Remoting server accepts the following protocols: [JNLP4-connect, JNLP-connect, Ping, JNLP2-connect]</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Agent discovery successful</span><br><span class="line">  Agent address: 10.128.13.24</span><br><span class="line">  Agent port:    50000</span><br><span class="line">  Identity:      2e:b1:d0:06:6f:be:fb:5a:53:86:f6:a5:27:03:49:98</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Handshaking</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000</span><br><span class="line">Jun 14, 2018 8:08:33 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Trying protocol: JNLP4-connect</span><br><span class="line">Jun 14, 2018 8:08:39 AM org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer onRecv</span><br><span class="line">SEVERE: [JNLP4-connect connection to 10.128.13.24/10.128.13.24:50000] </span><br><span class="line">javax.net.ssl.SSLHandshakeException: General SSLEngine problem</span><br><span class="line">	at sun.security.ssl.Handshaker.checkThrown(Handshaker.java:1478)</span><br><span class="line">	at sun.security.ssl.SSLEngineImpl.checkTaskThrown(SSLEngineImpl.java:535)</span><br><span class="line">	at sun.security.ssl.SSLEngineImpl.writeAppRecord(SSLEngineImpl.java:1214)</span><br><span class="line">	at sun.security.ssl.SSLEngineImpl.wrap(SSLEngineImpl.java:1186)</span><br><span class="line">	at javax.net.ssl.SSLEngine.wrap(SSLEngine.java:469)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processRead(SSLEngineFilterLayer.java:392)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecv(SSLEngineFilterLayer.java:117)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecv(ProtocolStack.java:669)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.impl.AckFilterLayer.onRecv(AckFilterLayer.java:255)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecv(ProtocolStack.java:669)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.NetworkLayer.onRead(NetworkLayer.java:136)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.impl.BIONetworkLayer.access$2200(BIONetworkLayer.java:48)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.impl.BIONetworkLayer$Reader.run(BIONetworkLayer.java:283)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)</span><br><span class="line">	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:93)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">Caused by: javax.net.ssl.SSLHandshakeException: General SSLEngine problem</span><br><span class="line">	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)</span><br><span class="line">	at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1728)</span><br><span class="line">	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:304)</span><br><span class="line">	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:296)</span><br><span class="line">	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1514)</span><br><span class="line">	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:216)</span><br><span class="line">	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:1026)</span><br><span class="line">	at sun.security.ssl.Handshaker$1.run(Handshaker.java:966)</span><br><span class="line">	at sun.security.ssl.Handshaker$1.run(Handshaker.java:963)</span><br><span class="line">	at java.security.AccessController.doPrivileged(Native Method)</span><br><span class="line">	at sun.security.ssl.Handshaker$DelegatedTask.run(Handshaker.java:1416)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.processRead(SSLEngineFilterLayer.java:382)</span><br><span class="line">	... 11 more</span><br><span class="line">Caused by: java.security.cert.CertificateException: Public key of the first certificate in chain (subject: C=US, OU=jenkins.io, O=instances, CN=364eef21b316f8b881b4b55dcc19bb20) is not in the list of trusted keys</span><br><span class="line">	at org.jenkinsci.remoting.protocol.cert.PublicKeyMatchingX509ExtendedTrustManager.checkPublicKey(PublicKeyMatchingX509ExtendedTrustManager.java:217)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.cert.PublicKeyMatchingX509ExtendedTrustManager.checkServerTrusted(PublicKeyMatchingX509ExtendedTrustManager.java:263)</span><br><span class="line">	at org.jenkinsci.remoting.protocol.cert.DelegatingX509ExtendedTrustManager.checkServerTrusted(DelegatingX509ExtendedTrustManager.java:148)</span><br><span class="line">	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1501)</span><br><span class="line">	... 18 more</span><br></pre></td></tr></table></figure></p>
-<p>原因：</p>
-<p>jenkins-slave连接到<a href="http://IP:50000，但k8s只能暴露30000-32767端口，所以slave会连接失败。" target="_blank" rel="noopener">http://IP:50000，但k8s只能暴露30000-32767端口，所以slave会连接失败。</a></p>
-<p>三种方法解决：</p>
-<p>(1) jenkins的kubernetes配置中，Jenkins URL填http://<cluster-ip>:<port>或者<a href="http://jenkins.ci:8080,jenkins-slave会到" target="_blank" rel="noopener">http://jenkins.ci:8080,jenkins-slave会到</a><cluster-ip>:50000请求连接</cluster-ip></port></cluster-ip></p>
-<p>(2) 使用ingress代替service的port暴露，详细见查考链接</p>
-<p>(3) k8s启动时带上解除端口限制的参数，详细见查考链接</p>
-<h2 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h2><p>RBAC的授权：<a href="https://www.kubernetes.org.cn/4062.html" target="_blank" rel="noopener">https://www.kubernetes.org.cn/4062.html</a></p>
-<p>jenkins配置：<a href="https://blog.csdn.net/felix_yujing/article/details/78725142" target="_blank" rel="noopener">https://blog.csdn.net/felix_yujing/article/details/78725142</a></p>
-<p>jenkins配置：<a href="https://blog.csdn.net/aixiaoyang168/article/details/79767649" target="_blank" rel="noopener">https://blog.csdn.net/aixiaoyang168/article/details/79767649</a></p>
-<p>ingress代替service的port暴露：<a href="https://zhangchenchen.github.io/2017/12/17/achieve-cicd-in-kubernetes-with-jenkins/" target="_blank" rel="noopener">https://zhangchenchen.github.io/2017/12/17/achieve-cicd-in-kubernetes-with-jenkins/</a></p>
-<p>k8s启动时带上解除端口限制的参数：<a href="https://github.com/kubernetes/kubeadm/issues/122" target="_blank" rel="noopener">https://github.com/kubernetes/kubeadm/issues/122</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/18/2018-07-18-使用kubernetes部署jenkins/" data-id="cjsiynktz0006vwvldisjs4x3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-16-使用Docker进行jenkins的安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" class="article-date">
-  <time datetime="2018-07-16T13:38:42.000Z" itemprop="datePublished">2018-07-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/">2018-07-16-使用Docker进行jenkins的安装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Master节点的安装"><a href="#Master节点的安装" class="headerlink" title="Master节点的安装"></a>Master节点的安装</h2><p>拉取镜像最新的jenkins镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkins/jenkins</span><br></pre></td></tr></table></figure></p>
-<p>使用docker运行jenkins：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -idt -v /home/ap/ci/jenkins:/home/jenkins -v /home/ap/ci/jenkins_home:/home/data -p 8002:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure></p>
-<p>其中将8080端口映射到主机的8002端口，50000端口为jnlp端口，slave连接master时使用，不建议映射其它端口</p>
-<p>修改文件的用户和组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">chown [-R] 账号名称 文件或目录</span><br><span class="line">chown [-R] 账号名称:用户组名称 文件或目录</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">-R : 进行递归( recursive )的持续更改，即连同子目录下的所有文件、目录</span><br><span class="line">都更新成为这个用户组。常常用在更改某一目录的情况。</span><br><span class="line">chgrp [-R] 用户组名称 dirname/filename ...</span><br><span class="line"></span><br><span class="line">例:</span><br><span class="line">chown -R ci:ci testfile</span><br><span class="line">chgrp ci testfile</span><br></pre></td></tr></table></figure></p>
-<p>docker运行jenkins的命令改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -idt --privileged=true -v /home/ap/ci/jenkins/jenkins:/home/jenkins:rw -v /home/ap/ci/jenkins/data:/home/data:rw -v /home/ap/ci/jenkins/var/jenkins_home:/var/jenkins_home:rw -p 8002:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure></p>
-<p>加入邮箱参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -idt --privileged=true -v /home/ap/ci/jenkins/jenkins:/home/jenkins:rw -v /home/ap/ci/jenkins/data:/home/data:rw -v /home/ap/ci/jenkins/var/jenkins_home:/var/jenkins_home:rw -p 8002:8080 -p 50000:50000 --env JAVA_OPTS=-Dmail.smtp.starttls.enable=true  jenkins</span><br></pre></td></tr></table></figure></p>
-<h2 id="Slave节点的安装"><a href="#Slave节点的安装" class="headerlink" title="Slave节点的安装"></a>Slave节点的安装</h2><p>在jenkins的控制页面上新建节点slave1，记下secret<br>使用docker运行jenkins：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run jenkins/jnlp-slave -url http://10.128.13.24:8002 -workDir=/home/jenkins/agent 0970d2705317754f3a5ba366a67a891733668e1503c0a9c043a6883bad349d8c slave1</span><br></pre></td></tr></table></figure></p>
-<p>其中-url后为jenkins的地址</p>
-<h2 id="安装过程中出现的问题"><a href="#安装过程中出现的问题" class="headerlink" title="安装过程中出现的问题"></a>安装过程中出现的问题</h2><p>网上教程中slave连接master用的是jnlp端口，即slave启动命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run jenkins/jnlp-slave -url http://10.128.13.24:50000 -workDir=/home/jenkins/agent 0970d2705317754f3a5ba366a67a891733668e1503c0a9c043a6883bad349d8c slave1</span><br></pre></td></tr></table></figure></p>
-<p>程序报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# docker run jenkinsci/jnlp-slave -url http://10.128.13.24:8004 -workDir=/home/jenkins/agent 461db46f90597e560da388d270847d1a53abc4e27998c0ddcd314eee50a60084 slave1</span><br><span class="line">Warning: JnlpProtocol3 is disabled by default, use JNLP_PROTOCOL_OPTS to alter the behavior</span><br><span class="line">Apr 24, 2018 12:54:51 AM hudson.remoting.jnlp.Main createEngine</span><br><span class="line">INFO: Setting up agent: slave1</span><br><span class="line">Apr 24, 2018 12:54:51 AM hudson.remoting.jnlp.Main$CuiListener &lt;init&gt;</span><br><span class="line">INFO: Jenkins agent is running in headless mode.</span><br><span class="line">Apr 24, 2018 12:54:51 AM hudson.remoting.Engine startEngine</span><br><span class="line">INFO: Using Remoting version: 3.19</span><br><span class="line">Apr 24, 2018 12:54:51 AM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir</span><br><span class="line">INFO: Using /home/jenkins/agent/remoting as a remoting work directory</span><br><span class="line">Both error and output logs will be printed to /home/jenkins/agent/remoting</span><br><span class="line">Apr 24, 2018 12:54:52 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Locating server among [http://10.128.13.24:8004]</span><br><span class="line">Apr 24, 2018 12:54:52 AM hudson.remoting.jnlp.Main$CuiListener error</span><br><span class="line">SEVERE: http://10.128.13.24:8004/tcpSlaveAgentListener/ is invalid: 404 Not Found</span><br><span class="line">java.io.IOException: http://10.128.13.24:8004/tcpSlaveAgentListener/ is invalid: 404 Not Found</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver.resolve(JnlpAgentEndpointResolver.java:197)</span><br><span class="line">at hudson.remoting.Engine.innerRun(Engine.java:518)</span><br><span class="line">at hudson.remoting.Engine.run(Engine.java:469)</span><br></pre></td></tr></table></figure></p>
-<p>使用<code>curl http://10.128.13.24:8004/tcpSlaveAgentListener/</code>报404的错，使用<code>curl http://10.128.13.24:8002/tcpSlaveAgentListener/</code>发现连接可以，改为<code>docker run jenkins/jnlp-slave -url http://10.128.13.24:8002 -workDir=/home/jenkins/agent 0970d2705317754f3a5ba366a67a891733668e1503c0a9c043a6883bad349d8c slave1</code>报错如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# docker run jenkins/jnlp-slave -url http://10.128.13.24:8002 -workDir=/home/jenkins/agent db7a3b79158e04cc22344f954b20e7605c518f078d011599daf96cfaf0244000 slave1</span><br><span class="line">Warning: JnlpProtocol3 is disabled by default, use JNLP_PROTOCOL_OPTS to alter the behavior</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main createEngine</span><br><span class="line">INFO: Setting up agent: slave1</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener &lt;init&gt;</span><br><span class="line">INFO: Jenkins agent is running in headless mode.</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.Engine startEngine</span><br><span class="line">INFO: Using Remoting version: 3.19</span><br><span class="line">Apr 24, 2018 1:47:46 AM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir</span><br><span class="line">INFO: Using /home/jenkins/agent/remoting as a remoting work directory</span><br><span class="line">Both error and output logs will be printed to /home/jenkins/agent/remoting</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Locating server among [http://10.128.13.24:8002]</span><br><span class="line">Apr 24, 2018 1:47:46 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve</span><br><span class="line">INFO: Remoting server accepts the following protocols: [JNLP4-connect, JNLP-connect, Ping, JNLP2-connect]</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Agent discovery successful</span><br><span class="line">Agent address: 10.128.13.24</span><br><span class="line">Agent port: 50000</span><br><span class="line">Identity: ff:93:c5:75:64:ca:d8:47:14:6a:49:57:ec:40:ab:c0</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Handshaking</span><br><span class="line">Apr 24, 2018 1:47:46 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000</span><br><span class="line">Apr 24, 2018 1:47:56 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000 (retrying:2)</span><br><span class="line">java.io.IOException: Failed to connect to 10.128.13.24:50000</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:242)</span><br><span class="line">at hudson.remoting.Engine.connect(Engine.java:686)</span><br><span class="line">at hudson.remoting.Engine.innerRun(Engine.java:547)</span><br><span class="line">at hudson.remoting.Engine.run(Engine.java:469)</span><br><span class="line">Caused by: java.net.ConnectException: Connection refused</span><br><span class="line">at sun.nio.ch.Net.connect0(Native Method)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:454)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:446)</span><br><span class="line">at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:648)</span><br><span class="line">at java.nio.channels.SocketChannel.open(SocketChannel.java:189)</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:203)</span><br><span class="line">... 3 more</span><br><span class="line"></span><br><span class="line">Apr 24, 2018 1:48:06 AM hudson.remoting.jnlp.Main$CuiListener status</span><br><span class="line">INFO: Connecting to 10.128.13.24:50000 (retrying:3)</span><br><span class="line">java.io.IOException: Failed to connect to 10.128.13.24:50000</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:242)</span><br><span class="line">at hudson.remoting.Engine.connect(Engine.java:686)</span><br><span class="line">at hudson.remoting.Engine.innerRun(Engine.java:547)</span><br><span class="line">at hudson.remoting.Engine.run(Engine.java:469)</span><br><span class="line">Caused by: java.net.ConnectException: Connection refused</span><br><span class="line">at sun.nio.ch.Net.connect0(Native Method)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:454)</span><br><span class="line">at sun.nio.ch.Net.connect(Net.java:446)</span><br><span class="line">at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:648)</span><br><span class="line">at java.nio.channels.SocketChannel.open(SocketChannel.java:189)</span><br><span class="line">at org.jenkinsci.remoting.engine.JnlpAgentEndpoint.open(JnlpAgentEndpoint.java:203)</span><br><span class="line">... 3 more</span><br></pre></td></tr></table></figure>
-<p>jnlp-slave中默认连接maste节点的50000端口，将master节点启动的jnlp端口设为50000，程序正常</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/16/2018-07-16-使用Docker进行jenkins的安装/" data-id="cjsiynktx0005vwvlmmxksdcv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-12-jenkins简介" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/12/2018-07-12-jenkins简介/" class="article-date">
-  <time datetime="2018-07-12T13:46:59.000Z" itemprop="datePublished">2018-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/2018-07-12-jenkins简介/">2018-07-12-jenkins简介</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="jenkins简介"><a href="#jenkins简介" class="headerlink" title="jenkins简介"></a>jenkins简介</h1><h2 id="Jenkins是什么"><a href="#Jenkins是什么" class="headerlink" title="Jenkins是什么"></a>Jenkins是什么</h2><p>Jenkins 是一个可扩展的持续集成引擎。</p>
-<p>主要用于：</p>
-<ol>
-<li><p>持续、自动地构建/测试软件项目。</p>
-</li>
-<li><p>监控一些定时执行的任务。</p>
-</li>
-</ol>
-<p>下图概括了CI系统的基本结构：</p>
-<p><img src="/2018/07/12/2018-07-12-jenkins简介/jenkins_ci.jpg" alt=""></p>
-<p>从图中我们可以看出该系统的各个组成部分是按如下顺序来发挥作用的：</p>
-<ol>
-<li>开发者检入代码到源代码仓库。</li>
-</ol>
-<p>2.CI系统会为每一个项目创建了一个单独的工作区。当预设或请求一次新的构建时，它将把源代码仓库的源码存放到对应的工作区。</p>
-<ol start="3">
-<li>CI系统会在对应的工作区内执行构建过程。</li>
-</ol>
-<p>4.（配置如果存在）构建完成后，CI系统会在一个新的构件中执行定义的一套测试。完成后触发通知(Email,RSS等等)给相关的当事人。</p>
-<p>5.（配置如果存在）如果构建成功，这个构件会被打包并转移到一个部署目标(如应用服务器)或存储为软件仓库中的一个新版本。软件仓库可以是CI系统的一部分，也可以是一个外部的仓库，诸如一个文件服务器或者像Java.net、 SourceForge之类的网站。</p>
-<ol start="6">
-<li>CI系统通常会根据请求发起相应的操作，诸如即时构建、生成报告，或者检索一些构建好的构件。</li>
-</ol>
-<p>Jenkins就是这么一个CI系统。之前叫做Hudson。</p>
-<p>以下是使用Jenkins的一些理由：</p>
-<ul>
-<li><p>是所有CI产品中在安装和配置上最简单的，只要把jenkins.war部署到servlet容器，不需要数据库支持。</p>
-</li>
-<li><p>基于Web访问，用户界面非常友好、直观和灵活，在许多情况下，还提供了AJAX的即时反馈，集成RSS/E-mail通过RSS发布构建结果或当构建完成时通过e-mail通知，生成JUnit/TestNG测试报告等等。</p>
-</li>
-<li><p>Jenkins是基于Java开发的(如果你是一个Java开发人员，这是非常有用的)，但它不仅限于构建基于Java的软件。</p>
-</li>
-<li><p>Jenkins拥有大量的插件。这些插件极大的扩展了Jenkins的功能；它们都是开源的，而且它们可以直接通过web界面来进行安装与管理，你可以开发适合自己团队使用的工具。</p>
-</li>
-<li><p>分布式构建支持Jenkins能够让多台计算机一起构建/测试。</p>
-</li>
-</ul>
-<h2 id="CI到CD的转变"><a href="#CI到CD的转变" class="headerlink" title="CI到CD的转变"></a>CI到CD的转变</h2><p>2017年4，Jenkins退出2.0版本，实现CI(Continuous Integration)到CD(Continuous Delivery)。所谓Pipeline，简单来说，就是一套运行于Jenkins上的工作流框架，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂发布流程。</p>
-<p>Pipeline脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Jenkinsfile (Declarative Pipeline)</span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&apos;Build&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &apos;Building..&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&apos;Test&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &apos;Testing..&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&apos;Deploy&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &apos;Deploying....&apos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="项目构建设置"><a href="#项目构建设置" class="headerlink" title="项目构建设置"></a>项目构建设置</h1><h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><h3 id="构建任务"><a href="#构建任务" class="headerlink" title="构建任务"></a>构建任务</h3><p>（1） 新建任务</p>
-<p>（2）进行配置（可以选择构建/发布包最大的保存个数/保存时间）<br><img src="/2018/07/12/2018-07-12-jenkins简介/general.png" alt=""><br>源码管理配置（有Git/SVN等多种选择）：<br><img src="/2018/07/12/2018-07-12-jenkins简介/source_code_management.png" alt=""></p>
-<p>构建触发器：</p>
-<p>常用的包括Build periodically和Poll SCM</p>
-<p>Poll SCM ：当选择此选项，可以指定一个定时作业表达式来定义Jenkins每隔多久检查一下您源代码仓库的变化。如果发现变化，就执行一次构建。例如，表达式中填写0,15,30,45 <em> </em> <em> </em>将使Jenkins每隔15分钟就检查一次您源码仓库的变化。</p>
-<p>Build periodically ：此选项仅仅通知Jenkins按指定的频率对项目进行构建，而不管SCM是否有变化。如果想在这个Job中运行一些测试用例的话，它就很有帮助。<br><img src="/2018/07/12/2018-07-12-jenkins简介/build_trigger.png" alt=""></p>
-<p>构建：</p>
-<p>我们构建的是JAVA maven项目，选择Invoke top-level Maven targets:<br><img src="/2018/07/12/2018-07-12-jenkins简介/add_build.png" alt=""></p>
-<p>构建命令直接使用：<code>mvn clean install</code>就可以了，加入Junit需要跳过测试命令为：<code>clean install -Dmaven.test.skip=true</code>；当我们需要执行测试类的时候，我们需要配置单元测试命令(mvn test) 或者 单元测试&amp;集成测试命令（mvn verify）。如下图所示：<br><img src="/2018/07/12/2018-07-12-jenkins简介/build.png" alt=""></p>
-<p>其中，POM是写项目中pom.xml的路径，比如我项目中的pom.xml路径如下就可以直接pom.xml，若pom.xml文件在src文件夹下，需要写为src/pom.xml，默认的根路径是源码管理配置中的路径<br><img src="/2018/07/12/2018-07-12-jenkins简介/rep_url.png" alt=""></p>
-<p>构建后操作：</p>
-<p>设置构建后操作有很多选项，如下图所示，生产Junit报告，进行邮件通知，设置GitHub提交状态等等，还可以进行发布部署，需要安装插件Deploy Plugin插件<br><img src="/2018/07/12/2018-07-12-jenkins简介/add_post_build.png" alt=""></p>
-<p>前面我们进行了Junit测试，现在可以在构建结束后生成Junit报告<br><img src="/2018/07/12/2018-07-12-jenkins简介/junit.png" alt=""></p>
-<h3 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h3><p><img src="/2018/07/12/2018-07-12-jenkins简介/Homepage.png" alt=""><br>jenkins的主页面提供了任务的监控</p>
-<p>当任务一旦运行，您将会看到这个任务正在队列中的仪表板和当前工作主页上运行。这两种显示如下。<br><img src="/2018/07/12/2018-07-12-jenkins简介/status.png" alt=""></p>
-<p>你可以在Jenkins的控制面板上看到它，如下图。<br><img src="/2018/07/12/2018-07-12-jenkins简介/dashboard.png" alt=""></p>
-<p>S栏目代表着“最新构建状态”，W栏目代表着“构建稳定性”。Jenkins使用这两个概念来介绍一个作业的总体状况：</p>
-<p>构建状态:下图中分级符号概述了一个Job新近一次构建会产生的四种可能的状态： </p>
-<p>Successful:完成构建，且被认为是稳定的。</p>
-<p>Unstable:完成构建，但被认为不稳定。</p>
-<p>Failed:构建失败。</p>
-<p>Disabled:构建已禁用。<br><img src="/2018/07/12/2018-07-12-jenkins简介/job_status.jpeg" alt=""></p>
-<p>构建稳定性: </p>
-<p>当一个Job中构建已完成并生成了一个未发布的目标构件，如果您准备评估此次构建的稳定性，Jenkins会基于一些后处理器任务为构建发布一个稳健指数 (从0-100 )，这些任务一般以插件的方式实现。它们可能包括单元测试(JUnit)、覆盖率(Cobertura )和静态代码分析(FindBugs)。分数越高，表明构建越稳定。下图中分级符号概述了稳定性的评分范围。任何构建作业的状态(总分100)低于80分就是不稳定的。<br><img src="/2018/07/12/2018-07-12-jenkins简介/weather.jpeg" alt=""></p>
-<p>将鼠标放在W列上能看到具体稳健指数的组成<br><img src="/2018/07/12/2018-07-12-jenkins简介/weather1.png" alt=""></p>
-<p>点击Name列进入对应的任务<br><img src="/2018/07/12/2018-07-12-jenkins简介/job.png" alt=""></p>
-<p>我们可以看到具体的构建情况</p>
-<p>选择一个构建版本，可以看到整个构建的日志：<br><img src="/2018/07/12/2018-07-12-jenkins简介/console_output.png" alt=""></p>
-<p>单元测试情况：<br><img src="/2018/07/12/2018-07-12-jenkins简介/test_result.png" alt=""></p>
-<h3 id="集成sonarqube"><a href="#集成sonarqube" class="headerlink" title="集成sonarqube"></a>集成sonarqube</h3><p>在build中添加Execute SonarQube Scanner<br><img src="/2018/07/12/2018-07-12-jenkins简介/jenkins_sonarqube.png" alt=""></p>
-<h3 id="邮件"><a href="#邮件" class="headerlink" title="邮件"></a>邮件</h3><p>插件email-ext<br><img src="/2018/07/12/2018-07-12-jenkins简介/email-ext.png" alt=""></p>
-<p>释放个我的配置：</p>
-<p>Default Subject：构建通知:$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!</p>
-<p>Default Content：&lt;hr/&gt;(本邮件是程序自动下发的，请勿回复！)&lt;br/&gt;&lt;hr/&gt;</p>
-<p>项目名称：$PROJECT_NAME&lt;br/&gt;&lt;hr/&gt;</p>
-<p>构建编号：$BUILD_NUMBER&lt;br/&gt;&lt;hr/&gt;</p>
-<p>svn版本号：${SVN_REVISION}&lt;br/&gt;&lt;hr/&gt;</p>
-<p>构建状态：$BUILD_STATUS&lt;br/&gt;&lt;hr/&gt;</p>
-<p>触发原因：${CAUSE}&lt;br/&gt;&lt;hr/&gt;</p>
-<p>构建日志地址：&lt;a href=”${BUILD_URL}console”&gt;${BUILD_URL}console&lt;/a&gt;&lt;br/&gt;&lt;hr/&gt;</p>
-<p>构建地址：&lt;a href=”$BUILD_URL”&gt;$BUILD_URL&lt;/a&gt;&lt;br/&gt;&lt;hr/&gt;</p>
-<p>变更集：${JELLY_SCRIPT,template=”html”}&lt;br/&gt;&lt;hr/&gt;</p>
-<h2 id="下节待续"><a href="#下节待续" class="headerlink" title="下节待续"></a>下节待续</h2><p>Docker部署jenkins、kubernetes部署jenkins</p>
-<p>参考：</p>
-<p><a href="http://www.360doc.com/content/17/0213/17/7811581_628728532.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/0213/17/7811581_628728532.shtml</a></p>
-<p><a href="https://blog.csdn.net/enweitech/article/details/51879864" target="_blank" rel="noopener">https://blog.csdn.net/enweitech/article/details/51879864</a></p>
-<p><a href="http://www.showerlee.com/archives/1972" target="_blank" rel="noopener">http://www.showerlee.com/archives/1972</a></p>
-<p><a href="http://www.cnblogs.com/zz0412" target="_blank" rel="noopener">http://www.cnblogs.com/zz0412</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/12/2018-07-12-jenkins简介/" data-id="cjsiynktm0004vwvlrdve3u4i" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-11-kubernetes-v1-10安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/" class="article-date">
-  <time datetime="2018-07-11T13:21:20.000Z" itemprop="datePublished">2018-07-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/11/2018-07-11-kubernetes-v1-10安装/">2018-07-11-kubernetes v1.10安装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近打算把OneNote、有道上的一些笔记，整理下发布到博客上来。首先从搞过一段时间的DevOps工具开始。作为目前最火的项目之一，本人安排了详细的学习计划，但是平时事情太多，计划只能暂缓。</p>
-<p>以下是在CentOs 7中通过kubeadm搭建Kubernetes v1.10的过程。前期曾通过<code>yum install kubernetes</code>在centos 7上直接部署了v1.5，启动都正常，但是在分发应用时卡壳了，查阅资料才知道是DNS问题，1.5版本好像是SkyDNS，部署有点麻烦，可查的资料也不多，后转向了V1.10版。</p>
-<h2 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h2><p>环境说明：三台CentOs 7的AP，IP分别是10.0.0.8，10.0.0.9，10.0.0.10</p>
-<p>1.配置好各节点hosts文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10.0.0.8  k8smaster</span><br><span class="line">10.0.0.9  k8snode1</span><br><span class="line">10.0.0.10  k8snode2</span><br></pre></td></tr></table></figure></p>
-<p>2.关闭各节点系统防火墙<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure></p>
-<p>3.关闭各节点SElinux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br><span class="line"></span><br><span class="line">SELINUX=disabled</span><br></pre></td></tr></table></figure></p>
-<p>4.关闭各节点swap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a</span><br></pre></td></tr></table></figure></p>
-<ol start="5">
-<li>创建/etc/sysctl.d/k8s.conf文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; /etc/sysctl.d/k8s.conf</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">vm.swappiness=0</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">sysctl -p /etc/sysctl.d/k8s.conf</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果遇到报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-ip6tables: No such file or directory</span><br><span class="line">sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory</span><br></pre></td></tr></table></figure></p>
-<p>需执行modprobe br_netfilter同时加入rc.local自启动中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">modprobe br_netfilter</span><br><span class="line">echo &quot;modprobe br_netfilter&quot; &gt;&gt; /etc/rc.local</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装kubeadm"><a href="#安装kubeadm" class="headerlink" title="安装kubeadm"></a>安装kubeadm</h2><ol>
-<li>首先配置各节点阿里K8S YUM源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo</span><br><span class="line"> </span><br><span class="line">[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line"> </span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">yum -y install epel-release</span><br><span class="line"> </span><br><span class="line">yum clean all</span><br><span class="line"> </span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2.在各节点安装kubeadm和相关工具包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker kubelet kubeadm kubectl kubernetes-cni</span><br></pre></td></tr></table></figure></p>
-<p>3.启动Docker与kubelet服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker &amp;&amp; systemctl start docker</span><br><span class="line"> </span><br><span class="line">systemctl enable kubelet &amp;&amp; systemctl start kubelet</span><br></pre></td></tr></table></figure></p>
-<p>查看docker要与kubelet.service的cgroup要一致：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker info | grep -i cgroup</span><br><span class="line">cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</span><br></pre></td></tr></table></figure></p>
-<p>其中docker.service在以下路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure></p>
-<p>改为以下方式<code>--exec-opt native.cgroupdriver=cgroupfs</code><br>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g&quot; /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<p>4.下载K8S相关镜像（Master节点操作）<br>因为无法直接访问gcr.io下载镜像，所以需要配置一个国内的容器镜像加速器</p>
-<p>配置一个阿里云的加速器：</p>
-<p>登录 <a href="https://cr.console.aliyun.com/" target="_blank" rel="noopener">https://cr.console.aliyun.com/</a></p>
-<p>在页面中找到并点击镜像加速按钮，即可看到属于自己的专属加速链接，选择Centos版本后即可看到配置方法。</p>
-<p>提示：在阿里云上使用 Docker 并配置阿里云镜像加速器，可能会遇到 daemon.json 导致 docker daemon 无法启动的问题，可以通过以下方法解决。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/docker </span><br><span class="line"> </span><br><span class="line">然后 </span><br><span class="line"> </span><br><span class="line">OPTIONS=&apos;--selinux-enabled --log-driver=journald --registry-mirror=http://xxxx.mirror.aliyuncs.com&apos; </span><br><span class="line">registry-mirror 输入你的镜像地址 </span><br><span class="line"> </span><br><span class="line">最后 service docker restart 重启 daemon </span><br><span class="line"> </span><br><span class="line">然后 ps aux | grep docker 然后你就会发现带有镜像的启动参数了。</span><br></pre></td></tr></table></figure>
-<p>5.下载K8S相关镜像</p>
-<p>OK，解决完加速器的问题之后，开始下载k8s相关镜像，下载后将镜像名改为k8s.gcr.io/开头的名字，以便kubeadm识别使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">images=(kube-proxy-amd64:v1.10.0 kube-scheduler-amd64:v1.10.0 kube-controller-manager-amd64:v1.10.0 kube-apiserver-amd64:v1.10.0</span><br><span class="line">etcd-amd64:3.1.12 pause-amd64:3.1 kubernetes-dashboard-amd64:v1.8.3 k8s-dns-sidecar-amd64:1.14.8 k8s-dns-kube-dns-amd64:1.14.8</span><br><span class="line">k8s-dns-dnsmasq-nanny-amd64:1.14.8)</span><br><span class="line">for imageName in $&#123;images[@]&#125; ; do</span><br><span class="line">  docker pull keveon/$imageName</span><br><span class="line">  docker tag keveon/$imageName k8s.gcr.io/$imageName</span><br><span class="line">  docker rmi keveon/$imageName</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<p>上面的shell脚本主要做了3件事，下载各种需要用到的容器镜像、重新打标记为符合k8s命令规范的版本名称、清除旧的容器镜像。</p>
-<p>提示：镜像版本一定要和kubeadm安装的版本一致，否则会出现time out问题。</p>
-<p>6.初始化安装K8S Master</p>
-<p>执行上述shell脚本，等待下载完成后，执行kubeadm init</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --kubernetes-version=v1.10.0 --pod-network-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure>
-<p>注意记住指令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join 10.0.0.8:6443 --token a6vlug.shwfx89vqrofvro7 --discovery-token-ca-cert-hash sha256:f7b5dc65173098b1ae74b06fe5062124528ff873c53ed38761601598ddbf1a58</span><br></pre></td></tr></table></figure></p>
-<p>7.配置kubectl认证信息（Master节点操作）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 对于非root用户</span><br><span class="line">mkdir -p $HOME/.kube</span><br><span class="line"> </span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line"> </span><br><span class="line">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br><span class="line"> </span><br><span class="line"># 对于root用户</span><br><span class="line">export KUBECONFIG=/etc/kubernetes/admin.conf</span><br><span class="line"> </span><br><span class="line">也可以直接放到~/.bash_profile</span><br><span class="line"> </span><br><span class="line">echo &quot;export KUBECONFIG=/etc/kubernetes/admin.conf&quot; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>8.安装flannel网络（Master节点操作）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/cni/net.d/</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF&gt; /etc/cni/net.d/10-flannel.conf</span><br><span class="line">&#123;</span><br><span class="line">“name”: “cbr0”,</span><br><span class="line">“type”: “flannel”,</span><br><span class="line">“delegate”: &#123;</span><br><span class="line">“isDefaultGateway”: true</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<p><code>mkdir /usr/share/oci-umount/oci-umount.d -p</code></p>
-<p><code>mkdir /run/flannel/</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF&gt; /run/flannel/subnet.env</span><br><span class="line">FLANNEL_NETWORK=10.244.0.0/16</span><br><span class="line">FLANNEL_SUBNET=10.244.1.0/24</span><br><span class="line">FLANNEL_MTU=1450</span><br><span class="line">FLANNEL_IPMASQ=true</span><br><span class="line"> </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure>
-<p>9.验证K8S Master是否搭建成功（Master节点操作）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看pods状态</span><br><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure></p>
-<p>注意要等到所有的pod都是running状态再加入其他节点，否则<code>kube-dns</code>、<code>kubernetes-dashboard</code>等可能会被分配到node节点上导致<code>kube-dns</code>、<code>kubernetes-dashboard</code>等安装失败</p>
-<p>10.让node1、node2加入集群<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@k8snode2 ~]# kubeadm join 10.0.0.8:6443 --token a6vlug.shwfx89vqrofvro7 --discovery-token-ca-cert-hash sha256:f7b5dc65173098b1ae74b06fe5062124528ff873c53ed38761601598ddbf1a58</span><br><span class="line">[preflight] Running pre-flight checks.</span><br><span class="line">	[WARNING FileExisting-crictl]: crictl not found in system path</span><br><span class="line">Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl</span><br><span class="line">[preflight] Starting the kubelet service</span><br><span class="line">[discovery] Trying to connect to API Server &quot;10.0.0.8:6443&quot;</span><br><span class="line">[discovery] Created cluster-info discovery client, requesting info from &quot;https://10.0.0.8:6443&quot;</span><br><span class="line">[discovery] Requesting info from &quot;https://10.0.0.8:6443&quot; again to validate TLS against the pinned public key</span><br><span class="line">[discovery] Cluster info signature and contents are valid and TLS certificate validates against pinned roots, will use API Server &quot;10.0.0.8:6443&quot;</span><br><span class="line">[discovery] Successfully established connection with API Server &quot;10.0.0.8:6443&quot;</span><br><span class="line"></span><br><span class="line">This node has joined the cluster:</span><br><span class="line">* Certificate signing request was sent to master and a response</span><br><span class="line">  was received.</span><br><span class="line">* The Kubelet was informed of the new secure connection details.</span><br><span class="line"></span><br><span class="line">Run &apos;kubectl get nodes&apos; on the master to see this node join the cluster.</span><br></pre></td></tr></table></figure></p>
-<p>注意此段执行命令第6步中记录下来的</p>
-<p>默认情况下，Master节点不参与工作负载，但如果希望安装出一个All-In-One的k8s环境，则可以执行以下命令，让Master节点也成为一个Node节点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint nodes --all node-role.kubernetes.io/master-</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>部署dashboard（注意，dashboard需要部署在master节点上，否则会报错）</p>
-<p>在k8s中 dashboard可以有两种访问方式：kubeconfig（HTTPS）和token（http）本篇先来介绍下Token方式的访问。</p>
-<p>Token访问是无登录密码的，简单方便<br>1.下载官方的dashboard YAML文件或者改版的YAML（无坑版）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 官网版</span><br><span class="line">https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</span><br><span class="line"></span><br><span class="line"># 修改版(包括heapster插件YAML和RBAC YAML)</span><br><span class="line">https://github.com/gh-Devin/kubernetes-dashboard</span><br></pre></td></tr></table></figure></p>
-<p>其中heapster.yaml的img改为<code>registry.cn-hangzhou.aliyuncs.com/google_containers/heapster:v1.5.2</code>(通过阿里云搜索到)</p>
-<p>2.创建pod<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster kubernetes-dashboard]# ls</span><br><span class="line">heapster-rbac.yaml  heapster.yaml  kubernetes-dashboard-admin.rbac.yaml  kubernetes-dashboard.yaml</span><br><span class="line">[root@k8smaster kubernetes-dashboard]# kubectl  -n kube-system create -f .</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io &quot;heapster&quot; created</span><br><span class="line">serviceaccount &quot;heapster&quot; created</span><br><span class="line">deployment.extensions &quot;heapster&quot; created</span><br><span class="line">service &quot;heapster&quot; created</span><br><span class="line">serviceaccount &quot;kubernetes-dashboard-admin&quot; created</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io &quot;kubernetes-dashboard-admin&quot; created</span><br><span class="line">secret &quot;kubernetes-dashboard-certs&quot; created</span><br><span class="line">serviceaccount &quot;kubernetes-dashboard&quot; created</span><br><span class="line">role.rbac.authorization.k8s.io &quot;kubernetes-dashboard-minimal&quot; created</span><br><span class="line">rolebinding.rbac.authorization.k8s.io &quot;kubernetes-dashboard-minimal&quot; created</span><br><span class="line">deployment.apps &quot;kubernetes-dashboard&quot; created</span><br><span class="line">service &quot;kubernetes-dashboard-external&quot; created</span><br></pre></td></tr></table></figure></p>
-<p>3.查看插件的状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc,pod --all-namespaces</span><br></pre></td></tr></table></figure></p>
-<p>4.遇到问题查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe pod heapster-6595c54cb9-chmfd --namespace=kube-system </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">kubectl logs pod/heapster-6595c54cb9-chmfd -n kube-system</span><br></pre></td></tr></table></figure></p>
-<p>5.安装出错，删除该pod后重新部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  -n kube-system delete -f .</span><br></pre></td></tr></table></figure></p>
-<h2 id="问题及解决"><a href="#问题及解决" class="headerlink" title="问题及解决"></a>问题及解决</h2><p>1、 报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error from server: error dialing backend: dial tcp 192.168.0.107:10250: getsockopt: no route to host</span><br></pre></td></tr></table></figure></p>
-<p>需要配置各节点上的防火墙。其中8472是flannel使用，9898和6443是minio访问master使用，centos必须配置，否则iptables -L -vn|more会看到INPUT的reject-with icmp-host-prohibited计数一直在增加。 10250是kubectl exec使用的，不加会报“Error from server: error dialing backend: dial tcp 192.168.128.164:10250: getsockopt: no route to host”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp -m tcp --dport 8472 -j ACCEPT</span><br><span class="line">iptables -I INPUT -p tcp -m tcp --dport 6443 -j ACCEPT</span><br><span class="line">iptables -I INPUT -p tcp -m tcp --dport 9898 -j ACCEPT</span><br><span class="line">iptables -I INPUT -p tcp -m tcp --dport 10250 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>2、 报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">[controlplane] Wrote Static Pod manifest for component kube-apiserver to &quot;/etc/kubernetes/manifests/kube-apiserver.yaml&quot;</span><br><span class="line">[controlplane] Wrote Static Pod manifest for component kube-controller-manager to &quot;/etc/kubernetes/manifests/kube-controller-manager.yaml&quot;</span><br><span class="line">[controlplane] Wrote Static Pod manifest for component kube-scheduler to &quot;/etc/kubernetes/manifests/kube-scheduler.yaml&quot;</span><br><span class="line">[etcd] Wrote Static Pod manifest for a local etcd instance to &quot;/etc/kubernetes/manifests/etcd.yaml&quot;</span><br><span class="line">[init] Waiting for the kubelet to boot up the control plane as Static Pods from directory &quot;/etc/kubernetes/manifests&quot;.</span><br><span class="line">[init] This might take a minute or longer if the control plane images have to be pulled.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz&apos; failed with error: Get http://localhost:10255/healthz: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz&apos; failed with error: Get http://localhost:10255/healthz: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz&apos; failed with error: Get http://localhost:10255/healthz: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz/syncloop&apos; failed with error: Get http://localhost:10255/healthz/syncloop: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz/syncloop&apos; failed with error: Get http://localhost:10255/healthz/syncloop: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz/syncloop&apos; failed with error: Get http://localhost:10255/healthz/syncloop: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz&apos; failed with error: Get http://localhost:10255/healthz: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz/syncloop&apos; failed with error: Get http://localhost:10255/healthz/syncloop: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line">[kubelet-check] It seems like the kubelet isn&apos;t running or healthy.</span><br><span class="line">[kubelet-check] The HTTP call equal to &apos;curl -sSL http://localhost:10255/healthz&apos; failed with error: Get http://localhost:10255/healthz: dial tcp [::1]:10255: getsockopt: connection refused.</span><br><span class="line"></span><br><span class="line">Unfortunately, an error has occurred:</span><br><span class="line">	timed out waiting for the condition</span><br><span class="line"></span><br><span class="line">This error is likely caused by:</span><br><span class="line">	- The kubelet is not running</span><br><span class="line">	- The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)</span><br><span class="line">	- Either there is no internet connection, or imagePullPolicy is set to &quot;Never&quot;,</span><br><span class="line">	  so the kubelet cannot pull or find the following control plane images:</span><br><span class="line">		- k8s.gcr.io/kube-apiserver-amd64:v1.10.0</span><br><span class="line">		- k8s.gcr.io/kube-controller-manager-amd64:v1.10.0</span><br><span class="line">		- k8s.gcr.io/kube-scheduler-amd64:v1.10.0</span><br><span class="line">		- k8s.gcr.io/etcd-amd64:3.1.12 (only if no external etcd endpoints are configured)</span><br><span class="line"></span><br><span class="line">If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:</span><br><span class="line">	- &apos;systemctl status kubelet&apos;</span><br><span class="line">	- &apos;journalctl -xeu kubelet&apos;</span><br></pre></td></tr></table></figure></p>
-<p>docker.service 和10-kubeadm.conf中的cgroup不一致导致的</p>
-<p>3、 安装dashboard报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster kubernetes-dashboard]# kubectl get svc,pod --all-namespaces | grep dashboard</span><br><span class="line"></span><br><span class="line">kube-system   service/kubernetes-dashboard-external   NodePort    10.106.103.199   &lt;none&gt;        9090:30090/TCP   52s</span><br><span class="line">kube-system   pod/kubernetes-dashboard-5cc6564db9-tp5ws   0/1       CrashLoopBackOff   2          52s</span><br></pre></td></tr></table></figure></p>
-<p>查看日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster kubernetes-dashboard]# kubectl logs pod/kubernetes-dashboard-5cc6564db9-tp5ws -n kube-system </span><br><span class="line">2018/04/30 18:23:18 Using in-cluster config to connect to apiserver</span><br><span class="line">2018/04/30 18:23:18 Using service account token for csrf signing</span><br><span class="line">2018/04/30 18:23:18 No request provided. Skipping authorization</span><br><span class="line">2018/04/30 18:23:18 Starting overwatch</span><br><span class="line">2018/04/30 18:23:19 Error while initializing connection to Kubernetes apiserver. This most likely means that the cluster is misconfigured (e.g., it has invalid apiserver certificates or service accounts configuration) or the --apiserver-host param points to a server that does not exist. Reason: Get https://10.96.0.1:443/version: dial tcp 10.96.0.1:443: getsockopt: no route to host</span><br><span class="line">Refer to our FAQ and wiki pages for more information: https://github.com/kubernetes/dashboard/wiki/FAQ</span><br></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe pod kubernetes-dashboard-5cc6564db9-bjmgr --namespace=kube-system</span><br></pre></td></tr></table></figure></p>
-<p>删除该pod：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete pod kubernetes-dashboard-5cc6564db9-tp5ws -n kube-system</span><br></pre></td></tr></table></figure></p>
-<p>安装过程中遇到问题，可以使用一下命令清理环境，重新安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm reset</span><br></pre></td></tr></table></figure></p>
-<p>4、 安装完成后pod ip无法访问</p>
-<p>极有可能是防火墙问题，需要对防火墙进行下清理</p>
-<p>解决方法：</p>
-<p>1.先把服务停掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]#  systemctl stop docker kubelet</span><br></pre></td></tr></table></figure></p>
-<p>2.查看当前规则，然后清空<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]#  iptables -L -n</span><br><span class="line"></span><br><span class="line">[root@k8smaster ~]#  iptables -F &amp;&amp;  iptables -X &amp;&amp;  iptables -F -t nat &amp;&amp;  iptables -X -t nat</span><br><span class="line"></span><br><span class="line">[root@k8smaster ~]#  iptables -L -n</span><br><span class="line"></span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination      </span><br><span class="line"></span><br><span class="line">[root@hadoop38 ~]#</span><br></pre></td></tr></table></figure></p>
-<p>3.重启iptables 和 开启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]#  systemctl restart iptables</span><br><span class="line"></span><br><span class="line">[root@k8smaster ~]#  systemctl start docker kubelet</span><br></pre></td></tr></table></figure></p>
-<p>4.再次查看防火墙策略 和清空掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]#  iptables -L -n</span><br><span class="line"></span><br><span class="line">[root@k8smaster ~]#  iptables -F &amp;&amp;  iptables -X &amp;&amp;  iptables -F -t nat &amp;&amp;  iptables -X -t nat</span><br></pre></td></tr></table></figure></p>
-<p>5.等待一会 最终查看防火墙策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]#  iptables -L -n</span><br><span class="line"></span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">KUBE-FIREWALL  all  --  0.0.0.0/0            0.0.0.0/0           </span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line"></span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">KUBE-FIREWALL  all  --  0.0.0.0/0            0.0.0.0/0    </span><br><span class="line"></span><br><span class="line">KUBE-SERVICES  all  --  0.0.0.0/0            0.0.0.0/0            /* kubernetes service portals */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Chain KUBE-FIREWALL (2 references)</span><br><span class="line"></span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">DROP       all  --  0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Chain KUBE-SERVICES (1 references)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line"></span><br><span class="line">[root@k8smaster ~]#          destination</span><br></pre></td></tr></table></figure></p>
-<p>6.验证<br>部署nginx：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run nginx --image=nginx --replicas=2 --port=80</span><br></pre></td></tr></table></figure></p>
-<p>暴露端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment/nginx --type=&quot;NodePort&quot; --port 80</span><br></pre></td></tr></table></figure></p>
-<p>查看应用状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# kubectl describe svc</span><br><span class="line">Name:              kubernetes</span><br><span class="line">Namespace:         default</span><br><span class="line">Labels:            component=apiserver</span><br><span class="line">                   provider=kubernetes</span><br><span class="line">Annotations:       &lt;none&gt;</span><br><span class="line">Selector:          &lt;none&gt;</span><br><span class="line">Type:              ClusterIP</span><br><span class="line">IP:                10.96.0.1</span><br><span class="line">Port:              https  443/TCP</span><br><span class="line">TargetPort:        6443/TCP</span><br><span class="line">Endpoints:         10.0.0.8:6443</span><br><span class="line">Session Affinity:  ClientIP</span><br><span class="line">Events:            &lt;none&gt;</span><br><span class="line"></span><br><span class="line">Name:                     nginx</span><br><span class="line">Namespace:                default</span><br><span class="line">Labels:                   run=nginx</span><br><span class="line">Annotations:              &lt;none&gt;</span><br><span class="line">Selector:                 run=nginx</span><br><span class="line">Type:                     NodePort</span><br><span class="line">IP:                       10.98.84.61</span><br><span class="line">Port:                     &lt;unset&gt;  80/TCP</span><br><span class="line">TargetPort:               80/TCP</span><br><span class="line">NodePort:                 &lt;unset&gt;  30019/TCP</span><br><span class="line">Endpoints:                10.244.1.60:80,10.244.1.61:80</span><br><span class="line">Session Affinity:         None</span><br><span class="line">External Traffic Policy:  Cluster</span><br><span class="line">Events:                   &lt;none&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@k8smaster ~]# ping 10.244.1.60</span><br><span class="line">PING 10.244.1.60 (10.244.1.60) 56(84) bytes of data.</span><br><span class="line">64 bytes from 10.244.1.60: icmp_seq=1 ttl=63 time=0.941 ms</span><br><span class="line">64 bytes from 10.244.1.60: icmp_seq=2 ttl=63 time=1.01 ms</span><br><span class="line">^C</span><br><span class="line">--- 10.244.1.60 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1003ms</span><br><span class="line">rtt min/avg/max/mdev = 0.941/0.979/1.017/0.038 ms</span><br><span class="line">[root@k8smaster ~]# ping 10.244.1.61</span><br><span class="line">PING 10.244.1.61 (10.244.1.61) 56(84) bytes of data.</span><br><span class="line">64 bytes from 10.244.1.61: icmp_seq=1 ttl=63 time=0.781 ms</span><br><span class="line">64 bytes from 10.244.1.61: icmp_seq=2 ttl=63 time=0.574 ms</span><br><span class="line">^C</span><br><span class="line">--- 10.244.1.61 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1000ms</span><br><span class="line">rtt min/avg/max/mdev = 0.574/0.677/0.781/0.106 ms</span><br><span class="line">[root@k8smaster ~]# ping 10.244.1.61</span><br><span class="line">PING 10.244.1.61 (10.244.1.61) 56(84) bytes of data.</span><br><span class="line">64 bytes from 10.244.1.61: icmp_seq=1 ttl=63 time=0.630 ms</span><br><span class="line">64 bytes from 10.244.1.61: icmp_seq=2 ttl=63 time=0.662 ms</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
-<p>5、 报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to get system container stats ``for &quot;/system.slice/</span><br></pre></td></tr></table></figure></p>
-<p>解决：</p>
-<p>在/etc/systemd/system/kubelet.service中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/kubelet --runtime-cgroups=/systemd/system.slice --kubelet-cgroups=/systemd/system.slice</span><br></pre></td></tr></table></figure></p>
-<p>参考：</p>
-<p><a href="https://kubernetes.io/docs" target="_blank" rel="noopener">k8s官方文档</a></p>
-<p><a href="https://github.com/kubernetes/dashboard#kubernetes-dashboard" target="_blank" rel="noopener">kubernetes-dashboard Github地址</a></p>
-<p><a href="http://blog.51cto.com/devingeng/2096495?from=singlemessage" target="_blank" rel="noopener">51CTO 使用kubeadm安装Kubernetes v1.10以及常见问题解答
-</a></p>
-<p><a href="http://blog.51cto.com/devingeng/2096495?from=singlemessage" target="_blank" rel="noopener">51CTO Kubernetes1.10中部署dashboard以及常见问题解析
-</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/11/2018-07-11-kubernetes-v1-10安装/" data-id="cjsiynksw0000vwvls2kyhquw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2018-07-08-搭建自己的github-io博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/08/2018-07-08-搭建自己的github-io博客/" class="article-date">
-  <time datetime="2018-07-08T15:00:00.000Z" itemprop="datePublished">2018-07-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/2018-07-08-搭建自己的github-io博客/">搭建自己的github.io博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>作为一名程序员，一直都有搭建自己博客的想法，一方面作为自己学习的积累，将所看所学用博客的方式记录下来，便于自己以后回顾，另一方面可以作为自己学习的一个动力。这几年思想上一直在CSDN、博客园和自己搭建之间徘徊犹豫，行动上一直用着印象笔记、OneNote、有道将就，直到有天查资料时误入某人的github.io博客，确认眼神的那一刻，我知道这就是我想要的。而作为github出品，其品质绝对是有保证的，最重要的一点是基于github的repo管理，这意味着咱们对其是有绝对的控制，和放在第三方的平台比，可控性要好太多。</p>
-<p>关于搭建github.io博客，网上的教程很多，下面总结下我的Github.io的搭建过程。</p>
-<p>搭建Github.io博客主要分为三步：</p>
-<ol>
-<li>开通自己的github.io repo</li>
-<li>选择一款合适的主题</li>
-<li>编写发布博客</li>
-</ol>
-<h2 id="开通自己的github-io-repo"><a href="#开通自己的github-io-repo" class="headerlink" title="开通自己的github.io repo"></a>开通自己的github.io repo</h2><p>1、 创建一个项目</p>
-<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/newRepo.PNG" alt=""></p>
-<p>2、 按格式输入项目名称</p>
-<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/create.PNG" alt=""></p>
-<p>以上，就创建了属于自己的github.io，可以直接访问<a href="https://leitty.github.io/看看效果，只有readme.md的文件内容">https://leitty.github.io/看看效果，只有readme.md的文件内容</a></p>
-<p>可以在setting中选择一个jekyll的主题</p>
-<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/theme.PNG" alt=""></p>
-<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/jekyll.PNG" alt=""></p>
-<h2 id="选择一款合适的主题"><a href="#选择一款合适的主题" class="headerlink" title="选择一款合适的主题"></a>选择一款合适的主题</h2><p>当前流行的，适合github.io的博客框架有很多<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">Jekyll</a>、<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>、<a href="http://octopress.org/" target="_blank" rel="noopener">Octopress</a>等等。</p>
-<p>短暂的折腾了下Jekyll和Hexo后，本人果断放弃了Jekyll，投向了Hexo的怀抱。Jekyll基于ruby,python，需要下载安装ruby,python，使用gem启动，官方文档有很详细的使用文档，但是做出来的页面不太符合个人的需求，选择了几个theme实验后，对页面仍不太满意，想折腾又没时间，于是转向了Hexo。Hexo基于nodejs，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方网站</a>，有nodejs和git就能下载安装，而且nodejs和git更符合本人的知识储备。</p>
-<p>按照Hexo的官方文档进行操作：<br>1、 安装Hexo脚手架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<p>2、 创建网站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
-<p>其中folder是本地创建的文件夹名</p>
-<p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></p>
-<p>package.json中<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;3.7.1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.2.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.4&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.3&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-migrator-rss&quot;: &quot;^0.1.4&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.3.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.3.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.3.1&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.2.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>各文件夹的作用和配置文件的作用，可以查看官方文档，我们需要知道的有两个</p>
-<p><code>_config.yml</code>文件</p>
-<p>网站的 配置 信息，您可以在此配置大部分的参数。</p>
-<p><code>source</code>文件夹</p>
-<p>资源文件夹是存放用户资源的地方，我们创建的内容md文件就在<code>source/_post</code>文件夹下</p>
-<p>针对有图片的文章，可以通过将<code>config.yml</code> 文件中的<code>post_asset_folder</code>选项设为<code>true</code> 来打开,Hexo将会在你每一次通过<code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹，如图：</p>
-<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/post_asset_folder.JPG" alt=""></p>
-<p>在文章中通过<code>![](/example.jpg)</code>语法来进行引用。</p>
-<p>3、 本地运行Hexo网站</p>
-<p>安装hexo-server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
-<p>即可在<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 看到网站的效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
-<p>例如过<code>hexo new first</code>即新建了一篇first.md的文章，同时在<code>_post</code>文件夹下就出现一个first.md的文件</p>
-<h2 id="编写发布博客"><a href="#编写发布博客" class="headerlink" title="编写发布博客"></a>编写发布博客</h2><p>1、 修改hexo站点的配置文件<code>_config.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Leitty/Leitty.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>2、 进行部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装hexo-deployer-git</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">进行部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p>3、再次访问你的网站</p>
-<p><img src="/2018/07/08/2018-07-08-搭建自己的github-io博客/last.jpg" alt="image"></p>
-<p>4、再次发布文章</p>
-<p>根目录下输入 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;2018-07-09&quot;</span><br></pre></td></tr></table></figure></p>
-<p>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g //生成静态页面</span><br><span class="line">hexo d //发布</span><br></pre></td></tr></table></figure>
-<p>注意<code>hexo g</code>必须执行，将markdown文件转成<code>public</code>文件夹下的html才能进行发布。</p>
-<p>参考：</p>
-<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
-<p><a href="https://blog.csdn.net/Hoshea_chx/article/details/78826689" target="_blank" rel="noopener">https://blog.csdn.net/Hoshea_chx/article/details/78826689</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leitty.github.io/2018/07/08/2018-07-08-搭建自己的github-io博客/" data-id="cjsiynkt50001vwvl8g2g1lq8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-io/">Github.io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Github-io/" style="font-size: 10px;">Github.io</a> <a href="/tags/Golang/" style="font-size: 13.33px;">Golang</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 16.67px;">Jenkins</a> <a href="/tags/Kubernetes/" style="font-size: 20px;">Kubernetes</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/02/24/2019-02-24-Cobra/">2019-02-24-viper</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/24/2019-02-24-viper/">2019-02-24-viper</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/27/2018-07-27-墙内获取Kubernetes镜像/">2018-07-27-墙内获取Kubernetes镜像</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/23/2018-07-23-Nginx-Gunicorn-Django-部署/">2018-07-23-Nginx + Gunicorn + Django 部署</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/18/2018-07-18-使用kubernetes部署jenkins/">2018-07-18-使用kubernetes部署jenkins</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 Leitty<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+    <!-- /.container -->
 </nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Leitty Blog</h1>
+                    <hr class="small">
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            
+                <div class="post-preview">
+    <a href="/2019/03/17/protobuf协议/">
+        <h2 class="post-title">
+            protobuf协议
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2019-03-17
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2019/03/17/Golang中rpc的几种实现/">
+        <h2 class="post-title">
+            Golang中rpc的几种实现
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2019-03-17
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2019/02/24/Cobra/">
+        <h2 class="post-title">
+            Cobra
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2019-02-24
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2019/02/24/Viper/">
+        <h2 class="post-title">
+            Viper
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2019-02-24
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2018/07/27/墙内获取Kubernetes镜像/">
+        <h2 class="post-title">
+            墙内获取Kubernetes镜像
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2018-07-27
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2018/07/23/Nginx-Gunicorn-Django-部署/">
+        <h2 class="post-title">
+            Nginx + Gunicorn + Django 部署
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2018-07-23
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2018/07/18/使用kubernetes部署jenkins/">
+        <h2 class="post-title">
+            使用kubernetes部署jenkins
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2018-07-18
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2018/07/16/使用Docker进行jenkins的安装/">
+        <h2 class="post-title">
+            使用Docker进行jenkins的安装
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2018-07-16
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2018/07/12/jenkins简介/">
+        <h2 class="post-title">
+            Jenkins简介
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2018-07-12
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2018/07/11/kubernetes-v1-10安装/">
+        <h2 class="post-title">
+            Kubernetes v1.10安装
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2018-07-11
+    </p>
+</div>
+<hr>
+            
+
+            <ul class="pager">
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
+    
+        <li class="next"><a href="/page/2/">Older Posts  &rarr;</a></li>
+    
+</ul>
+        </div>
+    </div>
+</div>
 
 
 
-  </div>
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty/Leitty.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
 </body>
+
 </html>

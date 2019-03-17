@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="什么是RPC远程过程调用（Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一台计算机的子程序，而程序员无需额外地为这个交互作用编程。如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作远程调用或远程方法调用。
+用通俗易懂的语"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Golang中rpc的几种实现"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="什么是RPC远程过程调用（Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一台计算机的子程序，而程序员无需额外地为这个交互作用编程。如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作远程调用或远程方法调用。
+用通俗易懂的语"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Golang中rpc的几种实现 - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://leitty.github.io/">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Golang中rpc的几种实现</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-03-17
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="什么是RPC"><a href="#什么是RPC" class="headerlink" title="什么是RPC"></a>什么是RPC</h2><p>远程过程调用（Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一台计算机的子程序，而程序员无需额外地为这个交互作用编程。如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作远程调用或远程方法调用。</p>
+<p>用通俗易懂的语言描述就是：RPC允许跨机器、跨语言调用计算机程序方法。</p>
+<h2 id="golang中如何实现RPC"><a href="#golang中如何实现RPC" class="headerlink" title="golang中如何实现RPC"></a>golang中如何实现RPC</h2><p>在golang中实现RPC非常简单，有封装好的官方库和一些第三方库提供支持。Go RPC可以利用tcp或http来传递数据，可以对要传递的数据使用多种类型的编解码方式。golang官方的net/rpc库使用encoding/gob进行编解码，支持tcp或http数据传输方式，由于其他语言不支持gob编解码方式，所以使用net/rpc库实现的RPC方法没办法进行跨语言调用。</p>
+<p>golang官方还提供了net/rpc/jsonrpc库实现RPC方法，JSON RPC采用JSON进行数据编解码，因而支持跨语言调用。但目前的jsonrpc库是基于tcp协议实现的，暂时不支持使用http进行数据传输。</p>
+<p>除了golang官方提供的rpc库，还有许多第三方库为在golang中实现RPC提供支持，大部分第三方rpc库的实现都是使用protobuf进行数据编解码，根据protobuf声明文件自动生成rpc方法定义与服务注册代码，在golang中可以很方便的进行rpc服务调用。</p>
+<h3 id="net-rpc库"><a href="#net-rpc库" class="headerlink" title="net/rpc库"></a>net/rpc库</h3><p>使用net/rpc库实现乘除法的rpc</p>
+<p>rpc服务端：<br>$GOPATH/src/leitty/rpc/netrpc/server/rpc_server.go<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">package main </span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;errors&quot;</span><br><span class="line">	&quot;net/rpc&quot;</span><br><span class="line">	&quot;net/http&quot;</span><br><span class="line">	&quot;net&quot;</span><br><span class="line">	&quot;os&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">type Arith struct &#123;&#125;</span><br><span class="line"></span><br><span class="line">type ArithRequest struct &#123;</span><br><span class="line">	A int</span><br><span class="line">	B int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type ArithResponse struct &#123;</span><br><span class="line">	Pro int</span><br><span class="line">	Quo int</span><br><span class="line">	Rem int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (this *Arith) Multiply(req ArithRequest,res *ArithResponse) error &#123;</span><br><span class="line">	res.Pro = req.A * req.B</span><br><span class="line">	return nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (this *Arith) Divide(req ArithRequest,res *ArithResponse) error &#123;</span><br><span class="line">	if req.B == 0 &#123;</span><br><span class="line">		return errors.New(&quot;divide by zero&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">	res.Quo = req.A / req.B</span><br><span class="line">	res.Rem = req.A % req.B</span><br><span class="line">	return nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	rpc.Register(new(Arith))</span><br><span class="line">	rpc.HandleHTTP()</span><br><span class="line"></span><br><span class="line">	lis, err := net.Listen(&quot;tcp&quot;,&quot;127.0.0.1:8095&quot;)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		panic(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Fprintf(os.Stdout, &quot;%s&quot;, &quot;start connection&quot;)</span><br><span class="line"></span><br><span class="line">	http.Serve(lis,nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>rpc客户端：</p>
+<p>$GOPATH/src/leitty/rpc/netrpc/server/rpc_client.go<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;net/rpc&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">type ArithRequest struct &#123;</span><br><span class="line">	A int</span><br><span class="line">	B int</span><br><span class="line">&#125;</span><br><span class="line">type ArithResponse struct &#123;</span><br><span class="line">	Pro int</span><br><span class="line">	Quo int</span><br><span class="line">	Rem int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	conn, err := rpc.DialHTTP(&quot;tcp&quot;,&quot;127.0.0.1:8095&quot;)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		panic(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	req := ArithRequest&#123;9,2&#125;</span><br><span class="line">	var res ArithResponse</span><br><span class="line"></span><br><span class="line">	err = conn.Call(&quot;Arith.Multiply&quot;,req, &amp;res)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		panic(err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(&quot;%d * %d = %d\n&quot;, req.A, req.B, res.Pro)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="net-rpc-jsonrpc库"><a href="#net-rpc-jsonrpc库" class="headerlink" title="net/rpc/jsonrpc库"></a>net/rpc/jsonrpc库</h3><p>使用net/rpc/jsonrpc库实现乘除法的rpc</p>
+<p>$GOPATH/src/leitty/rpc/jsonrpc/server/rpc_server.go<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;errors&quot;</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">    &quot;net&quot;</span><br><span class="line">    &quot;net/rpc&quot;</span><br><span class="line">    &quot;net/rpc/jsonrpc&quot;</span><br><span class="line">    &quot;os&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 算数运算结构体</span><br><span class="line">type Arith struct &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 算数运算请求结构体</span><br><span class="line">type ArithRequest struct &#123;</span><br><span class="line">    A int</span><br><span class="line">    B int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 算数运算响应结构体</span><br><span class="line">type ArithResponse struct &#123;</span><br><span class="line">    Pro int // 乘积</span><br><span class="line">    Quo int // 商</span><br><span class="line">    Rem int // 余数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 乘法运算方法</span><br><span class="line">func (this *Arith) Multiply(req ArithRequest, res *ArithResponse) error &#123;</span><br><span class="line">    res.Pro = req.A * req.B</span><br><span class="line">    return nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 除法运算方法</span><br><span class="line">func (this *Arith) Divide(req ArithRequest, res *ArithResponse) error &#123;</span><br><span class="line">    if req.B == 0 &#123;</span><br><span class="line">        return errors.New(&quot;divide by zero&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    res.Quo = req.A / req.B</span><br><span class="line">    res.Rem = req.A % req.B</span><br><span class="line">    return nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    rpc.Register(new(Arith)) // 注册rpc服务</span><br><span class="line"></span><br><span class="line">    lis, err := net.Listen(&quot;tcp&quot;, &quot;127.0.0.1:8096&quot;)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;fatal error: &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fmt.Fprintf(os.Stdout, &quot;%s&quot;, &quot;start connection&quot;)</span><br><span class="line"></span><br><span class="line">    for &#123;</span><br><span class="line">        conn, err := lis.Accept() // 接收客户端连接请求</span><br><span class="line">        if err != nil &#123;</span><br><span class="line">            continue</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        go func(conn net.Conn) &#123; // 并发处理客户端请求</span><br><span class="line">            fmt.Fprintf(os.Stdout, &quot;%s&quot;, &quot;new client in coming\n&quot;)</span><br><span class="line">            jsonrpc.ServeConn(conn)</span><br><span class="line">        &#125;(conn)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$GOPATH/src/leitty/rpc/jsonrpc/server/rpc_client.go</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">    &quot;net/rpc/jsonrpc&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 算数运算请求结构体</span><br><span class="line">type ArithRequest struct &#123;</span><br><span class="line">    A int</span><br><span class="line">    B int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 算数运算响应结构体</span><br><span class="line">type ArithResponse struct &#123;</span><br><span class="line">    Pro int // 乘积</span><br><span class="line">    Quo int // 商</span><br><span class="line">    Rem int // 余数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    conn, err := jsonrpc.Dial(&quot;tcp&quot;, &quot;127.0.0.1:8096&quot;)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;dailing error: &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    req := ArithRequest&#123;9, 2&#125;</span><br><span class="line">    var res ArithResponse</span><br><span class="line"></span><br><span class="line">    err = conn.Call(&quot;Arith.Multiply&quot;, req, &amp;res) // 乘法运算</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;arith error: &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(&quot;%d * %d = %d\n&quot;, req.A, req.B, res.Pro)</span><br><span class="line"></span><br><span class="line">    err = conn.Call(&quot;Arith.Divide&quot;, req, &amp;res)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;arith error: &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(&quot;%d / %d, quo is %d, rem is %d\n&quot;, req.A, req.B, res.Quo, res.Rem)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>jsonrpc能实现跨语言的rpc通信，但是效率较低。一些第三方的rpc库都选择采用protobuf进行数据编码。</p>
+<h3 id="proto-rpc库"><a href="#proto-rpc库" class="headerlink" title="proto rpc库"></a>proto rpc库</h3><p>使用protorpc库实现乘除法的rpc</p>
+<p>protobuf的介绍，请移步<a href="https://note.youdao.com/" target="_blank" rel="noopener">这里</a></p>
+<p>$GOPATH/src/leitty/rpc/protobuf/server/pb/arith.proto<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line">package pb;</span><br><span class="line"></span><br><span class="line">// 算术运算请求结构</span><br><span class="line">message ArithRequest &#123;</span><br><span class="line">    int32 a = 1;</span><br><span class="line">    int32 b = 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 算术运算响应结构</span><br><span class="line">message ArithResponse &#123;</span><br><span class="line">    int32 pro = 1;  // 乘积</span><br><span class="line">    int32 quo = 2;  // 商</span><br><span class="line">    int32 rem = 3;  // 余数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// rpc方法</span><br><span class="line">service ArithService &#123;</span><br><span class="line">    rpc multiply (ArithRequest) returns (ArithResponse);    // 乘法运算方法</span><br><span class="line">    rpc divide (ArithRequest) returns (ArithResponse);      // 除法运算方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$GOPATH/src/leitty/rpc/protobuf/server/rpc_server.go<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;errors&quot;</span><br><span class="line">    &quot;test/rpc/pb&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 算术运算结构体</span><br><span class="line">type Arith struct &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 乘法运算方法</span><br><span class="line">func (this *Arith) Multiply(req *pb.ArithRequest, res *pb.ArithResponse) error &#123;</span><br><span class="line">    res.Pro = req.GetA() * req.GetB()</span><br><span class="line">    return nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 除法运算方法</span><br><span class="line">func (this *Arith) Divide(req *pb.ArithRequest, res *pb.ArithResponse) error &#123;</span><br><span class="line">    if req.GetB() == 0 &#123;</span><br><span class="line">        return errors.New(&quot;divide by zero&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    res.Quo = req.GetA() / req.GetB()</span><br><span class="line">    res.Rem = req.GetA() % req.GetB()</span><br><span class="line">    return nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    pb.ListenAndServeArithService(&quot;tcp&quot;, &quot;127.0.0.1:8097&quot;, new(Arith))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$GOPATH/src/leitty/rpc/protobuf/server/rpc_client.go</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">    &quot;test/rpc/pb&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    conn, err := pb.DialArithService(&quot;tcp&quot;, &quot;127.0.0.1:8097&quot;)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;dailing error: &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line">    defer conn.Close()</span><br><span class="line"></span><br><span class="line">    req := &amp;pb.ArithRequest&#123;9, 2&#125;</span><br><span class="line"></span><br><span class="line">    res, err := conn.Multiply(req)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;arith error: &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(&quot;%d * %d = %d\n&quot;, req.GetA(), req.GetB(), res.GetPro())</span><br><span class="line"></span><br><span class="line">    res, err = conn.Divide(req)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatalln(&quot;arith error &quot;, err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(&quot;%d / %d, quo is %d, rem is %d\n&quot;, req.A, req.B, res.Quo, res.Rem)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://studygolang.com/articles/14336" target="_blank" rel="noopener">https://studygolang.com/articles/14336</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty/Leitty.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
