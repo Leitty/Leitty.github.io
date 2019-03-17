@@ -187,6 +187,20 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
@@ -221,9 +235,7 @@
 <p>运行结束后可以在$GOPATH/bin中看到<code>protoc-gen-go</code>文件。</p>
 <h4 id="编译-protoc文件"><a href="#编译-protoc文件" class="headerlink" title="编译.protoc文件"></a>编译.protoc文件</h4><p>在当前<code>AddressBook.proto</code>文件目录中，运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc --go_out=. AddressBook.proto</span><br></pre></td></tr></table></figure></p>
 <p>运行结束后，会在本地生成AddressBook.pb.go文件。</p>
-<blockquote>
-<p>protoc详细：<br>protoc -I=$SRC_DIR –go_out=$DST_DIR $SRC_DIR/addressbook.proto</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; protoc详细：</span><br><span class="line">&gt; protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/addressbook.proto</span><br></pre></td></tr></table></figure>
 <h3 id="Protocol-Buffer-API"><a href="#Protocol-Buffer-API" class="headerlink" title="Protocol Buffer API"></a>Protocol Buffer API</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;github.com/golang/protobuf/proto&quot;</span><br><span class="line"></span><br><span class="line">	pb &quot;leitty/rpc/protocol/protobuf&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	//初始化一个Person</span><br><span class="line">	p := pb.Person&#123;</span><br><span class="line">		Id: 1,</span><br><span class="line">		Name: &quot;Mike&quot;,</span><br><span class="line">		Email: &quot;mike@test.com&quot;,</span><br><span class="line">		Phones: []*pb.Person_PhoneNumber&#123;</span><br><span class="line">			&#123;Number: &quot;123&quot;, Type: pb.Person_HOME&#125;,</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">	// 查看p中的Email</span><br><span class="line">	fmt.Println(p.GetEmail())</span><br><span class="line"></span><br><span class="line">	//使用Marshal函数对p进行编码</span><br><span class="line">	data, err := proto.Marshal(&amp;p)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		panic(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//解码data</span><br><span class="line">	var target pb.Person</span><br><span class="line">	err = proto.Unmarshal(data,&amp;target)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		panic(err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(target.GetName())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener">https://developers.google.com/protocol-buffers/</a></p>
 <p><a href="https://developers.google.com/protocol-buffers/docs/tutorials" target="_blank" rel="noopener">https://developers.google.com/protocol-buffers/docs/tutorials</a></p>
