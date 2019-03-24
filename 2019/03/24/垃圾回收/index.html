@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="GC算法说到GC算法，主要有4种经典的基础算法：引用计数(reference counting)、标记-清除(mark &amp;amp; sweep)、节点复制(Coping Garbage Collection)、分代收集(Generational Garbage COllection)。
+引用计数(R"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="垃圾回收"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="GC算法说到GC算法，主要有4种经典的基础算法：引用计数(reference counting)、标记-清除(mark &amp;amp; sweep)、节点复制(Coping Garbage Collection)、分代收集(Generational Garbage COllection)。
+引用计数(R"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>垃圾回收 - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>垃圾回收</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-03-24
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a> <a href="/tags/Java/">#Java</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="GC算法"><a href="#GC算法" class="headerlink" title="GC算法"></a>GC算法</h1><p>说到GC算法，主要有4种经典的基础算法：引用计数(reference counting)、标记-清除(mark &amp; sweep)、节点复制(Coping Garbage Collection)、分代收集(Generational Garbage COllection)。</p>
+<h2 id="引用计数-Reference-counting"><a href="#引用计数-Reference-counting" class="headerlink" title="引用计数(Reference counting)"></a>引用计数(Reference counting)</h2><p>引用计数法的想法很简单：在对象中添加一个计数器，当有一个地方引用该对象时，该计数器值+1，当该引用失效时，该计算器值-1。计数器值为0的对象就是不再被使用的。</p>
+<p>引用计数算法实现简单，判定效率高，将GC的代价分散到整个程序中，不需要STW(Stop The World)。</p>
+<p>但缺点也很明显，无法处理循环引用。</p>
+<h2 id="标记-清除算法-Mark-and-Sweep"><a href="#标记-清除算法-Mark-and-Sweep" class="headerlink" title="标记-清除算法(Mark-and-Sweep)"></a>标记-清除算法(Mark-and-Sweep)</h2><p>算法分为两个阶段：“标记”和“清除”。先从引用根节点开始标记所有被引用的对象，再遍历整个堆，清除未被标记的对象。</p>
+<p><img src="/2019/03/24/垃圾回收/./mark_sweep.png" alt="image"></p>
+<p>标记清除算法避免了引用计数算法不能处理循环引用的缺点，但是需要STW，会产生内存碎片。STW一般是在标记阶段暂停应用。</p>
+<h3 id="三色标记法-Tri-color-marking"><a href="#三色标记法-Tri-color-marking" class="headerlink" title="三色标记法(Tri-color marking)"></a>三色标记法(Tri-color marking)</h3><p>针对标记-清除算法标记过程会STW的缺点，三色标记法改进了标记方案。三色标记法将所有对象分为3类：</p>
+<ul>
+<li>白色：GC清理的候选对象集合(GC待处理的对象)</li>
+<li>灰色：可从根访问，但还未扫描是否对白色对象存在引用(处理中，不会被GC，但引用待确认)</li>
+<li>黑色：可从根访问，并且不存在对白色集合的引用(处理完成)</li>
+</ul>
+<p>处理步骤：</p>
+<ol>
+<li>初始化，所有的对象都是白色的。</li>
+<li>从根开始遍历，将所有可达的对象标记未灰色，并放入待处理队列中</li>
+<li>从灰色待处理队列中取出对象，将其引用标记为灰色放入待处理队列，将其自身标记为黑色。</li>
+<li>重复步骤3直至灰色队列为空。此时白色对象即为孤儿对象，进行回收。</li>
+</ol>
+<p>三色标记法最大的特点在于标记过程拆分和量化，使得用户程序和标记过程可以并发执行(需要使用其他技术追踪标记过程中的对象引用变更)，不用Stop-the-world，具体可以参考论文：《On-the-fly garbage collection: an exercise in cooperation.》。Golang 的 GC 实现也是基于这篇论文。</p>
+<h2 id="节点复制算法-semi-space-collector"><a href="#节点复制算法-semi-space-collector" class="headerlink" title="节点复制算法(semi-space collector)"></a>节点复制算法(semi-space collector)</h2><p>节点复制算法需要两块相等的空闲的内存区，每次使用其中一块，进行GC时，将使用中的对象从一块内存移到空闲的那块内存中，再将之前使用的内存块清空掉。</p>
+<p>节点复制算法优点比较明显，复制成本小，同时避免了内存碎片，但缺点同样明显，需要额外一块内存区。</p>
+<p><img src="/2019/03/24/垃圾回收/./coping.png" alt="image"></p>
+<h2 id="标记-整理算法-Mark-and-compact"><a href="#标记-整理算法-Mark-and-compact" class="headerlink" title="标记-整理算法(Mark-and-compact)"></a>标记-整理算法(Mark-and-compact)</h2><p>有人对节点复制算法进行了改进，不想浪费50%的内存空间，在标记-清除算法的基础上保留标记阶段，将清除阶段改为“整理”，即将标记的对象向一端移动，然后清空掉边界以外的内容。</p>
+<p><img src="/2019/03/24/垃圾回收/./mark_compact.png" alt="image"></p>
+<h2 id="分代收集算法-Generational-GC"><a href="#分代收集算法-Generational-GC" class="headerlink" title="分代收集算法(Generational GC)"></a>分代收集算法(Generational GC)</h2><p>分代算法基于这样一个事实 “most object die young”，分代垃圾回收算法将对象按生命周期长度存放在两个(或多个)内存堆上，对于新生代的区域的垃圾回收频率要明显高于老年代区域。</p>
+<p>对于生命周期较短的对象，对其使用复制算法，对于生命周期较长的对象，将其复制到年老代，当年老代空间到达某个阈值时，再使用标记-清除算法或者标记-整理算法清理。</p>
+<h1 id="JAVA-GC"><a href="#JAVA-GC" class="headerlink" title="JAVA GC"></a>JAVA GC</h1><p>JAVA使用的是分代收集，JDK6的各种GC收集器以及各自的特点:<br><img src="/2019/03/24/垃圾回收/./jdk6_gc.png" alt="image"></p>
+<p>先来看看JVM中哪些GC收集器</p>
+<h2 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h2><p>Serial收集器是最基本、发展历史最悠久的收集器，在java 1.3之前是虚拟机的唯一选择。它是单线程的，只会使用一个CPU或者一条收集线程去完成垃圾收集工作，在它进行垃圾收集时，必须暂停其他所有的工作线程，直到收集结束。</p>
+<p>也就是说GC线程在新生代使用复制算法清理内存时需要暂停所有用户线程，直到清理结束。</p>
+<h2 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h2><p>ParNew收集器是Serial收集器的多线程版本，使用多个收集线程进行垃圾收集工作，其余行为都与Serial收集器一致。</p>
+<p>也就是说会有多条GC线程在新生代使用复制算法清理内存，在清理时用户线程仍需要暂停。</p>
+<p>需要注意的是，并行(Parallel)和并发(Concurrent)是两个不同的概念。</p>
+<p>并行(Parallel)：指多条垃圾收集线程并行工作，但此时用户线程仍是处于等待状态。</p>
+<p>并发(Concurrent)：指用户线程与垃圾收集线程同时执行，(不一定是并行的，可交替执行)。</p>
+<h2 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h2><p>Parallel Scavenge是一个新生代收集器，也是使用复制算法的收集器，也是并行的多线程收集，和ParNew很像，但Parallel Scavenge更关注吞吐量。可以通过设置-XX：MaxGCPauseMillis参数控制最大垃圾收集停顿时间，通过-XX:GCTimeRatio控制吞吐量大小。</p>
+<p>需要注意的是虽然可以通过MaxGCPauseMillis控制垃圾收集最大的停顿时间，设置过小的化，会造成频繁的GC。比如300MB的新生代收集肯定比500MB的收集快，原来10s收集一次，每次停顿100ms，现在停顿时间可能变成70ms，但5s收集一次，停顿时间下降了，吞吐量也下降了。</p>
+<p>可以通过-XX:UseAdaptiveSizePolicy，实现GC自适应的调节策略，虚拟机会根据当前运行清空收集性能监控信息，动态调整新生代大小(-Xmn)、Eden与Survivor区的比例等等细节参数，以提供最合适的停顿时间或者最大吞吐量。</p>
+<h2 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h2><p>Serial Old是Serial收集器针对年老代的版本，同样是一个单线程，使用标记-整理算法。</p>
+<h2 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h2><p>Parallel Old是Parallel Scavenge收集器的年老代版本，使用多线程标记-整理算法。</p>
+<h2 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h2><p>CMS(Concurrent Mark Sweep)收集器是一种以获取最短回收停顿时间为目标的收集算法。CMS如名字里说的，是基于标记-清除算法实现的，整个过程分为4个步骤:</p>
+<ul>
+<li>初始标记(CMS initial mark)。 标记GC Roots能直接关联到的对象，速度快。</li>
+<li>并发标记(CMS concurrent mark)。GC Roots Tracing的过程，比较耗时。</li>
+<li>重新标记(CMS remark)。为修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录。时间比初始标记略长，但短于并发标记用时。</li>
+<li>并发清除(CMS concurrent sweep)。清除没有标记的对象。</li>
+</ul>
+<p>其中初始标记和重新标记需要“stop the world”。并发标记、并发清理阶段都可以与用户线程并行执行。</p>
+<p>CMS收集器有3个较为明显的缺点：</p>
+<ol>
+<li>CMS收集器对CPU资源非常敏感。并发阶段，虽然不会暂停用户线程，但是会占用较多的CPU资源。</li>
+<li>CMS收集器无法处理浮动垃圾(Floating Garbage)。清理阶段用户线程仍在运行，一部分被标记的对象会变成需要回收的垃圾，CMS当次无法处理掉它们，只好留在下次GC时再清理掉，这一部分垃圾被称为“浮动垃圾”，因此CMS无法像其他收集器那样等年老代几乎被填满再进行收集，需要预留足够内存空间给用户线程使用。可以通过-XX:CMSInitiatingOccupancyFraction的值来调整触发百分比。JDK 1.6中，这个比例已经被提升到92%。</li>
+<li>标记-清除算法产生的内存碎片。</li>
+</ol>
+<h2 id="G1收集器"><a href="#G1收集器" class="headerlink" title="G1收集器"></a>G1收集器</h2><p>G1(Garbage-First)收集器，当今收集器计数发展的最前沿成果之一。</p>
+<p><img src="/2019/03/24/垃圾回收/./G1_gc.png" alt="image"></p>
+<p>G1收集器中，不再使用单独的空间对每个代进行设置，而是将整个堆划分为若干区域(Region)，这些区域的一部分属于新生代，新生代仍然采用复制算法将存活对象拷贝到年老代，年老代也分成很多区域。</p>
+<p>G1收集器能独立管理整个GC堆(新生代和年老代)，不需要与其他收集器搭配。结合多种垃圾收集算法，从整体上看，是分代算法，也可以看成标记-整理算法；从局部看，是基于复制算法。不会产生内存碎片，有利于长时间运行。G1收集器还能建立可预测的停顿时间模型，明确指定M毫秒时间内，垃圾收集消耗时间不超过N毫秒。</p>
+<p>整个收集过程可以分为4个步骤：</p>
+<ol>
+<li>初始标记(initial mark)。标记GC Roots能直接关联到的对象，修改TAMS（Next Top at Mark Start）,让下一阶段并发运行时，用户程序能在正确可用的Region中创建新对象。需要STW，但速度很快。</li>
+<li>并发标记(Concurrent Marking)。GC Roots Tracing的过程，比较耗时。可以与用户线程并发执行。</li>
+<li>最终标记（Final Marking）。修正初始标记的结果，将之前阶段中发送变化的对象记录在Remembered Set Log中。需要STW，耗时比初始标记长，但比并发标记短。</li>
+<li>筛选回收（Live Data Counting and Evacuation）。排序各个Region的回收价值和成本，根据用户期望的GC停顿时间制定回收计划，最后按计划回收一些价值高的Region中垃圾对象。回收时采用复制算法，从一个或多个Region复制存活对象到堆上的另一个空的Region，并在此过程中压缩和释放内存。可以并发进行，降低停顿时间，并增加吞吐量。</li>
+</ol>
+<h1 id="Golang-GC"><a href="#Golang-GC" class="headerlink" title="Golang GC"></a>Golang GC</h1><p>Golang使用三色标记法，具体来说，Golang GC分为以下阶段：</p>
+<ol>
+<li>Mark：包含两部分：</li>
+</ol>
+<ul>
+<li>Mark Prepare：初始化GC任务，包括开启写屏障(write barrier)和辅助GC(mutator assist)，统计root对象的任务数量等等，需要STW。</li>
+<li>GC Drains：扫描所有root对象，包括全局指针和goroutine(G)栈上的指针(扫描对应G栈时需要停止该G)，将其加入灰色队列，并循环处理灰色队列的对象，直到灰色队列为空。这个过程在后台并发执行。</li>
+</ul>
+<ol start="2">
+<li>Mark Termination：完成标记工作，重新扫描(re-scan)全局指针和栈。Mark的过程，用户线程和Mark是并发的，mark过程中产生的对象和指针会通过写屏障(write barrier)记录下来。re-scan再检查一下，这个过程需要STW。</li>
+<li>Sweep：按照标记结果回收所有的白色对象，该过程后台并发执行。</li>
+<li>Sweep Termination：对未清扫的span进行清扫，只有上一轮的GC的清扫工作完成才可以开始新一轮的GC。</li>
+</ol>
+<h2 id="STW-Stop-The-World"><a href="#STW-Stop-The-World" class="headerlink" title="STW(Stop The World)"></a>STW(Stop The World)</h2><p>Golang的GC过程中有两次STW：</p>
+<p>第一次STW会准备根对象的扫描，启动写屏障(Write Barrier)和辅助GC(mutator assist)。</p>
+<p>第二次STW会重新扫描部分根对象，禁用写屏障(Write Barrier)和辅助GC(mutator assist)</p>
+<h2 id="Write-Barrier"><a href="#Write-Barrier" class="headerlink" title="Write Barrier"></a>Write Barrier</h2><p>Write Barrier是为了记录mark阶段新产生的对象。</p>
+<p>Golang 1.7 之前的 write barrier 使用的经典的 Dijkstra-style insertion write barrier [Dijkstra ‘78]， STW 的主要耗时就在 stack re-scan 的过程。自 1.8 之后采用一种混合的 write barrier 方式 （Yuasa-style deletion write barrier [Yuasa ‘90] 和 Dijkstra-style insertion write barrier [Dijkstra ‘78]）来避免 re-scan。具体的可以参考 <a href="https://github.com/golang/proposal/blob/master/design/17503-eliminate-rescan.md" target="_blank" rel="noopener">17503-eliminate-rescan</a>。</p>
+<p>参考：</p>
+<p>《深入理解Java虚拟机》</p>
+<p><a href="https://blog.csdn.net/iter_zc/article/details/41746265" target="_blank" rel="noopener">https://blog.csdn.net/iter_zc/article/details/41746265</a></p>
+<p><a href="https://www.breakyizhan.com/javamianshiti/2861.html" target="_blank" rel="noopener">https://www.breakyizhan.com/javamianshiti/2861.html</a></p>
+<p><a href="http://legendtkl.com/2017/04/28/golang-gc/" target="_blank" rel="noopener">http://legendtkl.com/2017/04/28/golang-gc/</a></p>
+<p><a href="http://wudaijun.com/2017/12/gc-study/" target="_blank" rel="noopener">http://wudaijun.com/2017/12/gc-study/</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

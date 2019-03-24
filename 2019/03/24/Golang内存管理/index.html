@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="基础知识虚拟内存首先需要明确的是，内存分配器分配的不是物理内存，而是虚拟内存。123[root@VM_0_12_centos ~]# ps aux|grep dockerUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME "/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Golang内存管理"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="基础知识虚拟内存首先需要明确的是，内存分配器分配的不是物理内存，而是虚拟内存。123[root@VM_0_12_centos ~]# ps aux|grep dockerUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME "/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Golang内存管理 - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Golang内存管理</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-03-24
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><p>首先需要明确的是，内存分配器分配的不是物理内存，而是虚拟内存。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_12_centos ~]# ps aux|grep docker</span><br><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root      4982  0.0  0.0 194612  2632 ?        Sl   08:55   0:00 /usr/bin/docker-proxy</span><br></pre></td></tr></table></figure></p>
+<p>如上，是linux中docker进程的资源使用情况，其中VSZ(进程虚拟内存大小)表示虚拟内存，RSS(常驻物理内存大小)表示物理内存。</p>
+<p>对于64位的CPU，其可寻址2的64次方的地址，也就是可访问256TB大小的地址空间，但实际中的电脑内存大小是有限制的。所以虚拟内存出现了，当CPU要执行内存中的一条指令时，首先通过MMU(内存管理单元)把VMA(虚拟内存区域)中的逻辑地址转换为线性地址。由于虚拟内存太大难以管理，引入了页(page)的概念，将内存分为相对较小的页(通常4K)，页时虚拟内存管理中最小的单位。</p>
+<p>需要注意的是，MMU掌管虚拟内存到物理内存的映射表(Page Table)，每一页包含一个PTE，同时MMU还有一个物理缓存TLB。</p>
+<h3 id="内存分配器"><a href="#内存分配器" class="headerlink" title="内存分配器"></a>内存分配器</h3><p>操作系统提供四种申请内存的方式：</p>
+<ul>
+<li>mmap/munmap 分配/接触分配修复堵塞内存页</li>
+<li>brk/sbrk 改变或者设置data字段的大小</li>
+<li>madvise  建议操作系统如何管理内存</li>
+<li>set_thread_area/get_thread_area 设置获取线程本地内存</li>
+</ul>
+<p>一般程序调用使用brk(sbrk/mmap/madvise)来获得更多内存，内核仅更新虚拟内存区域(VMA)，并没有实际的物理内存操作。</p>
+<h2 id="TCMalloc"><a href="#TCMalloc" class="headerlink" title="TCMalloc"></a>TCMalloc</h2><p>tcmalloc是google推出的一种内存分配器，常见的内存分配器还有glibc的ptmalloc和google的jemalloc。tcmalloc有比ptmalloc和jemalloc更高的效率。tcmalloc减少了多线程程序中的锁，对于小对象分配，几乎没有锁，对于大对象分配，使用效率更高的自旋锁(spinlocks)。</p>
+<h3 id="TCMalloc原理"><a href="#TCMalloc原理" class="headerlink" title="TCMalloc原理"></a>TCMalloc原理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">C[Central Heap]--&gt;B[Thread Cache]</span><br><span class="line">C[Central Heap]--&gt;A[Thread Cache]</span><br></pre></td></tr></table></figure>
+<p>对于小内存(&lt;32K)的申请，使用线程的本地缓存，当线程内存不足时，从全局缓存(central heap)中申请更大的内存。大内存(&gt;32K)，直接从全局缓存(central heap)申请。其中小内存对象被映射为170个类型大小。</p>
+<p>小对象的分配方法：</p>
+<ol>
+<li>将该对象映射到相应的大小级别(size-class)。</li>
+<li>在当前线程的本地缓存中查找对应类型大小的空闲内存列表(free list)。</li>
+<li>如果找到空闲列表(free list)不为空，则删除列表的第一个对象，并返回给应用。</li>
+</ol>
+<p>如果列表为空：</p>
+<ol>
+<li>我们从central free list中获取这个类型大小的内存对象。(所有的线程共享一个central free list)</li>
+<li>将获取到的对象列表放入线程本地缓存中。</li>
+<li>返回新获取到的一个内存对象给应用。</li>
+</ol>
+<p>如果central free list也为空：</p>
+<ol>
+<li>从页面分配器分配一组页面。</li>
+<li>将分配出来的页面分割为该类型大小的一系列内存对象。</li>
+<li>将切割后的内存对象放入central free list中。</li>
+<li>同上一部，将部分内存对象放到线程本地free list中。</li>
+</ol>
+<p>大对象(&gt;32K)由多个页(4K)组成，由全局页堆(central page heap)来处理。全局页堆也是由一系列的空闲列表数组组成的。</p>
+<p><img src="/2019/03/24/Golang内存管理/./tcmalloc_lib3.png" alt="central page heap"></p>
+<p>比如大对象需要k页，全局页堆能满足：</p>
+<ol>
+<li>在页堆的空闲列表中查找。</li>
+<li>如果空闲列表为空，查找下一个空闲列表，依次如此。</li>
+<li>直到查找到最后一个空闲列表。</li>
+<li>如果仍没有找到，则向系统申请内存。</li>
+<li>如果找到的结果大于k页，则将多余的页回插到页面堆存储中。</li>
+</ol>
+<p>TCMalloc使用Span来管连续的分页，一个span可以包含多个连续的内存分页。Span可以是被分配的(allocated)或者未分配的(free).</p>
+<ul>
+<li>未分配时，span是页面堆中的一个链表</li>
+<li>被分配时，span要么作为一个交给应用的大对象，要么是分配给小对象的一系列的页。</li>
+</ul>
+<p><img src="/2019/03/24/Golang内存管理/./span.png" alt="span"></p>
+<p>以上就是TCMalloc的内存处理方式，go语言的内存分配和TCMalloc大致相似，但又有不同。</p>
+<ul>
+<li>局部缓存不是分给线程或者进程，而是分给P</li>
+<li>GC的STW，并不是每个进程单独进行GC</li>
+<li>span的管理更有效率</li>
+</ul>
+<h2 id="Go-内存分配器"><a href="#Go-内存分配器" class="headerlink" title="Go 内存分配器"></a>Go 内存分配器</h2><p>Go中的内存分配分为3中情况：迷你(Tiny)大小的内存申请(&lt;16b)，小对象的申请(&lt;32kB)，大对象的申请(&gt;32kB)。</p>
+<h3 id="迷你对象"><a href="#迷你对象" class="headerlink" title="迷你对象"></a>迷你对象</h3><p>当分配迷你的内存对象时：</p>
+<ol>
+<li>在P(Processor)的mcache中查找迷你大小的内存对象。</li>
+<li>根据新对象的大小将现有子对象（如果存在）的大小舍入为8,4或2个字节。</li>
+<li>如果对象与现有的子对象匹配，则使用该对象。</li>
+</ol>
+<p>如果上一步没有合适的：</p>
+<ol>
+<li>在P(Processor)的mcache中查找相应的mspan</li>
+<li>从mcache中获取新的mspan</li>
+<li>扫描mspan的空闲bitmap，寻找空闲的位置</li>
+<li>如果有空闲位置，则将其作为迷你对象</li>
+</ol>
+<p>以上的步骤是不需要锁的。</p>
+<p>如果mspan中没有空闲的位置：</p>
+<ol>
+<li>从mcentral的mspan列表中获取新的满足类型大小要求的mspan</li>
+<li>获取整个span，分摊了锁定mcentral的成本</li>
+</ol>
+<p>如果mcentral的mspan列表为空：</p>
+<ol>
+<li>从mheap中获取mspan来使用</li>
+</ol>
+<p>如果mheap为空或者没有足够大小的页：</p>
+<ol>
+<li>从操作系统中分配一组页面(至少1MB)</li>
+<li>分配大量的页面分摊了向操作系统申请资源的消耗</li>
+</ol>
+<h3 id="小对象"><a href="#小对象" class="headerlink" title="小对象"></a>小对象</h3><p>分配小对象的内存时：</p>
+<ol>
+<li>先确定对象匹配的类型大小(size class)</li>
+<li>在P(Processor)的mcache中查找相应的mspan</li>
+<li>扫描mspan的bitmap查找空闲的位置</li>
+<li>如果mspan中有空闲的位置，分配给应用</li>
+</ol>
+<p>以上步骤完全不需要锁</p>
+<p>如果没有空闲的位置：</p>
+<ol>
+<li>从mcentral的mspan列表中获取新的满足类型大小要求的mspan</li>
+<li>获取整个span，分摊了锁定mcentral的成本</li>
+</ol>
+<p>如果mcentral的mspan列表为空：</p>
+<ol>
+<li>从mheap中获取mspan来使用</li>
+</ol>
+<p>如果mheap为空或者没有足够大小的页：</p>
+<ol>
+<li>从操作系统中分配一组页面(至少1MB)</li>
+<li>分配大量的页面分摊了向操作系统申请资源的消耗</li>
+</ol>
+<p>除了第一步和迷你对象分配的过程基本一致，和TCMalloc的分配方式类似。</p>
+<h3 id="大对象"><a href="#大对象" class="headerlink" title="大对象"></a>大对象</h3><p>大对象的内存由mheap直接分配，分配过程和TCMalloc类似，先确定大对象需要多少页，然后在mhaep的空闲列表中查找，如果没找到，则向系统申请内存；如果找到的结果比需要的大，则使用需要的页数，将剩余的页组成一个新的mspan回插到mheap中。</p>
+<p>了解了内存分配的过程，我们再来看看内存分配中涉及到的几个数据结构。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><h4 id="mspan"><a href="#mspan" class="headerlink" title="mspan"></a>mspan</h4><p>GO通过mspan来管理分页，mspan最小是8K。mspan是一个双端链表，包含了页起始地址，span类以及这个类中页的数量。其中的span有三种类型：</p>
+<ol>
+<li>idle(空闲)- span中没有对象，可以被释放给OS，或者被堆分配器，栈内存重用。</li>
+<li>in use(使用中)- span中至少有一个堆对象</li>
+<li>stack(栈)- 被用作goroutine的栈。这个span既可以存活在栈中，也可以存活在堆中</li>
+</ol>
+<p><img src="/2019/03/24/Golang内存管理/./mspan.png" alt="mspan"></p>
+<p>和TCMalloc不同，mspan有67种块。</p>
+<h4 id="mcache"><a href="#mcache" class="headerlink" title="mcache"></a>mcache</h4><p>对应TCMalloc中的线程本地缓存，Go内存分配器为每个逻辑处理器(Processor)提供一个本地线程缓存，也就是mcache。mcache中包含了所有类大小的msapn。</p>
+<p><img src="/2019/03/24/Golang内存管理/./mcache.png" alt="mcache"></p>
+<p>由于mcache是基于CPU存在的，从machae中获取内存时不需要使用锁。</p>
+<p>从上面的步骤可以看出，微小对象、小对象分配时都是直接从mcache中相应大小的mspan申请内存，当mcache中没有可用空间时，会向mcentral申请分配新的mspan。</p>
+<h4 id="mcentral"><a href="#mcentral" class="headerlink" title="mcentral"></a>mcentral</h4><p>mcentral收集了所有给定大小的span，每一个mcentral 都包含了两个 mspan 列表：</p>
+<ol>
+<li>empty mspanList- 没有空闲对象或者已经被 mcache 缓存的 mspans 列表。</li>
+<li>noempty mspanList- 所有空闲对象的 span 列表。</li>
+</ol>
+<p><img src="/2019/03/24/Golang内存管理/./mcentral.png" alt="mcentral"><br>mcentral没有可用内存时，会向mheap申请新的mspan</p>
+<h4 id="mheap"><a href="#mheap" class="headerlink" title="mheap"></a>mheap</h4><p>mheap是一个全局变量，管理Go种所有的虚拟地址空间，所有的 spans 都是通过 mheap_ 申请，所有申请过的 mspan 都会记录在 allspans。</p>
+<p><img src="/2019/03/24/Golang内存管理/./mheap.png" alt="mheap"></p>
+<p>mheap和TCMalloc中的页堆比较相似，有两个127长度的SpanList数组(一个free，一个busy，对应未分配和已分配)，每个SpanList里面的mspan由1~127(_MaxMHeapList - 1)个page组成，比如free[3]是一个包含了3个页的mspan链表。还有两个mspan组成的链表(freelarge mSpanList和busylarge mSpanList)，链表中的每个mspan的页数大于127。</p>
+<p>mcentral没有可用内存时，会向操作系统申请新的内存页(至少1M)</p>
+<p>如果需要申请更到的内存块(arena)，会转向操作系统申请。</p>
+<h4 id="Arena"><a href="#Arena" class="headerlink" title="Arena"></a>Arena</h4><p>Go 的虚拟内存其实由一系列的 arena 构成，初始堆映射也是一个 arena，如 go 1.11.5采用了 64MB 的 arena 内存块。</p>
+<p>当前 Go 内存分配器是按照程序需要逐步增加内存映射的，初始只预留留了一个 arena 的大小（约 64MB）。arenas集合组成了堆，Go中每个arena都是按照8KB的粒度进行管理的。<br><img src="/2019/03/24/Golang内存管理/./Single arena.png" alt="arena"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>综上，Go内存管理的核心本质是：针对不同大小的内存对象，使用不同的内存结构，不同的缓存级别来分配内存；将从系统中获得的一块连续内存分割为多层次的cache，以减少锁的使用以提高内存分配效率；申请不同类大小的内存块来减少内存碎片，同时加速内存释放后的垃圾回收。</p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://povilasv.me/go-memory-management/#fn-1784-7" target="_blank" rel="noopener">https://povilasv.me/go-memory-management/#fn-1784-7</a></p>
+<p><a href="https://weibo.com/ttarticle/p/show?id=2309404347690665261491#_0" target="_blank" rel="noopener">https://weibo.com/ttarticle/p/show?id=2309404347690665261491#_0</a></p>
+<p><a href="http://legendtkl.com/2017/04/02/golang-alloc/" target="_blank" rel="noopener">http://legendtkl.com/2017/04/02/golang-alloc/</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
