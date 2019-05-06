@@ -224,20 +224,12 @@ Share 分享 golang的contain"/>
 <p><a href="https://blog.wikimedia.org/2018/04/20/why-it-took-a-long-time-to-build-that-tiny-link-preview-on-wikipedia/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=website" target="_blank" rel="noopener">https://blog.wikimedia.org/2018/04/20/why-it-took-a-long-time-to-build-that-tiny-link-preview-on-wikipedia/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=website</a></p>
 <p>页面预览是一项简单的功能，当前很多的网站都支持，但是奇怪的是维基花了4年才实现这个功能，这就像一座冰山，看起来只有浮在水上的一点，看到水下时才知道冰山有多大。</p>
 <ol>
-<li>需要选择缩略图</li>
-</ol>
-<p>维基有上百万的页面，都是以wikitext的方式存储的，对于每篇文章不会指定索引图像。在2012年时，我们的工程师Max Semenik创建了一个插件，为每篇文章创建最合适的缩略图。为了页面预览功能，我们升级了这个插件，只针对文章的第一节产生缩略图。</p>
-<ol start="2">
-<li>生成总结</li>
-</ol>
-<p>维基有上百万的页面，过去我们通过Max Semenik编写的插件来生成总结。但该插件主要是来处理text文件的，在页面预览中它就不适用了，根据HTML来生成总结更适用，比如化学文章中的化学公式就需要HTML。</p>
-<p>很多文章，以坐标信息和发音信息开头，很多这样的内容不属于我们的总结，另一些又不清楚是否属于。总结有很多输入，我们识别哪些不出现在预览中。</p>
-<p>感谢基础设施团队帮助我们构建这样的API。</p>
-<ol start="3">
-<li>和社区一起工作</li>
-</ol>
-<p>我们的编辑社区很关心我们的产品，我们全程和他们一起工作，处理各种边界问题。</p>
-<ol start="4">
+<li><p>需要选择缩略图<br>维基有上百万的页面，都是以wikitext的方式存储的，对于每篇文章不会指定索引图像。在2012年时，我们的工程师Max Semenik创建了一个插件，为每篇文章创建最合适的缩略图。为了页面预览功能，我们升级了这个插件，只针对文章的第一节产生缩略图。</p>
+</li>
+<li><p>生成总结<br>维基有上百万的页面，过去我们通过Max Semenik编写的插件来生成总结。但该插件主要是来处理text文件的，在页面预览中它就不适用了，根据HTML来生成总结更适用，比如化学文章中的化学公式就需要HTML。很多文章，以坐标信息和发音信息开头，很多这样的内容不属于我们的总结，另一些又不清楚是否属于。总结有很多输入，我们识别哪些不出现在预览中。感谢基础设施团队帮助我们构建这样的API。</p>
+</li>
+<li><p>和社区一起工作<br>我们的编辑社区很关心我们的产品，我们全程和他们一起工作，处理各种边界问题。</p>
+</li>
 <li><p>设计<br>我们做了很多工作，我们的设计师Nirzar在文章中描述过，我在这里就不在赘述。我们的每一步中都有设计参与，讨论特性的展示；缩略图和总结等等。</p>
 </li>
 <li><p>测试分析<br>如何评论是一个巨大的改变。在维基，我们和注意隐私，我们或许是世界上唯一的没有跟踪用户行为的大型网站。</p>
