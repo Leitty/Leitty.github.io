@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Redis和MemcachedRedis 和 Memcached 都是基于内存的数据存储系统。Memcached是高性能分布式内存缓存服务；Redis是一个开源的key-value存储系统。与 Memcached 类似，Redis 将大部分数据存储在内存中，支持的数据类型包括：字符串、哈希 表、链表"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Redis和Memcached区别"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Redis和MemcachedRedis 和 Memcached 都是基于内存的数据存储系统。Memcached是高性能分布式内存缓存服务；Redis是一个开源的key-value存储系统。与 Memcached 类似，Redis 将大部分数据存储在内存中，支持的数据类型包括：字符串、哈希 表、链表"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Redis和Memcached区别 - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Redis和Memcached区别</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-05-16
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Redis/">#Redis</a> <a href="/tags/Memcached/">#Memcached</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Redis和Memcached"><a href="#Redis和Memcached" class="headerlink" title="Redis和Memcached"></a>Redis和Memcached</h2><p><code>Redis</code> 和 <code>Memcached</code> 都是基于内存的数据存储系统。<code>Memcached</code>是高性能分布式内存缓存服务；<code>Redis</code>是一个开源的<code>key-value</code>存储系统。与 <code>Memcached</code> 类似，<code>Redis</code> 将大部分数据存储在内存中，支持的数据类型包括：字符串、哈希 表、链表、等数据类型的相关操作。</p>
+<h3 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h3><p>由于 <code>Redis</code> 只使用单核，而 <code>Memcached</code> 可以使用多核多线程，所以平均每一个核上 <code>Redis</code> 在存储小数据时比 <code>Memcached</code> 性能更高。而在100k以上的数据时，<code>Memcached</code> 性能要高于 <code>Redis</code>，虽然 <code>Redis</code> 最近也在存储大数据的性能上进行优化，但是比起 <code>Memcached</code>，还是稍有逊色。</p>
+<p><code>Redis</code> 使用的是单进程单线程模型，保证了数据顺序提交，利用队列技术，消除了传统数据库串行控制的开销；<code>Memcached</code> 使用CAS保证数据的一致性。CAS(Check and Set)是一个确保并发一致性的机制，属于“乐观锁”范畴；原理很简单：拿版本号，操作，对比版本号，如果一致就操作，不一致就放弃任何操作。</p>
+<h3 id="内存使用效率"><a href="#内存使用效率" class="headerlink" title="内存使用效率"></a>内存使用效率</h3><p>使用简单的key-value存储的话，<code>Memcached</code> 的内存利用率更高，而如果 <code>Redis</code> 采用hash结构来做key-value存储，由于其组合式的压缩，其内存利用率会高于 <code>Memcached</code> 。</p>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><p><code>Redis</code> 和 <code>Memcached</code>都是将数据存放在内存中，都是内存数据库。不过 <code>Memcached</code>还可用于缓存其他东西，例如图片、视频等等。<code>Memcached</code>把数据全部存在内存之中，断电后会挂掉，数据不能超过内存大小；<code>Redis</code>有部份存在硬盘上，这样能保证数据的持久性，支持数据的持久化（RDB、AOF），而 <code>Memcached</code> 不支持持久化，超过内存比例的数据，会通过LRU（最近最少使用Least Recently Used抹掉。同时 <code>Redis</code> 并不是所有的数据都一直存储在内存中的，当物理内存用完时，<code>Redis</code> 可以将一些很久没用到的value交换到磁盘。<code>Redis</code> 只会缓存所有的key的信息，如果 <code>Redis</code>发现内存的使用量超过了某一个阀值，将触发swap的操作，<code>Redis</code> 根据 <code>“swappability = age*log(size_in_memory)”</code> 计算出哪些key对应的value需要swap到磁盘。然后再将这些key对应的value持久化到磁盘中，同时在内存中清除。</p>
+<p>这种特性使得 <code>Redis</code> 可以保持超过其机器本身内存大小的数据。当然，机器本身的内存必须要能够保持所有的key，毕竟这些数据是不会进行swap操作的。同时由于 <code>Redis</code> 将内存中的数据swap到磁盘中的时候，提供服务的主线程和进行swap操作的子线程会共享这部分内存，所以如果更新需要swap的数据，<code>Redis</code> 将阻塞这个操作，直到子线程完成swap操作后才可以进行修改。</p>
+<p>当从 <code>Redis</code> 中读取数据的时候，如果读取的key对应的value不在内存中，那么 <code>Redis</code> 就需要从swap文件中加载相应数据，然后再返回给请求方。 这里就存在一个I/O线程池的问题。在默认的情况下，<code>Redis</code> 会出现阻塞，即完成所有的swap文件加载后才会相应。这种策略在客户端的数量较小，进行批量操作的时候比较合适。但是如果将 <code>Redis</code> 应用在一个大型的网站应用程序中，这显然是无法满足大并发的情况的。所以 <code>Redis</code>运行我们设置I/O线程池的大小，对需要从swap文件中加载相应数据的读取请求进行并发操作，减少阻塞的时间。</p>
+<h3 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h3><p>传统的C语言的malloc/free函数是最常用的分配和释放内存的方法，频繁的调用会造成大量内存碎片无法重新利用，降低内存利用率，另外其作为系统调用，系统开销远远大于一般函数调用。</p>
+<p><code>Memcached</code> 默认使用Slab Allocation机制管理内存，其主要思想是按照预先规定的大小，将分配的内存分割成特定长度的块以存储相应长度的key-value数据记录，以完全解决内存碎片问题。Slab Allocation机制只为存储外部数据而设计，也就是说所有的key-value数据都存储在Slab Allocation系统里，而 <code>Memcached</code>的其它内存请求则通过普通的malloc/free来申请，因为这些请求的数量和频率决定了它们不会对整个系统的性能造成影响。</p>
+<p><img src="/2019/05/16/Redis和Memcached区别/./SlabAllocation.png" alt="image"></p>
+<p>如图上图所示，它首先从操作系统申请一大块内存，并将其分割成各种尺寸的块 Chunk，并把尺寸相同的块分成组 Slab Class。其中，Chunk就是用来存储 key-value 数据的最小单位。每个 Slab Class 的大小，可以在 <code>Memcached</code> 启动的时候通过制定 Growth Factor 来控制。假定图中 Growth Factor 的取值为1.25，如果第一组 Chunk 的大小为88个字节，第二组Chunk的大小就为112个字节，依此类推。</p>
+<p>当 <code>Memcached</code> 接收到客户端发送过来的数据时首先会根据收到数据的大小选择一个最合适的 Slab Class，然后通过查询 <code>Memcached</code> 保存着的该 Slab Class 内空闲 Chunk 的列表就可以找到一个可用于存储数据的 Chunk 。当一条数据库过期或者丢弃时，该记录所占用的 Chunk 就可以回收，重新添加到空闲列表中。</p>
+<p>从以上可以看出 <code>Memcached</code> 的内存管理制效率高，而且不会造成内存碎片，但是它最大的缺点就是会导致空间浪费。因为每个 Chunk 都分配了特定长度的内存空间，所以变长数据无法充分利用这些空间。比如将100个字节的数据缓存到128个字节的 Chunk 中，剩余的28个字节就浪费掉了。<code>Memcached</code> 主要的 cache 机制是 LRU（最近最少使用Least Recently Used）算法+超时失效。</p>
+<p><code>Redis</code>的内存管理主要通过源码中 zmalloc.h 和 zmalloc.c 两个文件来实现的。<code>Redis</code> 为了方便内存的管理，在分配一块内存之后，会将这块内存的大小存入内存块的头部。</p>
+<p><img src="/2019/05/16/Redis和Memcached区别/./redisMemory.jpg" alt="image"></p>
+<p>如图所示，real_ptr 是 <code>Redis</code> 调用 malloc 后返回的指针。<code>Redis</code>将内存块的大小 size存入头部， size所占据的内存大小是已知的，为 size_t 类型的长度，然后返回 ret_ptr。当需要释放内存的时候，ret_ptr被传给内存管理程序。通过 ret_ptr，程序可以很容易的算出 real_ptr的值，然后将 real_ptr 传给 free释放内存。</p>
+<p><code>Redis</code>通过定义一个数组来记录所有的内存分配情况，这个数组的长度为 ZMALLOC_MAX_ALLOC_STAT。数组的每一个元素代表当前程序所分配的内存块的个数，且内存块的大小为该元素的下标。在源码中，这个数组为 zmalloc_allocations。 zmalloc_allocations[16]代表已经分配的长度为16bytes的内存块的个数。zmalloc.c中有一个静态变量 used_memory 用来记录当前分配的内存总大小。所以，总的来看，<code>Redis</code> 采用的是包装的 mallc/free，相较于 <code>Memcached</code> 的内存管理方法来说，要简单很多。</p>
+<h3 id="数据备份恢复"><a href="#数据备份恢复" class="headerlink" title="数据备份恢复"></a>数据备份恢复</h3><p><code>Memcached</code> 挂掉后，数据不可恢复；</p>
+<p><code>Redis</code> 有部分数据是存在硬盘上，支持数据的持久化(快照或者AOF日志持久化)，所以数据丢失后，可以通过 快照或者AOF日志恢复，<code>Redis</code>支持数据的备份，即master-slave主从模式的数据备份。</p>
+<h3 id="集群、分布式存储"><a href="#集群、分布式存储" class="headerlink" title="集群、分布式存储"></a>集群、分布式存储</h3><p>作为基于内存的存储系统来说，机器物理内存的大小就是系统能够容纳的最大数据量。如果需要处理的数据量超过了单台机器的物理内存大小，就需要构建分布式集群来扩展存储能力。</p>
+<p><code>Memcached</code> 本身并不支持分布式，因此只能在客户端通过像一致性哈希这样的分布式算法来实现Memcached的分布式存储。当客户端向 <code>Memcached</code>集群发送数据之前，首先会通过内置的分布式算法计算出该条数据的目标节点，然后数据会直接发送到该节点上存储。但客户端查询数据时，同样要计算出查询数据所在的节点，然后直接向该节点发送查询请求以获取数据。<code>Memcached</code>服务端之间是不相互通信的。</p>
+<p><code>Redis</code> 在2.8版本之前与<code>Memcached</code>一致，可以在客户端实现分布式，也可以使用代理，twitter曾开源用于 <code>Redis</code>和<code>Memcached</code>的代理<code>Twemproxy</code>，集群架构如下，为避免单点，结合keepalved来实现高可用：</p>
+<p><img src="/2019/05/16/Redis和Memcached区别/./twemproxy.png" alt="image"></p>
+<p>上面的架构通常只有一台Twemproxy在工作，另外一台处于备机，当一台挂掉以后，vip自动漂移，备机接替工作。</p>
+<p>在3.0版本以后，<code>Redis</code>在服务端构建了分布式存储。<code>Redis Cluster</code>是一个实现了分布式且允许单点故障的 <code>Redis</code>高级版本，它没有中心节点，各个节点地位一致，具有线性可伸缩的功能。为了保证单点故障下的数据可用性，Redis Cluster引入了Master节点和Slave节点。在Redis Cluster中，每个Master节点都会有对应的两个用于冗余的Slave节点。这样在整个集群中，任意两个节点的宕机都不会导致数据的不可用。当Master节点退出后，集群会自动选择一个Slave节点成为新的Master节点。</p>
+<p>如图给出 <code>Redis Cluster</code>的分布式存储架构，其中节点与节点之间通过二进制协议进行通信，节点与客户端之间通过ascii协议进行通信。在数据的放置策略上，<code>Redis Cluster</code>将整个 key的数值域分成16384个哈希槽，每个节点上可以存储一个或多个哈希槽，也就是说当前<code>Redis Cluster</code>支持的最大节点数就是16384。也就是数据分片和读写分离模型(一个master和多个slave)的融合。</p>
+<p><img src="/2019/05/16/Redis和Memcached区别/./redisCluster.jpg" alt="image"></p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://blog.csdn.net/u011489043/article/details/78922390" target="_blank" rel="noopener">https://blog.csdn.net/u011489043/article/details/78922390</a></p>
+<p><a href="https://www.cnblogs.com/JavaBlackHole/p/7726195.html" target="_blank" rel="noopener">https://www.cnblogs.com/JavaBlackHole/p/7726195.html</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

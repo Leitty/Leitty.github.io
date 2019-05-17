@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="grpc-gateway是Google protocol buffers系列化编译器protoc的插件。通过读取protobuf服务的定义，生成将RESTful json API请求转化为gRPC的反向代理。其通过protobuf中定义的google.api.http注释来生成。
+grpc-gate"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="grpc-gateway"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="grpc-gateway是Google protocol buffers系列化编译器protoc的插件。通过读取protobuf服务的定义，生成将RESTful json API请求转化为gRPC的反向代理。其通过protobuf中定义的google.api.http注释来生成。
+grpc-gate"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>grpc-gateway - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>grpc-gateway</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-05-16
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a> <a href="/tags/gRPC/">#gRPC</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>grpc-gateway是Google protocol buffers系列化编译器protoc的插件。通过读取protobuf服务的定义，生成将RESTful json API请求转化为gRPC的反向代理。其通过protobuf中定义的<code>google.api.http</code>注释来生成。</p>
+<p>grpc-gateway能同时提供gRPC和RESTful的APIs。</p>
+<p><img src="/2019/05/16/grpc-gateway/./grpc-gateway.png" alt="image"></p>
+<p>grpc-gateway架构图</p>
+<p>grpc-gateway这个项目的目的是提供 HTTP+JSON 接口给你的gRPC服务。只需要在服务中加一点配置就能通过这个库产生反向代理。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>首先，需要本地安装了 <code>protoc</code> v3.00及以上。官方地址：</p>
+<p><a href="https://github.com/protocolbuffers/protobuf/releases" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf/releases</a></p>
+<p>其次，需要安装grpc-gateway的包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway</span><br><span class="line">go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger</span><br><span class="line">go get -u github.com/golang/protobuf/protoc-gen-go</span><br></pre></td></tr></table></figure>
+<p>下载完成后安装该项目，在$GOBIN下生成：</p>
+<ul>
+<li><code>protoc-gen-grpc-gateway</code></li>
+<li><code>protoc-gen-grpc-swagger</code></li>
+<li><code>protoc-gen-go</code></li>
+<li>把$GOPATH加入到环境变量中</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>我们可以新建一个<code>grpc-gateway-demo</code>项目</p>
+<h4 id="定义gRPC服务"><a href="#定义gRPC服务" class="headerlink" title="定义gRPC服务"></a>定义gRPC服务</h4><p>首先，在<code>grpc-gateway-demo</code>目录下新建<code>proto</code>目录，在<code>proto</code>下新建<code>your_service.proto</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line">package example;</span><br><span class="line"></span><br><span class="line">message Embedded &#123;</span><br><span class="line">    oneof mark &#123;</span><br><span class="line">        int64 progress = 1;</span><br><span class="line">        string note = 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message StringMessage &#123;</span><br><span class="line">    string id = 1;</span><br><span class="line">    int64 num = 2;</span><br><span class="line">    oneof code &#123;</span><br><span class="line">        int64 line_num = 3;</span><br><span class="line">        string lang = 4;</span><br><span class="line">    &#125;</span><br><span class="line">    Embedded status = 5;</span><br><span class="line">    oneof ext &#123;</span><br><span class="line">        int64 en = 6;</span><br><span class="line">        Embedded no = 7;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">service YourService &#123;</span><br><span class="line">  rpc Echo(StringMessage) returns (StringMessage) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上是一个传统的proto文件，使用grpc-gateway需要对其进行修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> syntax = &quot;proto3&quot;;</span><br><span class="line"> package example;</span><br><span class="line">+</span><br><span class="line">+import &quot;google/api/annotations.proto&quot;;</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">message Embedded &#123;</span><br><span class="line">    oneof mark &#123;</span><br><span class="line">        int64 progress = 1;</span><br><span class="line">        string note = 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message StringMessage &#123;</span><br><span class="line">    string id = 1;</span><br><span class="line">    int64 num = 2;</span><br><span class="line">    oneof code &#123;</span><br><span class="line">        int64 line_num = 3;</span><br><span class="line">        string lang = 4;</span><br><span class="line">    &#125;</span><br><span class="line">    Embedded status = 5;</span><br><span class="line">    oneof ext &#123;</span><br><span class="line">        int64 en = 6;</span><br><span class="line">        Embedded no = 7;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> service YourService &#123;</span><br><span class="line">-  rpc Echo(StringMessage) returns (StringMessage) &#123;&#125;</span><br><span class="line">+  rpc Echo(StringMessage) returns (StringMessage) &#123;</span><br><span class="line">+    option (google.api.http) = &#123;</span><br><span class="line">+      post: &quot;/v1/echo/&#123;id&#125;&quot;</span><br><span class="line">+      additional_bindings &#123;</span><br><span class="line">+        get: &quot;/v1/echo/&#123;id&#125;/&#123;num&#125;&quot;</span><br><span class="line">+      &#125;</span><br><span class="line">+    &#125;;</span><br><span class="line">+  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>-</code>表示删除部分，<code>+</code>表示增加部分</p>
+<p>另外还需要在proto文件下新建<code>google/api</code>目录，在其中新增<code>annotations.proto</code>和<code>http.proto</code>文件。</p>
+<p><code>http.proto</code>文件可以拷贝： </p>
+<p><a href="https://github.com/googleapis/googleapis/blob/master/google/api/http.proto" target="_blank" rel="noopener">https://github.com/googleapis/googleapis/blob/master/google/api/http.proto</a></p>
+<p><code>annotations.proto</code>文件可以拷贝： </p>
+<p><a href="https://github.com/googleapis/googleapis/blob/master/google/api/annotations.proto" target="_blank" rel="noopener">https://github.com/googleapis/googleapis/blob/master/google/api/annotations.proto</a></p>
+<p>其次，生成给序列化文件，windows下生成<code>.pb.go</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc -IC:\Users\Leiying\go\bin -I.  -IC:\Users\Leiying\go\src  -IC:\Users\Leiying\go\src\github.com\grpc-ecosystem\grpc-gateway\third_party\googleapis  --go_out=plugins=grpc:.  your_service.proto</span><br></pre></td></tr></table></figure></p>
+<p>再生成反向代理，<code>.pg.gw.go</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc -IC:\Users\Leiying\go\bin -I. -IC:\Users\Leiying\go\src  -IC:\Users\Leiying\go\src\github.com\grpc-ecosystem\grpc-gateway\third_party\googleapis   --grpc-gateway_out=logtostderr=true:.  your_service.proto</span><br></pre></td></tr></table></figure></p>
+<p>-I指定文件目录</p>
+<p>执行完以上两步后生成：<code>your_service.pb.go</code>和 <code>your_service.pb.gw.go</code></p>
+<h4 id="编写gateway服务"><a href="#编写gateway服务" class="headerlink" title="编写gateway服务"></a>编写gateway服务</h4><p>在<code>grpc-gateway-demo</code>目录下，新建<code>cmd/example-grpc-gateway</code>目录作为应用的入口</p>
+<p>新建<code>main.go</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var (</span><br><span class="line">	endpoint = flag.String(&quot;endpoint&quot;, &quot;localhost:9090&quot;, &quot;endpoint of the gRPC service&quot;)</span><br><span class="line">	network = flag.String(&quot;network&quot;, &quot;tcp&quot;, `one of &quot;tcp&quot; or &quot;unix&quot;. Must be consistent to -endpoint`)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	flag.Parse()</span><br><span class="line">	defer glog.Flush()</span><br><span class="line"></span><br><span class="line">	ctx := context.Background()</span><br><span class="line">	opts := gateway.Options&#123;</span><br><span class="line">		Addr:&quot;:8080&quot;,</span><br><span class="line">		GRPCServer:gateway.Endpoint&#123;</span><br><span class="line">			Network: *network,</span><br><span class="line">			Addr: *endpoint,</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">	if err := gateway.Run(ctx, opts); err != nil &#123;</span><br><span class="line">		glog.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>grpc-gateway-demo</code>目录下，新建<code>gateway</code>目录，编写<code>gateway</code>的主要逻辑，主要包括三个文件：<code>main.go</code>,<code>gateway.go</code>,<code>handlers.go</code>。</p>
+<p><code>main.go</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">type Endpoint struct &#123;</span><br><span class="line">	Network, Addr string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Options struct &#123;</span><br><span class="line">	Addr string</span><br><span class="line">	GRPCServer Endpoint</span><br><span class="line">	Mux []runtime.ServeMuxOption</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func Run(ctx context.Context, opt Options) error &#123;</span><br><span class="line">	ctx , cancel := context.WithCancel(ctx)</span><br><span class="line">	defer cancel()</span><br><span class="line"></span><br><span class="line">	conn, err := dial(ctx, opt.GRPCServer.Network, opt.GRPCServer.Addr)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		return err</span><br><span class="line">	&#125;</span><br><span class="line">	go func() &#123;</span><br><span class="line">		&lt;- ctx.Done()</span><br><span class="line">		if err := conn.Close(); err != nil &#123;</span><br><span class="line">			glog.Errorf(&quot;Failed to close a client connection to gRPC server: %v&quot;, err)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	mux := http.NewServeMux()</span><br><span class="line">	mux.HandleFunc(&quot;/healthz&quot;, healthzServer(conn))</span><br><span class="line"></span><br><span class="line">	gw, err := newGateway(ctx, conn, opt.Mux)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		return err</span><br><span class="line">	&#125;</span><br><span class="line">	mux.Handle(&quot;/&quot;, gw)</span><br><span class="line"></span><br><span class="line">	s := &amp;http.Server&#123;</span><br><span class="line">		Addr: opt.Addr,</span><br><span class="line">		Handler: allowCORS(mux),</span><br><span class="line">	&#125;</span><br><span class="line">	go func() &#123;</span><br><span class="line">		&lt;- ctx.Done()</span><br><span class="line">		glog.Infof(&quot;Shutting down the http server&quot;)</span><br><span class="line">		if err := s.Shutdown(context.Background()); err != nil &#123;</span><br><span class="line">			glog.Errorf(&quot;Failed to shutdown http server: %v&quot;, err)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	glog.Infof(&quot;Starting listening at %s&quot;, opt.Addr)</span><br><span class="line">	if err := s.ListenAndServe(); err != http.ErrServerClosed &#123;</span><br><span class="line">		glog.Errorf(&quot;Failed to listen and serve: %v&quot;, err)</span><br><span class="line">		return err</span><br><span class="line">	&#125;</span><br><span class="line">	return nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>gateway.go</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">func newGateway(ctx context.Context, conn *grpc.ClientConn, opts []runtime.ServeMuxOption) (http.Handler, error) &#123;</span><br><span class="line">	mux := runtime.NewServeMux(opts...)</span><br><span class="line"></span><br><span class="line">	for _, f := range []func(context.Context, *runtime.ServeMux, *grpc.ClientConn) error&#123;</span><br><span class="line">		proto.RegisterYourServiceHandler,</span><br><span class="line">	&#125; &#123;</span><br><span class="line">		if err := f(ctx, mux, conn);err != nil &#123;</span><br><span class="line">			return nil, err</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return mux, nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func dial(ctx context.Context, network, addr string) (*grpc.ClientConn, error) &#123;</span><br><span class="line">	switch network &#123;</span><br><span class="line">	case &quot;tcp&quot;:</span><br><span class="line">		return dialTCP(ctx, addr)</span><br><span class="line">	default:</span><br><span class="line">		return nil, fmt.Errorf(&quot;unsupported network type %q&quot;, network)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func dialTCP(ctx context.Context, addr string) (*grpc.ClientConn, error)&#123;</span><br><span class="line">	return grpc.DialContext(ctx, addr, grpc.WithInsecure())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>handlers.go</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">func allowCORS(h http.Handler) http.Handler &#123;</span><br><span class="line">	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">		if origin := r.Header.Get(&quot;Origin&quot;); origin != &quot;&quot; &#123;</span><br><span class="line">			w.Header().Set(&quot;Access-Control-Allow-Origin&quot;, origin)</span><br><span class="line">			if r.Method == &quot;OPTIONS&quot; &amp;&amp; r.Header.Get(&quot;Access-Control-Request-Method&quot;) != &quot;&quot;&#123;</span><br><span class="line">				preflightHandler(w, r)</span><br><span class="line">				return</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		h.ServeHTTP(w, r)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func preflightHandler(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">	headers := []string&#123;&quot;Content-Type&quot;, &quot;Accept&quot;&#125;</span><br><span class="line">	w.Header().Set(&quot;Access-Control-Allow-Headers&quot;, strings.Join(headers, &quot;,&quot;))</span><br><span class="line">	methods := []string&#123;&quot;GET&quot;, &quot;HEAD&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;&#125;</span><br><span class="line">	w.Header().Set(&quot;Access-Control-Allow-Methods&quot;, strings.Join(methods, &quot;,&quot;))</span><br><span class="line">	glog.Infof(&quot;preflight request for %s&quot;, r.URL.Path)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func healthzServer(conn *grpc.ClientConn) http.HandlerFunc&#123;</span><br><span class="line">	return func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">		w.Header().Set(&quot;Content-Type&quot;, &quot;text/plain&quot;)</span><br><span class="line">		if s := conn.GetState(); s != connectivity.Ready &#123;</span><br><span class="line">			http.Error(w, fmt.Sprintf(&quot;grpc server is %s&quot;, s), http.StatusBadGateway)</span><br><span class="line">			return</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Fprintln(w, &quot;ok&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时可以启动<code>cmd/example-grpc-gateway</code>下的<code>main.go</code>服务了，使用 postman 发送<code>post localhost:8080/v1/echo/123</code>会报错，原因在于8080端口的gateway服务会将请求转化为gRPC请求，转发到9090端口的gRPC服务，但目前9090端口没有gRPC服务，下面新建一个gRPC服务。</p>
+<h3 id="新建gRPC服务"><a href="#新建gRPC服务" class="headerlink" title="新建gRPC服务"></a>新建gRPC服务</h3><p>在<code>cmd</code>下新建<code>example-grpc-server</code>目录，作为服务入口：</p>
+<p><code>main.go</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var (</span><br><span class="line">	addr = flag.String(&quot;addr&quot;, &quot;:9090&quot;, &quot;endpoint of the gRPC service&quot;)</span><br><span class="line">	network = flag.String(&quot;network&quot;, &quot;tcp&quot;, &quot;a valid network type which is consistent to addr&quot;)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	flag.Parse()</span><br><span class="line">	defer glog.Flush()</span><br><span class="line"></span><br><span class="line">	ctx := context.Background()</span><br><span class="line">	if err := server.Run(ctx, *network, *addr); err != nil &#123;</span><br><span class="line">		glog.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>grpc-gateway-demo</code>下新建<code>server</code>目录，处理服务主逻辑，包含<code>main.go</code>，<code>myserver.go</code>两个文件。</p>
+<p><code>main.go</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">func Run(ctx context.Context, network, addr string) error &#123;</span><br><span class="line">	l, err := net.Listen(network, addr)</span><br><span class="line">	if err != nil &#123;</span><br><span class="line">		return err</span><br><span class="line">	&#125;</span><br><span class="line">	defer func() &#123;</span><br><span class="line">		if err := l.Close(); err != nil &#123;</span><br><span class="line">			glog.Errorf(&quot;Failed to close %s %s: %v&quot;, network, addr, err)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	s := grpc.NewServer()</span><br><span class="line">	pb.RegisterYourServiceServer(s, newMyServer())</span><br><span class="line"></span><br><span class="line">	go func() &#123;</span><br><span class="line">		defer s.GracefulStop()</span><br><span class="line">		&lt;- ctx.Done()</span><br><span class="line">	&#125;()</span><br><span class="line">	return s.Serve(l)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>myserver.go</code>实现yourservice接口:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">type myserver struct&#123;&#125;</span><br><span class="line"></span><br><span class="line">func newMyServer() pb.YourServiceServer &#123;</span><br><span class="line">	return new(myserver)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (myserver) Echo(ctx context.Context,msg *pb.StringMessage) (*pb.StringMessage, error) &#123;</span><br><span class="line">	glog.Info(msg)</span><br><span class="line">	return msg, nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>启动服务，进行测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Visit the apis</span><br><span class="line">$ curl -XPOST http://localhost:8080/v1/echo/foo</span><br><span class="line">&#123;&quot;id&quot;:&quot;foo&quot;&#125;</span><br><span class="line"></span><br><span class="line">$ curl  http://localhost:8080/v1/echo/foo/123</span><br><span class="line">&#123;&quot;id&quot;:&quot;foo&quot;,&quot;num&quot;:&quot;123&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/grpc-ecosystem/grpc-gateway" target="_blank" rel="noopener">https://github.com/grpc-ecosystem/grpc-gateway</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
