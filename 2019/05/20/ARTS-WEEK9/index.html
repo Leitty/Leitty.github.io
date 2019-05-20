@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="本周ARTS本周ARTS打卡内容：
+
+Algorithm 来源 LeetCode25
+Review 分享 How to write a good software design doc
+Tip 分享 journalctl命令基本用法
+Share 分享 Redis和Memcached区别
+
+Algor"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ARTS-WEEK9"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="本周ARTS本周ARTS打卡内容：
+
+Algorithm 来源 LeetCode25
+Review 分享 How to write a good software design doc
+Tip 分享 journalctl命令基本用法
+Share 分享 Redis和Memcached区别
+
+Algor"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>ARTS-WEEK9 - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>ARTS-WEEK9</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-05-20
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="本周ARTS"><a href="#本周ARTS" class="headerlink" title="本周ARTS"></a>本周ARTS</h2><p>本周ARTS打卡内容：</p>
+<ol>
+<li>Algorithm 来源 LeetCode25</li>
+<li>Review 分享 How to write a good software design doc</li>
+<li>Tip 分享 journalctl命令基本用法</li>
+<li>Share 分享 Redis和Memcached区别</li>
+</ol>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>LeetCode的25题，合并k个有序的链表：</p>
+<p><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-k-sorted-lists/</a></p>
+<p>思路：</p>
+<p>把整个链表按照划分成N段，每段的长度为k，我们需要解决的问题变成了反转这个长度为k的链表，反转长度为k的链表的方法也很简单，对于1–&gt;2–&gt;3这样一个链表，我们可以用node1，node2，node3来表示，反转操作就是让node2.next指向node1，然后node1，node2，node3都前进一位，具体代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">func reverseKGroup(head *ListNode, k int) *ListNode &#123;</span><br><span class="line">	var node1, node2, node3 *ListNode</span><br><span class="line">	var n int</span><br><span class="line">	for node1 = head; node1 != nil; &#123;</span><br><span class="line">		node1 = node1.Next</span><br><span class="line">		n++</span><br><span class="line">	&#125;</span><br><span class="line">	if n &lt; k &#123;</span><br><span class="line">		return head</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	first := &amp;ListNode&#123;0, head&#125;</span><br><span class="line">	node1 = first</span><br><span class="line">	var term int</span><br><span class="line">	for term = n/k;term != 0;term-- &#123;</span><br><span class="line">		node2, node3 = reverseListNode(node1.Next, k)</span><br><span class="line">		node1.Next = node2</span><br><span class="line">		node1 = node3</span><br><span class="line">	&#125;</span><br><span class="line">	return first.Next</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 反转长度为K的链表</span><br><span class="line">func reverseListNode(head *ListNode, k int)  (*ListNode, *ListNode)&#123;</span><br><span class="line">	var node1, node2, node3 *ListNode</span><br><span class="line">	node1 =head</span><br><span class="line">	node2 = node1.Next</span><br><span class="line">	for n:=k-1; n!=0; n-- &#123;</span><br><span class="line">		node3 = node2.Next</span><br><span class="line">		node2.Next = node1</span><br><span class="line">		node1, node2 = node2, node3</span><br><span class="line">	&#125;</span><br><span class="line">	head.Next = node2</span><br><span class="line">	return node1, head</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>本周内容：How to write a good software design doc</p>
+<p>本文被分为4个部分：</p>
+<ul>
+<li>为什么要写设计文档</li>
+<li>设计文档中包含什么内容</li>
+<li>怎么写设计文档</li>
+<li>写作过程</li>
+</ul>
+<h4 id="为什么要写设计文档"><a href="#为什么要写设计文档" class="headerlink" title="为什么要写设计文档"></a>为什么要写设计文档</h4><p>设计文档，也被称为技术说明，用来描述怎么解决问题的。很多文章里已经说过写设计文档的重要性，这里不再赘述，需要强调的是：设计文档是用来确认完成了正确工作的最有力工具。</p>
+<p>设计文档的主要目的是通过强迫你思考设计、获取来自他人的反馈，让你更有效率。人们通常认为设计文档是用来教其他人使用软件或者之后作为文档使用的。虽然这些是有益的副作用，但不是目标本身。</p>
+<p>一般来说，如果你要在一个项目上花费一个月或者更长时间，你就该写一个设计文档。但是不要止步不前-很多小项目会因为迷你项目的设计文档受益。</p>
+<p>不同的工程师队伍，甚至同一个队伍中的不同工程师写设计文档都会千差万别。所以，现在让我们来讨论下一个好的设计文档的内容、风格已经编写过程。</p>
+<h4 id="设计文档中应该包含什么"><a href="#设计文档中应该包含什么" class="headerlink" title="设计文档中应该包含什么"></a>设计文档中应该包含什么</h4><p>设计文档描述了问题的解决方案。既然每个问题的性质是不同的，我们的设计文档的结构也不相同。下面是在编写设计文档前应该考虑的章节列表:</p>
+<ul>
+<li>标题和人员。设计文档的标题、参与者们、文档查看人员以及文档最后的更新时间</li>
+<li>概要。设计的高度的总结，公司的每个工程师都能理解，用来决定是否阅读文档的后续。最长应该控制在3段。</li>
+<li>背景。描述正在处理的问题，为什么这个项目是必须的，评估这个项目需要知道什么，已经它是融入技术战略，产品战略和团队的季度目标的。</li>
+<li>目标和非目标。目标章节应该包含：描述项目的用户驱动影响；指定衡量成功的标准。非目标是介绍哪些问题，项目不会解决，这样同样重要。</li>
+<li><p>里程碑。一系列可测量的检查点，以便你的PM和经理的经理可以通过它大概项目不同部分什么时候完成。如果项目超过1个月我建议把项目划分成多个主要面向用户的里程碑。使用日期格式，以便考虑到无关的延时，比如假期，会议等等。应该像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start Date: June 7, 2018</span><br><span class="line">Milestone 1 - New system MVP running in dark-mode: June 28, 2018</span><br><span class="line">Milestone 2 - Retire old system: July 4th, 2018</span><br><span class="line">End Date: Add feature X, Y, Z to new system: July 14th, 2018</span><br></pre></td></tr></table></figure>
+<p>增加[update]子章节，如果某些里程碑发生了变化，以便相关者可以轻松查询最新的情况</p>
+</li>
+<li><p>现有解决方案。除了描述当前的实现，也应该通过一个高级的样例来说明用户怎么和这个系统交互，或者数据怎样流经它。用户故事是构建次框架的绝佳方案。请记住，你的系统可能有不同的用户样例的不同用户。</p>
+</li>
+<li>建议的解决方案。有些人称呼其为技术框架章节。同样的，尝试通过一个用户故事来具体化方案。可以包含很多子章节和图表。首先提供一个大图，再用很多细节填充。终极目标是，当你完成这个章节后，去无人岛度假，团队的其他成员通过阅读就可以实现你描述的解决方案。</li>
+<li>替代方案。除了以上的解决方案，你还想到了写什么？替代方案的优缺点是什么？你是否考虑过买一个第三方的解决方案或者使用一个开源的解决方案，而不是自己造轮子。</li>
+<li>测试，监控和报警。我喜欢包含这个章节，因为人们总是事后加上它或者干脆跳过它，但是当系统挂掉，人们找不到原因时，总是后悔莫及。</li>
+<li>对其他团队的影响。它是否会增加开发运维的负担？会花费多少钱？是否会造成系统的延时？是否暴露了安全漏洞？有什么负面后果和副作用？支持团队该怎么和用户沟通？</li>
+<li>开放问题。任何你不确定的开放问题，有争议的决定你想要读者自己去权衡的，未来建议的工作等等。这章诙谐的说法是“已知的未知量”。</li>
+<li>详细的范围和时间表。这章主要由同一团队的工程师来阅读，他们的技术领导和经理。因此这章在文档的最后。这是你计划执行项目每个部分的方式和时间的细分。准确的确定范围有很多需要做，因此你可以阅读这篇文章来学习确定范围。我倾向于将设计文档中的这一章节作为正在进行的项目中的跟踪器，因此一旦我的范围评估发生变化，我就更新它。当然这是我的个人喜好。</li>
+</ul>
+<h4 id="怎么写设计文档"><a href="#怎么写设计文档" class="headerlink" title="怎么写设计文档"></a>怎么写设计文档</h4><p>既然我们已经说过了一个好的设计文档应该包含哪些内容，现在让我们来说说写作风格。这和你高中的英语课有很大不同。</p>
+<ul>
+<li>尽可能写简单。不要写的像学术论文。他们写出来是为打动期刊评阅人的。你的设计文档写出来是为了描述你的解决方案，及获取来自同事的反馈的。通过这些让你的文档清晰：简单的单纯；短句；项目符号列表或编号列表；具体的样例。</li>
+<li>加入表格和图。图表用来比较几种可选方案很有用，图比文字更容易理解。我使用Google Drawing创建图。另外建议方式图的可编辑的链接，方便后续更改</li>
+<li>包含数字。问题的规模决定了解决方案。为了评阅人员更好的理解整体情况，请包含诸如数据库行数，用户错误数，延时等实际数字以及这些数据如何随着使用情况变化的。</li>
+<li>尽量有趣。说明文档不是学术论文。人们通常喜欢阅读有趣的事，所以这是让用户保持参与的好方法。但不要做的太过偏离文章的核心思想。</li>
+<li>进行怀疑性测试。在将设计文档给其他人审阅之前，假装自己是审阅人员来审阅它。你对这个设计文档有什么问题和疑问？抢先将这些写下来。</li>
+<li>假期测试。假设你将要休长假，而且不能上网，团队的其他人能够通过阅读文档，实现你的想法吗？设计文档的主要目的不是知识分享，而是评估清晰度，以便其他人可以给你有用的反馈。</li>
+</ul>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p>设计文档能帮助你获得反馈，但是在此之前，你需要花费大量时间实现错误的解决方案或者不是这个问题的解决方案。有很多获得反馈的方法，这是后续文章讨论的。在这里，我们只讨论怎么写设计文档，并从它获得反馈。</p>
+<p>首先，项目的每个人都应该参与设计过程。如果技术主管最终推动了很多决定也没关系，但是每个人都已经够参与到讨论中，参与设计。所以整篇文章中的你是指的你们，即参与项目的每个人。</p>
+<p>其次，设计过程并不意味着你得盯着白板考虑理论化的想法。放轻松，考虑潜在的方案原型。这和在编写设计文档之前为项目写产品代码不一样。不要这样做。但你可以随意写一些一次性的代码来验证想法。确保你只写了探索性代码，这样的原型代码不要合并到主干当中。</p>
+<p>之后，既然你已经对项目有了些想法，应该做到以下这些事情：</p>
+<ol>
+<li>请有经验的工程师或者团队的技术负责人做你的评审人。理想情况，这将是一个受尊敬的人或者熟悉边缘问题的人。如果需要用boba贿赂他们。</li>
+<li>走进一个有白板的会议室。</li>
+<li>向这个工程师描述这个问题。（重要步骤，不要跳过）</li>
+<li>解释你脑中的实现方案，说服他们这是要做的正确事情。</li>
+</ol>
+<p>在你开始写设计文档之前做这些事情，可以让你投入更多时间，取得任何解决方案前尽可能快的获得反馈。通常，尽管实现方法不变，但你的审评人会指出你需要覆盖的边际案例，可能失败的范围，预料你后续可能遇到的困难。</p>
+<p>当你完成设计文档的草稿后，让同一个审评人再次阅读，把他们的名字加到设计文档的标题和人员章节中。 这位审评人创造了额外的激励和责任。</p>
+<p>关于这点，考虑在设计文档中为特殊的审评人(比如SREs和安全工程师)增加特殊的特定内容。</p>
+<p>一旦你的审评人签字，把设计文档发给你的团队，获得额外的反馈和知识分享。我建议把反馈收集限定1周左右的时间，以避免延误。在这周内解决人们提交的所有问题和评论。</p>
+<p>最后，如果你，你的审评人和其他阅读文档的工程师之间有很多争论，我建议把所有争论的观点放到文档的讨论这一章节中。然后，与各方开会，亲自讨论这些分歧。</p>
+<p>当讨论主题长度超过5条时，转向亲自讨论往往更有效率。记住，即使每个人无法达成共识，你仍有最后沟通的责任。</p>
+<p>在最近和Shary Banga的谈话中，我学习到Quio也有相似的流程，他们除了有有经验的工程师或者技术负责人作为审评人外，还建议不同团队的工程师评审文档。我没有尝试过，但是我确信这样能获得来自不同视角的人们的管道，提升文档的可读性。</p>
+<p>做完以上事项后，就可以着手实现了。额外需要注意的是，在实现设计过程中将设计文档视为活文档。每当你学到什么导致原始得解决方案变更或者更新范围时，更新文档。当你不必一遍一遍得向相关人员解释事情得时候，你会感谢我的。</p>
+<p>最后，让我们考虑一秒：怎么评估一份设计文档得成功？</p>
+<p>我得同事Kent Rakip认为是这样的：如果获得正确的投资回报，设计文档就是成功的。这意味着一个成功的设计文档需要这样的结果：</p>
+<ol>
+<li>你花费5天编写设计文档，这使你考虑清楚技术架构的各个方面。</li>
+<li>你从审评人那里获得反馈，X是整个架构风险最大。</li>
+<li>你决定现实现X来降低项目的风险。</li>
+<li>3天后，你指出X要么不可能实现，要么比你预期的困难太多。</li>
+<li>你决定停止这个项目，转向其他的工作。</li>
+</ol>
+<p>在本文的开篇我就说过，设计文档的目的是确保做了正确的事。在上面的例子中，由于设计文档，你花了8天，而不是浪费几个月的时候然后舍弃这个项目。看起来是一个很好的结果。</p>
+<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>journalctl命令基本用法：</p>
+<p>查看所有日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -b</span><br></pre></td></tr></table></figure></p>
+<p>查看内核日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -k</span><br></pre></td></tr></table></figure></p>
+<p>查看指定时间的日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl --since=&quot;2018-09-21 10:21:00&quot;</span><br></pre></td></tr></table></figure></p>
+<p>查看指定时间段内的日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl --since=&quot;2018-09-21 10:21:00&quot; --until=&quot;2018-09-21 10:22:00&quot;</span><br></pre></td></tr></table></figure></p>
+<p>根据服务进行筛选：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u kubelet.service</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u kubelet</span><br></pre></td></tr></table></figure></p>
+<p>按照优先级查看日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -p 5 -u kubelet</span><br></pre></td></tr></table></figure></p>
+<p>操作系统一共提供7个级别的日志，可以配合-p参数分别查看对应级别的日志：</p>
+<ul>
+<li>0: emerg</li>
+<li>1: alert</li>
+<li>2: crit</li>
+<li>3: err</li>
+<li>4: warning</li>
+<li>5: notice</li>
+<li>6: info</li>
+<li>7: debug</li>
+</ul>
+<p><code>--no-pager</code> 表示不需要分页，通过 <code>-o</code> 参数，设置为json格式输出，使用<code>json-pretty</code>便于阅读：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">journalctl -p 5 --no-pager -o json</span><br><span class="line"></span><br><span class="line">journalctl -p 5 --no-pager -o json-pretty</span><br></pre></td></tr></table></figure></p>
+<p>其他支持的格式包含：</p>
+<ul>
+<li>cat: 只显示信息字段本身。</li>
+<li>export: 适合传输或备份的二进制格式。</li>
+<li>json: 标准JSON，每行一个条目。</li>
+<li>json-pretty: JSON格式，适合人类阅读习惯。</li>
+<li>json-sse: JSON格式，经过打包以兼容server-sent事件。</li>
+<li>short: 默认syslog类输出格式。</li>
+<li>short-iso: 默认格式，强调显示ISO 8601挂钟时间戳。</li>
+<li>short-monotonic: 默认格式，提供普通时间戳。</li>
+<li>short-precise: 默认格式，提供微秒级精度。</li>
+<li>verbose: 显示该条目的全部可用journal字段，包括通常被内部隐藏的字段。</li>
+</ul>
+<p>指定显示行数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -n 500</span><br></pre></td></tr></table></figure></p>
+<p>持续刷新日志，类似 <code>tail -f</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -f</span><br></pre></td></tr></table></figure></p>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>Redis和Memcached区别</p>
+<p><a href="https://leitty.github.io/2019/05/16/Redis%E5%92%8CMemcached%E5%8C%BA%E5%88%AB/">https://leitty.github.io/2019/05/16/Redis%E5%92%8CMemcached%E5%8C%BA%E5%88%AB/</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
