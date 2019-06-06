@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="常见的限流算法常用的限流算法有：漏桶算法(Leaky Bucket)和令牌桶算法(Token Bucket)。
+
+漏桶算法
+漏桶(Leaky Bucket)算法思路很简单,水(请求)先进入到漏桶里,漏桶以一定的速度出水(接口有响应速率),当水流入速度过大会直接溢出(访问频率超过接口响应速率),然后就"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Ratelimit"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="常见的限流算法常用的限流算法有：漏桶算法(Leaky Bucket)和令牌桶算法(Token Bucket)。
+
+漏桶算法
+漏桶(Leaky Bucket)算法思路很简单,水(请求)先进入到漏桶里,漏桶以一定的速度出水(接口有响应速率),当水流入速度过大会直接溢出(访问频率超过接口响应速率),然后就"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Ratelimit - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Ratelimit</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-06-06
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a> <a href="/tags/Ratelimit/">#Ratelimit</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="常见的限流算法"><a href="#常见的限流算法" class="headerlink" title="常见的限流算法"></a>常见的限流算法</h2><p>常用的限流算法有：漏桶算法(Leaky Bucket)和令牌桶算法(Token Bucket)。</p>
+<ul>
+<li><p>漏桶算法</p>
+<p>漏桶(Leaky Bucket)算法思路很简单,水(请求)先进入到漏桶里,漏桶以一定的速度出水(接口有响应速率),当水流入速度过大会直接溢出(访问频率超过接口响应速率),然后就拒绝请求,可以看出漏桶算法能强行限制数据的传输速率。</p>
+</li>
+<li><p>令牌桶</p>
+<p>随着时间流逝,系统会按恒定1/QPS时间间隔(如果QPS=100,则间隔是10ms)往桶里加入Token(想象和漏洞漏水相反,有个水龙头在不断的加水),如果桶已经满了就不再加了。新请求来临时,会各自拿走一个Token,如果没有Token可拿了就阻塞或者拒绝服务。</p>
+</li>
+</ul>
+<p>漏桶漏出的速率是固定参数的，流出速率是多少，流入的速率也是多少，对突发特性的流量处理缺乏效率。而令牌桶只要桶中有令牌就可以拿，允许一定程度的并发，比如同一个时刻，有100个用户请求，只要令牌桶中有100个令牌，那么这100个请求全都会放过去。令牌桶在桶中没有令牌的情况下也会退化为漏桶模型。另外，令牌桶还可以根据需求，提高放入令牌存放速率。</p>
+<h2 id="Golang实现"><a href="#Golang实现" class="headerlink" title="Golang实现"></a>Golang实现</h2><h3 id="Leaky-Bucket"><a href="#Leaky-Bucket" class="headerlink" title="Leaky Bucket"></a>Leaky Bucket</h3><p>实际应用中令牌桶应用较为广泛，漏桶使用较少。uber开源实现过一个基于请求之间的时间，而不是单纯的间隔时间来填充的漏桶：<a href="https://github.com/uber-go/ratelimit" target="_blank" rel="noopener">https://github.com/uber-go/ratelimit</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;time&quot;</span><br><span class="line"></span><br><span class="line">	&quot;go.uber.org/ratelimit&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    rl := ratelimit.New(100) // per second</span><br><span class="line"></span><br><span class="line">    prev := time.Now()</span><br><span class="line">    for i := 0; i &lt; 10; i++ &#123;</span><br><span class="line">        now := rl.Take()</span><br><span class="line">        fmt.Println(i, now.Sub(prev))</span><br><span class="line">        prev = now</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Output:</span><br><span class="line">    // 0 0</span><br><span class="line">    // 1 10ms</span><br><span class="line">    // 2 10ms</span><br><span class="line">    // 3 10ms</span><br><span class="line">    // 4 10ms</span><br><span class="line">    // 5 10ms</span><br><span class="line">    // 6 10ms</span><br><span class="line">    // 7 10ms</span><br><span class="line">    // 8 10ms</span><br><span class="line">    // 9 10ms</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次请求的时间间隔为10ms。其中Sub()方法是时间减，即<code>now-prev</code>，所以主要实现在<code>rl.Take()</code>，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">type limiter struct &#123;</span><br><span class="line">	sync.Mutex</span><br><span class="line">	last       time.Time</span><br><span class="line">	sleepFor   time.Duration</span><br><span class="line">	perRequest time.Duration</span><br><span class="line">	maxSlack   time.Duration</span><br><span class="line">	clock      Clock</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// New returns a Limiter that will limit to the given RPS.</span><br><span class="line">func New(rate int, opts ...Option) Limiter &#123;</span><br><span class="line">	l := &amp;limiter&#123;</span><br><span class="line">		perRequest: time.Second / time.Duration(rate),</span><br><span class="line">		maxSlack:   -10 * time.Second / time.Duration(rate),</span><br><span class="line">	&#125;</span><br><span class="line">	for _, opt := range opts &#123;</span><br><span class="line">		opt(l)</span><br><span class="line">	&#125;</span><br><span class="line">	if l.clock == nil &#123;</span><br><span class="line">		l.clock = clock.New()</span><br><span class="line">	&#125;</span><br><span class="line">	return l</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (t *limiter) Take() time.Time &#123;</span><br><span class="line">	t.Lock()</span><br><span class="line">	defer t.Unlock()</span><br><span class="line"></span><br><span class="line">	now := t.clock.Now()</span><br><span class="line"></span><br><span class="line">	// If this is our first request, then we allow it.</span><br><span class="line">	if t.last.IsZero() &#123;</span><br><span class="line">		t.last = now</span><br><span class="line">		return t.last</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// sleepFor calculates how much time we should sleep based on</span><br><span class="line">	// the perRequest budget and how long the last request took.</span><br><span class="line">	// Since the request may take longer than the budget, this number</span><br><span class="line">	// can get negative, and is summed across requests.</span><br><span class="line">	t.sleepFor += t.perRequest - now.Sub(t.last)</span><br><span class="line"></span><br><span class="line">	// We shouldn&apos;t allow sleepFor to get too negative, since it would mean that</span><br><span class="line">	// a service that slowed down a lot for a short period of time would get</span><br><span class="line">	// a much higher RPS following that.</span><br><span class="line">	if t.sleepFor &lt; t.maxSlack &#123;</span><br><span class="line">		t.sleepFor = t.maxSlack</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// If sleepFor is positive, then we should sleep now.</span><br><span class="line">	if t.sleepFor &gt; 0 &#123;</span><br><span class="line">		t.clock.Sleep(t.sleepFor)</span><br><span class="line">		t.last = now.Add(t.sleepFor)</span><br><span class="line">		t.sleepFor = 0</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		t.last = now</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return t.last</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>记录每次请求的时间，若当前时间减上一次请求时间小于设置的间隔时间<code>t.sleepFor += t.perRequest - now.Sub(t.last)</code>，则休眠<code>t.sleepFor</code>的时间，若大于则记录当前时间。</p>
+<h3 id="Token-Bucket"><a href="#Token-Bucket" class="headerlink" title="Token Bucket"></a>Token Bucket</h3><p>令牌桶模型实际上就是对全局计数的加减法操作过程，但使用计数需要我们自己加读写锁，很容易想到可以用buffered channel来完成简单的加令牌取令牌操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;time&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    var fillInterval = time.Millisecond * 10</span><br><span class="line">    var capacity = 100</span><br><span class="line">    var tokenBucket = make(chan struct&#123;&#125;, capacity)</span><br><span class="line"></span><br><span class="line">    fillToken := func() &#123;</span><br><span class="line">        ticker := time.NewTicker(fillInterval)</span><br><span class="line">        for &#123;</span><br><span class="line">            select &#123;</span><br><span class="line">            case &lt;-ticker.C:</span><br><span class="line">                select &#123;</span><br><span class="line">                case tokenBucket &lt;- struct&#123;&#125;&#123;&#125;:</span><br><span class="line">                default:</span><br><span class="line">                &#125;</span><br><span class="line">                fmt.Println(&quot;current token cnt:&quot;, len(tokenBucket), time.Now())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    go fillToken()</span><br><span class="line">    time.Sleep(time.Hour)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>每10ms放入1个token，若token已满，则直接放弃。</p>
+<p>请求进来时，获取token：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">func TakeAvailable(block bool) bool&#123;</span><br><span class="line">    var takenResult bool</span><br><span class="line">    if block &#123;</span><br><span class="line">        select &#123;</span><br><span class="line">        case &lt;-tokenBucket:</span><br><span class="line">            takenResult = true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        select &#123;</span><br><span class="line">        case &lt;-tokenBucket:</span><br><span class="line">            takenResult = true</span><br><span class="line">        default:</span><br><span class="line">            takenResult = false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return takenResult</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>若桶未满，则取出一个token，返回true，若桶已满，取到令牌则返回true，没取到令牌则返回false。</p>
+<p>除了以上实现方法外，<code>github.com/juju/ratelimit</code>还提供了一种高效的实现方式。</p>
+<p>想象以下，每隔一段固定时间向令牌桶中放令牌，如果我们记下上一次放令牌的时间t1，和当时的令牌数k1，放令牌的时间间隔未ti，每次向令牌桶中放x个令牌，桶的容量为cap。现有人来取n个令牌，记此时的时间为t2，在t2时刻，令牌桶中的令牌数为多少呢：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cur = k1 + ((t2-t1)/ti) * x</span><br><span class="line">cur = cur &gt; cap ? cap : cur</span><br></pre></td></tr></table></figure></p>
+<p>使用两个时间的时间差，就可以计算出桶中有多少令牌了。不需要填充token的操作，只需要每个<code>Take</code>的时候进行简单的计算就能得到正确的令牌数。</p>
+<p>参考：</p>
+<p><a href="https://github.com/uber-go/ratelimit" target="_blank" rel="noopener">https://github.com/uber-go/ratelimit</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Token_bucket" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Token_bucket</a></p>
+<p><a href="https://chai2010.cn/advanced-go-programming-book/ch5-web/ch5-06-ratelimit.html" target="_blank" rel="noopener">https://chai2010.cn/advanced-go-programming-book/ch5-web/ch5-06-ratelimit.html</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
