@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="在前面 iptables使用 中，简单介绍了下iptables的命令，在 iptables与firewalld 中简单的介绍了下iptables的组成结构，在本文中，详细介绍下iptables的概念和原理。
+概要iptables是运行在用户空间的应用软件，通过控制linux内核netfilter模块"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iptables详解"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="在前面 iptables使用 中，简单介绍了下iptables的命令，在 iptables与firewalld 中简单的介绍了下iptables的组成结构，在本文中，详细介绍下iptables的概念和原理。
+概要iptables是运行在用户空间的应用软件，通过控制linux内核netfilter模块"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>iptables详解 - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iptables详解</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-06-20
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Linux/">#Linux</a> <a href="/tags/iptables/">#iptables</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>在前面 iptables使用 中，简单介绍了下iptables的命令，在 iptables与firewalld 中简单的介绍了下iptables的组成结构，在本文中，详细介绍下iptables的概念和原理。</p>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>iptables是运行在用户空间的应用软件，通过控制linux内核netfilter模块，来管理网络数据包的检测、修改、转发、重定向和丢弃。</p>
+<p>iptables使用Xtables框架，包含“表(tables)”、“链(chain)”和“规则(rules)”三个层面。</p>
+<h3 id="链"><a href="#链" class="headerlink" title="链"></a>链</h3><p>“链”是一些按顺序排列的规则的列表，“链”的网络层处理过程如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">                                                                      +--------------+        ****************</span><br><span class="line">                                                        -------------&gt;| User Process |------&gt; Routing decision</span><br><span class="line">                                                        ^             +-------+------+        ****************</span><br><span class="line">                                                        |                                            |</span><br><span class="line">                                                        |                                            |</span><br><span class="line">                                                        |                                            |</span><br><span class="line">                                                        |                                            V</span><br><span class="line">                                                 +--------------+                            +---------------+</span><br><span class="line">                                                 | chain: INPUT |                            | chain: OUTPUT |</span><br><span class="line">                                                 +------+-------+                            +-------+-------+</span><br><span class="line">                                                        ^                                            |</span><br><span class="line">                                                        |                                            |</span><br><span class="line">                                                        |                                            |</span><br><span class="line">XXXXXXXXXXXX        +------------------+         ****************          +----------------+        V        +--------------------+</span><br><span class="line">X  Network X -----&gt; |chain: PREROUTING | ------&gt; Routing decision ------&gt;  | chain: FORWARD | ---------------&gt;| chain: POSTROUTING |</span><br><span class="line">XXXXXXXXXXXX        +---------+--------+         ****************          +--------+-------+                 +----------+---------+</span><br></pre></td></tr></table></figure></p>
+<p>进入到网卡的数据包先到RREOUTING链，进行前置处理，然后到路由，目标为本机的数据包，会被转到INPUT链，INPUT链处理完后再转发到用户进程，用户进程处理完后，返回的数据包通过路由判断是否需要发送到其他主机，需要发往其他主机的数据包被转到OUTPUT链，OUTPUT链处理完后到POSTROUTING链，另一方面，目标不为本机的数据包会被转到FORWARD链，FORWARD链处理后也转到POSTROUTING链，POSTROUTING链处理完从本机发出。</p>
+<p>“链”上的数据会被怎么处理呢？由表和规则来确定。</p>
+<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><p>iptables包含5张表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">filter表：默认的表，如果不指明则使用此表，通常用于过滤数据包。</span><br><span class="line"></span><br><span class="line">nat表：用于地址转换操作，包括修改数据包中的源，目标IP地址或端口。</span><br><span class="line"></span><br><span class="line">raw表：用于处理异常。</span><br><span class="line"></span><br><span class="line">mangle表：用于处理数据包。nat侧重连接，mangle侧重每个数据包。</span><br><span class="line"></span><br><span class="line">security表：用于强制访问控制网络规则。</span><br></pre></td></tr></table></figure></p>
+<p>具体可以参见netfilter的官方原理图：</p>
+<p><img src="/2019/06/20/iptables详解/./Netfilter-packet-flow.svg" alt="image"></p>
+<p>可以看到一张表可能存在多个链上，filter表在<code>INPUT、OUTPUT、FORWARD</code>链上，nat表在<code>PREROUTING、POSTROUTING、OUTPUT</code>链上，mangle表在<code>PREROUTING、OUTPUT、FORWARD、INPUT、POSTROUTING</code>链上，raw表在<code>PREROUTING、OUTPUT</code>链上。</p>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>规则是由一个目标和很多匹配指定，匹配到的数据包执行目标。匹配包括数据包的IP、进入的端口(网卡eth0或者eth1)、数据包的类型(ICMP,TCP或者UDP)、数据包的目的端口和目标IP的匹配。目标使用<code>-j</code>或者<code>--jump</code>指定。目标可以是用户自定义的链、内置的特定目标或者目标扩展。目标为自定义链时，如果条件匹配，跳转到用户自定义的链后，再根据自定义链的规则进行处理。内置的目标包括<code>ACCEPT</code>，<code>DROP</code>,<code>QUEUE</code>,<code>RETURN</code>，目标扩展包括<code>REJECT</code>,<code>log</code>。如果目标是内置目标，数据包的命运会立刻被决定并且在当前表的数据包的处理过程会停止。</p>
+<h2 id="命令示例"><a href="#命令示例" class="headerlink" title="命令示例"></a>命令示例</h2><p>iptables与firewalld 中介绍了iptables命令，本章从表的角度来介绍下iptables命令。</p>
+<h3 id="filter表"><a href="#filter表" class="headerlink" title="filter表"></a>filter表</h3><p>前面两篇文章中已经介绍了一些命令，主要做了IP的过滤，例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p  tcp --dport 80 -s 10.0.0.2 -j DROP</span><br></pre></td></tr></table></figure></p>
+<p>不指明表示使用filter表</p>
+<p>拒绝17500端口的探测：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 17500 -j REJECT --reject-with icmp-port-unreachable</span><br></pre></td></tr></table></figure></p>
+<h3 id="nat表"><a href="#nat表" class="headerlink" title="nat表"></a>nat表</h3><h4 id="端口重定向示例："><a href="#端口重定向示例：" class="headerlink" title="端口重定向示例："></a>端口重定向示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080</span><br></pre></td></tr></table></figure>
+<p>将发往80端口的数据包转向8080端口，注意以上命令只对外部的IP生效，对本地端发起的请求不会遵循nat表上PREROUTING链的设置，想让本地端也生效，可以执行以下指令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A OUTPUT -o lo -p tcp --dport 80 -j REDIRECT --to-port 8080</span><br></pre></td></tr></table></figure></p>
+<p>这条规则会将lo接口上的数据包输出由80端口转向到8080端口上面。</p>
+<h4 id="网络地址转换示例"><a href="#网络地址转换示例" class="headerlink" title="网络地址转换示例"></a>网络地址转换示例</h4><p>例1，办公室用小型局域网，由一台Linux主机作为路由器共享地址接入Internet。</p>
+<p>假设局域网接口为eth0，地址使用192.168.0.0/24；而Internet接口为eth1，使用的地址为198.51.100.3。</p>
+<p>在局域网用户访问Internet时，源地址需要被转换为198.51.100.3，则使用规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -I POSTROUTING -s 192.168.0.0/24 -o eth1 -j SNAT --to 198.51.100.3</span><br></pre></td></tr></table></figure></p>
+<p>例2，还是在以上局域网中，在192.168.0.2上开启HTTP服务，将所有发到198.51.100.3的80端口的请求转到HTTP服务上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -I PREROUTING -p tcp -d 198.51.100.3 --dport 80 -j DNAT --to 192.168.0.2</span><br></pre></td></tr></table></figure></p>
+<h3 id="log表"><a href="#log表" class="headerlink" title="log表"></a>log表</h3><p>log是用来记录符合规则的数据包的。例如，记录icmp的数据包，并以<code>&quot;IPTABLES ICMP-IN: &quot;</code>开头：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p icmp -j LOG --log-prefix &quot;IPTABLES ICMP-IN: &quot;</span><br></pre></td></tr></table></figure></p>
+<p>删除对应规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT -p icmp -j LOG --log-prefix &quot;IPTABLES ICMP-IN: &quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://wiki.archlinux.org/index.php/Iptables_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Iptables_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/Iptables" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Iptables</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
