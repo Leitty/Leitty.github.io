@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="在前面 Redis和Memcached区别 中介绍过， Memcached 的分布式是通过客户端的一致性哈希算法实现的，在ARTS-WEEK10中，分享了一致性hash算法，现在来具体看看。
+一致性哈希算法在1997年由Karger等人在解决分布式Cache问题时提出。在CDN系统、分布式hash表"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Leitty"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Consistent Hashing"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="在前面 Redis和Memcached区别 中介绍过， Memcached 的分布式是通过客户端的一致性哈希算法实现的，在ARTS-WEEK10中，分享了一致性hash算法，现在来具体看看。
+一致性哈希算法在1997年由Karger等人在解决分布式Cache问题时提出。在CDN系统、分布式hash表"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Leitty Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://leitty.github.io/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Consistent Hashing - Leitty Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Leitty">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Consistent Hashing</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-06-23
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Golang/">#Golang</a> <a href="/tags/distributed/">#distributed</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>在前面 Redis和Memcached区别 中介绍过， <code>Memcached</code> 的分布式是通过客户端的一致性哈希算法实现的，在ARTS-WEEK10中，分享了一致性hash算法，现在来具体看看。</p>
+<p>一致性哈希算法在1997年由Karger等人在解决分布式Cache问题时提出。在CDN系统、分布式hash表、消息中间件、分布式缓存中有着广泛的应用。</p>
+<h2 id="一致性哈希算法原理"><a href="#一致性哈希算法原理" class="headerlink" title="一致性哈希算法原理"></a>一致性哈希算法原理</h2><p>假设存在N台缓存服务器，要把数据均匀的分布在这N台缓存中，最基本的做法莫过于hash取模，即将key值为K的数据路由到hash(K) mod N对应的机器。只要key值具有一定随机性，数据就能达到很好的负载均衡。但是这种结构，在分布式系统中就不适用了。分布式系统中的每个节点都有失效的可能，并且新的节点很可能动态增加进来。继续使用Hash取模的方法，影响是灾难性的，每次有节点增加或删除，旧有的数据分布大量失效。因此一致性哈希就显得至关重要了。</p>
+<p>一致性哈希算法（Consistent Hashing）最早在论文《Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web》中被提出。简单来说，一致性哈希将整个哈希值空间组织成一个虚拟的圆环，如假设某哈希函数H的值空间为0-2^32-1（即哈希值是一个32位无符号整形），整个哈希空间环如下：</p>
+<p><img src="/2019/06/23/Consistent-Hashing/./consistent_hashing_1.png" alt="image"></p>
+<p>整个空间按顺时针方向组织，0和2^32-1在零点重合。</p>
+<p>下一步计算服务器的hash值，可以选定服务器的IP或主机名作为关键字进行哈希，这样服务器就分布在这个哈希空间环上：</p>
+<p><img src="/2019/06/23/Consistent-Hashing/./consistent_hashing_2.png" alt="image"></p>
+<p>接下来使用如下算法定位数据访问到相应服务器：将数据key使用相同的函数Hash计算出哈希值，并确定此数据在环上的位置，将其定位到顺时针方向遇到的第一台服务器上。</p>
+<p>假设有Object A、Object B、Object C、Object D四个数据对象，经过哈希计算后，在环空间上的位置如下：</p>
+<p><img src="/2019/06/23/Consistent-Hashing/./consistent_hashing_3.png" alt="image"></p>
+<p>根据一致性哈希算法，数据A会被定为到Node A上，B被定为到Node B上，C被定为到Node C上，D被定为到Node D上。</p>
+<p>以上就是一致性哈希的处理过程，现在分析下一致性哈希的容错性和可扩展性。假设Node C不幸宕机，可以看到此时对象A、B、D不会受到影响，只有C对象被重定位到Node D。一般的，<strong>在一致性哈希算法中，如果一台服务器不可用，则受影响的数据仅仅是此服务器到其环空间中前一台服务器（即沿着逆时针方向行走遇到的第一台服务器）之间数据，其它不会受到影响</strong>。</p>
+<p>另一种情况，在系统中增加一台服务器Node X，如下图所示：</p>
+<p><img src="/2019/06/23/Consistent-Hashing/./consistent_hashing_4.png" alt="image"></p>
+<p>此时对象Object A、B、D不受影响，只有对象C需要重定位到新的Node X 。一般的，<strong>在一致性哈希算法中，如果增加一台服务器，则受影响的数据仅仅是新服务器到其环空间中前一台服务器（即沿着逆时针方向行走遇到的第一台服务器）之间数据，其它数据也不会受到影响</strong>。</p>
+<p>综上，一致性哈希算法对于节点的增减都只需重定位环空间中的一小部分数据，具有较好的容错性和可扩展性。</p>
+<p>另外，一致性哈希在节点较少时可能存在数据倾斜的问题，即如下图的情况下，系统中只有两台服务器，大量的数据集中在Node A上，只有极少的定位到Node B上。</p>
+<p><img src="/2019/06/23/Consistent-Hashing/./consistent_hashing_5.png" alt="image"></p>
+<p>为此，一致性哈希算法引入了虚拟节点机制，即对每一台服务器计算多个哈希。具体做法是在服务器的ip或者主机名后面加上编号，比如Node A，可以计算“Node A|1”，“Node A|2”，“Node A|3”，这样两个节点就变成了6个节点，放入虚拟节点“Node A|2”的数据实际放入了Node A中。在实际应用中，通常将虚拟节点数设置为32甚至更大，因此即使很少的服务节点也能做到相对均匀的数据分布。</p>
+<h2 id="一致性哈希算法实现"><a href="#一致性哈希算法实现" class="headerlink" title="一致性哈希算法实现"></a>一致性哈希算法实现</h2><p><a href="https://en.m.wikipedia.org/wiki/Consistent_hashing" target="_blank" rel="noopener">Consistent hashing</a>的维基百科中，给出了各种语言的实现方式链接，这里主要介绍以下Go的版本，其他语言版本的实现类似，Go使用<code>CRC-32-IEEE 802.3</code>作为hash函数，python版和java版使用md5作为hash函数。</p>
+<p>完整代码见：</p>
+<p><a href="https://github.com/stathat/consistent" target="_blank" rel="noopener">https://github.com/stathat/consistent</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// Consistent存放哈希环上的节点信息</span><br><span class="line">// circle存放虚拟节点与真实节点的对应关系</span><br><span class="line">// members存放真实节点的信息</span><br><span class="line">// sortedHashes存放排序(升序)后的hash值</span><br><span class="line">// NumberOfReplicas为虚拟节点数，初始化为20</span><br><span class="line">// count真实节点个数</span><br><span class="line">type Consistent struct &#123;</span><br><span class="line">	circle           map[uint32]string</span><br><span class="line">	members          map[string]bool</span><br><span class="line">	sortedHashes     uints</span><br><span class="line">	NumberOfReplicas int</span><br><span class="line">	count            int64</span><br><span class="line">	scratch          [64]byte</span><br><span class="line">	sync.RWMutex</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func New() *Consistent &#123;</span><br><span class="line">	c := new(Consistent)</span><br><span class="line">	c.NumberOfReplicas = 20</span><br><span class="line">	c.circle = make(map[uint32]string)</span><br><span class="line">	c.members = make(map[string]bool)</span><br><span class="line">	return c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新增节点的过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">func (c *Consistent) Add(elt string) &#123;</span><br><span class="line">	c.Lock()</span><br><span class="line">	defer c.Unlock()</span><br><span class="line">	c.add(elt)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (c *Consistent) add(elt string) &#123;</span><br><span class="line">	for i := 0; i &lt; c.NumberOfReplicas; i++ &#123;</span><br><span class="line">		c.circle[c.hashKey(c.eltKey(elt, i))] = elt</span><br><span class="line">	&#125;</span><br><span class="line">	c.members[elt] = true</span><br><span class="line">	c.updateSortedHashes()</span><br><span class="line">	c.count++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (c *Consistent) eltKey(elt string, idx int) string &#123;</span><br><span class="line">	// return elt + &quot;|&quot; + strconv.Itoa(idx)</span><br><span class="line">	return strconv.Itoa(idx) + elt</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (c *Consistent) updateSortedHashes() &#123;</span><br><span class="line">	hashes := c.sortedHashes[:0]</span><br><span class="line">	//reallocate if we&apos;re holding on to too much (1/4th)</span><br><span class="line">	if cap(c.sortedHashes)/(c.NumberOfReplicas*4) &gt; len(c.circle) &#123;</span><br><span class="line">		hashes = nil</span><br><span class="line">	&#125;</span><br><span class="line">	for k := range c.circle &#123;</span><br><span class="line">		hashes = append(hashes, k)</span><br><span class="line">	&#125;</span><br><span class="line">	sort.Sort(hashes)</span><br><span class="line">	c.sortedHashes = hashes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>新增节点的过程主要包含两步：</p>
+<ol>
+<li>计算虚拟节点的hash</li>
+<li>更新hash值得顺序(updateSortedHashes)</li>
+</ol>
+<p>删除节点的过程类似：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">func (c *Consistent) Remove(elt string) &#123;</span><br><span class="line">	c.Lock()</span><br><span class="line">	defer c.Unlock()</span><br><span class="line">	c.remove(elt)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (c *Consistent) remove(elt string) &#123;</span><br><span class="line">	for i := 0; i &lt; c.NumberOfReplicas; i++ &#123;</span><br><span class="line">		delete(c.circle, c.hashKey(c.eltKey(elt, i)))</span><br><span class="line">	&#125;</span><br><span class="line">	delete(c.members, elt)</span><br><span class="line">	c.updateSortedHashes()</span><br><span class="line">	c.count--</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以调用<code>Get</code>方法定位数据访问到相应服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">func (c *Consistent) Get(name string) (string, error) &#123;</span><br><span class="line">	c.RLock()</span><br><span class="line">	defer c.RUnlock()</span><br><span class="line">	if len(c.circle) == 0 &#123;</span><br><span class="line">		return &quot;&quot;, ErrEmptyCircle</span><br><span class="line">	&#125;</span><br><span class="line">	key := c.hashKey(name)</span><br><span class="line">	i := c.search(key)</span><br><span class="line">	return c.circle[c.sortedHashes[i]], nil</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (c *Consistent) search(key uint32) (i int) &#123;</span><br><span class="line">	f := func(x int) bool &#123;</span><br><span class="line">		return c.sortedHashes[x] &gt; key</span><br><span class="line">	&#125;</span><br><span class="line">	i = sort.Search(len(c.sortedHashes), f)</span><br><span class="line">	if i &gt;= len(c.sortedHashes) &#123;</span><br><span class="line">		i = 0</span><br><span class="line">	&#125;</span><br><span class="line">	return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>定位的方法主要有三步：</p>
+<ol>
+<li>计算数据的hash值</li>
+<li>通过search方法获取顺时针方向第一个节点的hash值</li>
+<li>通过节点的hash值，得到对应的节点</li>
+</ol>
+<p>使用的hash算法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func (c *Consistent) hashKey(key string) uint32 &#123;</span><br><span class="line">	if len(key) &lt; 64 &#123;</span><br><span class="line">		var scratch [64]byte</span><br><span class="line">		copy(scratch[:], key)</span><br><span class="line">		return crc32.ChecksumIEEE(scratch[:len(key)])</span><br><span class="line">	&#125;</span><br><span class="line">	return crc32.ChecksumIEEE([]byte(key))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过循环冗余校验计算出key值得32位整数，即相当于映射到0-2^32-1的哈希环上。</p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://www.cnblogs.com/lpfuture/p/5796398.html" target="_blank" rel="noopener">https://www.cnblogs.com/lpfuture/p/5796398.html</a></p>
+<p><a href="https://en.m.wikipedia.org/wiki/Consistent_hashing" target="_blank" rel="noopener">https://en.m.wikipedia.org/wiki/Consistent_hashing</a></p>
+<p><a href="https://github.com/stathat/consistent" target="_blank" rel="noopener">https://github.com/stathat/consistent</a></p>
+<p><a href="https://leileiluoluo.com/posts/consistent-hashing-and-high-available-cluster-proxy.html" target="_blank" rel="noopener">https://leileiluoluo.com/posts/consistent-hashing-and-high-available-cluster-proxy.html</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%BE%AA%E7%92%B0%E5%86%97%E9%A4%98%E6%A0%A1%E9%A9%97" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%BE%AA%E7%92%B0%E5%86%97%E9%A4%98%E6%A0%A1%E9%A9%97</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Leitty" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:gleiying@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Leitty<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
